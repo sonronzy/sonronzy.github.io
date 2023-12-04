@@ -106,7 +106,7 @@ scroll:
 # ---------------------------------------------------------------------------------------
 home:
   # Show category in home page post block
-  category: true  # Option values: true | false
+  category: false  # Option values: true | false
 
   # Show tags in home page post block
   tag: true  # Option values: true | false
@@ -134,8 +134,8 @@ post:
   # Depend on Hexo Plugin: hexo-wordcount (`npm install hexo-wordcount`)
   # See: https://github.com/willin/hexo-wordcount
   word_count:
-    wordcount: false     # Word count, one post. Option values: true | false
-    min2read: false      # Time to read, one post. Option values: true | false
+    wordcount: true     # Word count, one post. Option values: true | false
+    min2read: true      # Time to read, one post. Option values: true | false
 
   img_align: center  # Option values: left | center
 
@@ -146,7 +146,7 @@ post:
   copyright_info: false  # Option values: true | false
 
   # Post share
-  share: false           # Option values: true | false
+  share: true           # Option values: true | false
 
   # Reward author
   reward:
@@ -161,7 +161,7 @@ post:
 code_block:
   # Toolbar include: "code copy", "code block collapse" and "code language"
   tools:
-    enable: false            # Option values: true | false
+    enable: true            # Option values: true | false
     style: default           # Option values: default | mac
   highlight_theme: default   # Option values: default | obsidian
 
@@ -192,10 +192,10 @@ website_count:
   # busuanzi
   # See: http://ibruce.info/2015/04/04/busuanzi/
   busuanzi_count:
-    enable: false     # Option values: true | false
-    site_uv: false    # Option values: true | false
-    site_pv: false    # Option values: true | false
-    page_pv: false    # Option values: true | false
+    enable: true     # Option values: true | false
+    site_uv: true    # Option values: true | false
+    site_pv: true    # Option values: true | false
+    page_pv: true    # Option values: true | false
 
 
 # ---------------------------------------------------------------------------------------
@@ -204,8 +204,8 @@ website_count:
 # See: https://github.com/theme-next/hexo-generator-searchdb
 # ---------------------------------------------------------------------------------------
 local_search:
-  enable: false   # Option values: true | false
-  preload: false  # Preload the search data when the page loads. Option values: true | false
+  enable: true   # Option values: true | false
+  preload: true  # Preload the search data when the page loads. Option values: true | false
 
 
 # ---------------------------------------------------------------------------------------
@@ -280,7 +280,7 @@ comment:
 # See: https://github.com/hexojs/hexo-generator-feed
 # ---------------------------------------------------------------------------------------
 rss:
-  enable: false  # Option values: true | false
+  enable: true  # Option values: true | false
 
 
 # ---------------------------------------------------------------------------------------
@@ -294,7 +294,7 @@ lazyload:
 # Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/cdn.html
 # ---------------------------------------------------------------------------------------
 cdn:
-  enable: false       # Option values: true | false
+  enable: true       # Option values: true | false
   provider: jsdelivr  # Option values: jsdelivr | unpkg
 
 
@@ -302,25 +302,25 @@ cdn:
 # Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/pjax.html
 # ---------------------------------------------------------------------------------------
 pjax:
-  enable: false  # Option values: true | false
+  enable: true  # Option values: true | false
 
 
 # ---------------------------------------------------------------------------------------
 # Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/footer.html
 # ---------------------------------------------------------------------------------------
 footer:
-  since: 2020           # The starting year of your website, Can be null
-  word_count: false     # Option values: true | false
+  since: 2018           # The starting year of your website, Can be null
+  word_count: true     # Option values: true | false
 
   icp:
     enable: false                    # Option values: true | false
     record_code:                     # ICP record code of your website
-    url: https://beian.miit.gov.cn   # Your ICP link url, Can be null
+    url:    # Your ICP link url, Can be null
 
   site_deploy:
-    enable: false        # Option values: true | false
+    enable: true        # Option values: true | false
     provider: github     # Option values: github | vercel | netlify | gitee | aliyun | tencent_cloud | upyun
-    url:                 # Your deployment provider url, Can be null
+    url: https://github.com/                # Your deployment provider url, Can be null
 
   # When the footer style is shields, you can customize the shields configuration
   # See: https://shields.io
