@@ -18,13 +18,13 @@ base_info:
   author: sonronzy
 
   # Author avatar, You can use local image path or image link
-  avatar: /images/1695803848800.webp
+  avatar: /images/logo-avatar.svg
 
   # Website LOGO, You can use local image path or image link
-  logo: /images/1695803848800.webp
+  logo: /images/logo-avatar.svg
 
   # Website favicon, You can use local image path or image link
-  favicon: /images/1695803848800.webp
+  favicon: /images/logo-avatar.svg
 
 
 # ---------------------------------------------------------------------------------------
@@ -78,13 +78,13 @@ social_contact:
     # at the same time change your link to the image link.
     # e.g. [ weixin: img | https://x.com/images/wechat.png ] or [ weixin: img | ./images/wechat.png ]
     github: https://github.com/sonronzy         # GitHub
-    weixin: img | https://cdn.statically.io/gh/ratears/picx-images-hosting@master/20230926/微信图片_20230926103510.13y6jsog0f5s.webp        # WeChat
+    weixin: img | /images/wechat.jpg        # WeChat
     qq:              # QQ
     weibo:           # WeiBo
     zhihu:           # ZhiHu
     twitter:         # Twitter
     facebook:        # Facebook
-    email: sonronzy@gmail.com          # Email
+    email: mailto:sonronzy@gmail.com          # Email
 
 
 # ---------------------------------------------------------------------------------------
@@ -92,10 +92,10 @@ social_contact:
 # ---------------------------------------------------------------------------------------
 scroll:
   # Show progress bar in top when page scroll
-  progress_bar: false  # Option values: true | false
+  progress_bar: true  # Option values: true | false
 
   # Show percent when page scroll
-  percent: false       # Option values: true | false
+  percent: true       # Option values: true | false
 
   # Hide header in top when page scroll
   hide_header: true    # Option values: true | false
@@ -106,10 +106,10 @@ scroll:
 # ---------------------------------------------------------------------------------------
 home:
   # Show category in home page post block
-  category: false  # Option values: true | false
+  category: true  # Option values: true | false
 
   # Show tags in home page post block
-  tag: false  # Option values: true | false
+  tag: true  # Option values: true | false
 
   # Website announcement in home page
   announcement:
