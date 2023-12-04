@@ -1,0 +1,1 @@
+cnpm install && cnpm install && npm install && npm install && hexo clean && hexo g && hexo d && hexo s

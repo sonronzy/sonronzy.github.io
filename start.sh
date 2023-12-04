@@ -1,0 +1,1 @@
+hexo clean && hexo g && hexo d && git add . && git commit -m 'add file' && git push  && hexo s
