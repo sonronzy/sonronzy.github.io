@@ -3,12 +3,16 @@ title: Redis7.2从入门到大厂企业解决方案 Study Notes
 author: sonronzy
 date: 2023-12-04 23:41:13
 update: 2023-12-04 23:41:13
-home_cover:
-home_cover_height:
-post_cover:
-post_cover_height:
+home_cover: https://cdn.statically.io/gh/sonronzy/images-hosting-picx@picx/blog/图片.3axiz225vqo0.png
+home_cover_height: 150
+post_cover: https://cdn.statically.io/gh/sonronzy/images-hosting-picx@picx/blog/图片.6sz54beti8lc.png
+post_cover_height: 320
 categories:
+- [DataBase,Redis]
 tags:
+- Redis
+- NoSQL
+- DataBase
 ---
 
 <br>
@@ -45,7 +49,8 @@ tags:
 
 # Reference
 
-- []()
+- [Redis7.2从入门到大厂企业解决方案](https://edu.51cto.com/course/34824.html)
+  - Redis7.2的实际工作的代码案例，以及大厂要求的高级功能和深入底层源码分析
 
 
 
