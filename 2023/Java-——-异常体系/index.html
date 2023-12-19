@@ -225,7 +225,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc" data-updated="Mon Dec 04 2023 23:41:28 GMT+0800">2023-12-04 23:41:28</span>
+                <span class="pc" data-updated="Sun Dec 17 2023 10:38:09 GMT+0800">2023-12-17 10:38:09</span>
             </span>
         
 
@@ -261,12 +261,12 @@
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>2.4k Words</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>4k Words</span>
             </span>
         
         
             <span class="meta-info-item post-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>9 Mins</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>15 Mins</span>
             </span>
         
         
@@ -470,24 +470,131 @@
 
 
 
-
-
-
-
 <br>
 
 <br>
 
-<h2 id="方式2：声明抛出异常类型（throws）"><a href="#方式2：声明抛出异常类型（throws）" class="headerlink" title="方式2：声明抛出异常类型（throws）"></a>方式2：声明抛出异常类型（throws）</h2><br>
+<h2 id="方式2：声明抛出异常类型（throws）"><a href="#方式2：声明抛出异常类型（throws）" class="headerlink" title="方式2：声明抛出异常类型（throws）"></a>方式2：声明抛出异常类型（throws）</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li><p>如果在编写方法体的代码时，某句代码可能发生某个<code>编译时异常</code>，不处理编译不通过，但是在当前方法体中可能<code>不适合处理</code>或<code>无法给出合理的处理方式</code>，则此方法应<code>显示地</code>声明抛出异常，表明该方法将不对这些异常进行处理，而由该方法的调用者负责处理。</p>
+</li>
+<li><p>具体方式：在方法声明中用<code>throws语句</code>可以声明抛出异常的列表，throws后面的异常类型可以是方法中产生的异常类型，也可以是它的父类。</p>
+</li>
+</ul>
+<img     src="https://cdn.statically.io/gh/sonronzy/images-hosting-picx@picx/blog/image-20220331112000671.414t8mzmvds0.webp"   alt="图片无法正常加载展示！" width="70%" height="70%" >
 
-<br>
 
-<br>
 
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href=""></a></li>
+<h3 id="throws基本格式"><a href="#throws基本格式" class="headerlink" title="throws基本格式"></a>throws基本格式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 方法名(参数) <span class="keyword">throws</span> 异常类名<span class="number">1</span>,异常类名<span class="number">2</span>…&#123;   &#125;	</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="throws-使用举例"><a href="#throws-使用举例" class="headerlink" title="throws 使用举例"></a>throws 使用举例</h3><ul>
+<li><strong>针对于编译时异常</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">afterClass</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">10</span>; i&gt;=<span class="number">1</span>; i--)&#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);<span class="comment">//本来应该在这里处理异常</span></span><br><span class="line">            System.out.println(<span class="string">&quot;距离上课还有：&quot;</span> + i + <span class="string">&quot;分钟&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><strong>针对于运行时异常</strong></li>
+</ul>
+<p>throws后面也可以写运行时异常类型，只是运行时异常类型，写或不写对于编译器和程序执行来说都没有任何区别。如果写了，唯一的区别就是调用者调用该方法后，使用try...catch结构时，IDEA可以获得更多的信息，需要添加哪种catch分支。</p>
+<h3 id="方法重写中throws的要求"><a href="#方法重写中throws的要求" class="headerlink" title="方法重写中throws的要求"></a>方法重写中throws的要求</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">（<span class="number">1</span>）方法名必须相同</span><br><span class="line">（<span class="number">2</span>）形参列表必须相同</span><br><span class="line">（<span class="number">3</span>）返回值类型</span><br><span class="line">	- 基本数据类型和<span class="keyword">void</span>：必须相同</span><br><span class="line">	- 引用数据类型：子类 &lt;= 父类</span><br><span class="line">（<span class="number">4</span>）权限修饰符：&gt;=，而且要求父类被重写方法在子类中是可见的</span><br><span class="line">（<span class="number">5</span>）不能是<span class="keyword">static</span>，<span class="keyword">final</span>修饰的方法</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果父类被重写方法的方法签名后面没有 “throws  编译时异常类型”，那么重写方法时，方法签名后面也不能出现“throws  编译时异常类型”。</li>
+<li>如果父类被重写方法的方法签名后面有 “<code>throws  编译时异常类型</code>”，那么重写方法时，throws的编译时异常类型必须 &lt;&#x3D; 被重写方法throws的编译时异常类型，或者不throws编译时异常。</li>
 </ul>
 <br>
+
+<br>
+
+<h2 id="两种异常处理方式的选择（经验）"><a href="#两种异常处理方式的选择（经验）" class="headerlink" title="两种异常处理方式的选择（经验）"></a>两种异常处理方式的选择（经验）</h2><p>前提：对于异常，使用相应的处理方式。此时的异常，主要指的是编译时异常。</p>
+<ul>
+<li>如果程序代码中，涉及到资源的调用（流、数据库连接、网络连接等），则必须考虑使用try-catch-finally来处理，保证不出现内存泄漏。</li>
+<li>如果父类被重写的方法没有throws异常类型，则子类重写的方法中如果出现异常，只能考虑使用try-catch-finally进行处理，不能throws。</li>
+<li>开发中，方法a中依次调用了方法b,c,d等方法，方法b,c,d之间是递进关系。此时，如果方法b,c,d中有异常，我们通常选择使用throws，而方法a中通常选择使用try-catch-finally。</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="手动抛出异常对象：throw"><a href="#手动抛出异常对象：throw" class="headerlink" title="手动抛出异常对象：throw"></a>手动抛出异常对象：throw</h1><h2 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>Java 中异常对象的生成有两种方式：<ul>
+<li>由虚拟机<strong>自动生成</strong>：程序运行过程中，虚拟机检测到程序发生了问题，那么针对当前代码，就会在后台自动创建一个对应异常类的实例对象并抛出。</li>
+<li>由开发人员<strong>手动创建</strong>：<code>new 异常类型([实参列表]);</code>，如果创建好的异常对象不抛出对程序没有任何影响，和创建一个普通对象一样，但是一旦throw抛出，就会对程序运行产生影响了。</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> 异常类名(参数);</span><br></pre></td></tr></table></figure>
+
+<p>throw语句抛出的异常对象，和JVM自动创建和抛出的异常对象一样。</p>
+<ul>
+<li><p>如果是编译时异常类型的对象，同样需要使用throws或者try...catch处理，否则编译不通过。</p>
+</li>
+<li><p>如果是运行时异常类型的对象，编译器不提示。</p>
+</li>
+<li><p>可以抛出的异常必须是Throwable或其子类的实例。</p>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="使用时注意点"><a href="#使用时注意点" class="headerlink" title="使用时注意点"></a>使用时注意点</h2><p>无论是编译时异常类型的对象，还是运行时异常类型的对象，如果没有被try..catch合理的处理，都会导致程序崩溃。</p>
+<p>throw语句会导致程序执行流程被改变，throw语句是明确抛出一个异常对象，因此它<code>下面的代码将不会执行</code>。</p>
+<p>如果当前方法没有try...catch处理这个异常对象，throw语句就会<code>代替return语句</code>提前终止当前方法的执行，并返回一个异常对象给调用者。</p>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1><h2 id="为什么需要自定义异常类"><a href="#为什么需要自定义异常类" class="headerlink" title="为什么需要自定义异常类"></a>为什么需要自定义异常类</h2><p>Java中不同的异常类，分别表示着某一种具体的异常情况。那么在开发中总是有些异常情况是核心类库中没有定义好的，此时我们需要根据自己业务的异常情况来定义异常类。例如年龄负数问题，考试成绩负数问题，某员工已在团队中等。</p>
+<br>
+
+<br>
+
+<h2 id="如何自定义异常类"><a href="#如何自定义异常类" class="headerlink" title="如何自定义异常类"></a>如何自定义异常类</h2><p>（1）要继承一个异常类型</p>
+<p>​			自定义一个编译时异常类型：自定义类继承<code>java.lang.Exception</code>。</p>
+<p>​			自定义一个运行时异常类型：自定义类继承<code>java.lang.RuntimeException</code>。</p>
+<p>（2）建议大家提供至少两个构造器，一个是无参构造，一个是(String message)构造器。</p>
+<p>（3）自定义异常需要提供<code>serialVersionUID</code></p>
+<br>
+
+<br>
+
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
+<li><p>自定义的异常只能通过throw抛出。</p>
+</li>
+<li><p>自定义异常最重要的是异常类的名字和message属性。当异常出现时，可以根据名字判断异常类型。比如：<code>TeamException(&quot;成员已满，无法添加&quot;); </code>、 <code>TeamException(&quot;该员工已是某团队成员&quot;);</code></p>
+</li>
+<li><p>自定义异常对象只能手动抛出。抛出后由try..catch处理，也可以甩锅throws给调用者处理。</p>
+</li>
+</ol>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><img     src="https://cdn.statically.io/gh/sonronzy/images-hosting-picx@picx/blog/image-20220330003738109.1ecqluome6lc.webp"   width="70%">
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><br>
 
 <br>
 
@@ -593,7 +700,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">异常概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%BC%82%E5%B8%B8"><span class="nav-number">1.1.</span> <span class="nav-text">什么是程序的异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8A%9B%E5%87%BA%E6%9C%BA%E5%88%B6"><span class="nav-number">1.2.</span> <span class="nav-text">异常的抛出机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9%E5%BE%85%E5%BC%82%E5%B8%B8"><span class="nav-number">1.3.</span> <span class="nav-text">如何对待异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">Java异常体系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Throwable"><span class="nav-number">2.1.</span> <span class="nav-text">Throwable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-number">2.1.1.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exception"><span class="nav-number">2.1.2.</span> <span class="nav-text">Exception</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">2.2.</span> <span class="nav-text">编译时异常和运行时异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF%E5%92%8C%E5%BC%82%E5%B8%B8"><span class="nav-number">3.</span> <span class="nav-text">常见的错误和异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-1"><span class="nav-number">3.1.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">3.2.</span> <span class="nav-text">运行时异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">3.3.</span> <span class="nav-text">编译时异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">异常的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%9A%84%E6%8A%93%E6%8A%9B%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.1.</span> <span class="nav-text">Java的异常处理的抓抛模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F1%EF%BC%9A%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8%EF%BC%88try-catch-finally%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">方式1：捕获异常（try-catch-finally）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch-finally-%E6%A6%82%E8%BF%B0"><span class="nav-number">4.2.1.</span> <span class="nav-text">try-catch-finally 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.2.2.</span> <span class="nav-text">使用举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finally%E4%BD%BF%E7%94%A8%E5%8F%8A%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.2.3.</span> <span class="nav-text">finally使用及举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F2%EF%BC%9A%E5%A3%B0%E6%98%8E%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%9E%8B%EF%BC%88throws%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">方式2：声明抛出异常类型（throws）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">6.</span> <span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">异常概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%BC%82%E5%B8%B8"><span class="nav-number">1.1.</span> <span class="nav-text">什么是程序的异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8A%9B%E5%87%BA%E6%9C%BA%E5%88%B6"><span class="nav-number">1.2.</span> <span class="nav-text">异常的抛出机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9%E5%BE%85%E5%BC%82%E5%B8%B8"><span class="nav-number">1.3.</span> <span class="nav-text">如何对待异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">Java异常体系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Throwable"><span class="nav-number">2.1.</span> <span class="nav-text">Throwable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-number">2.1.1.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exception"><span class="nav-number">2.1.2.</span> <span class="nav-text">Exception</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">2.2.</span> <span class="nav-text">编译时异常和运行时异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF%E5%92%8C%E5%BC%82%E5%B8%B8"><span class="nav-number">3.</span> <span class="nav-text">常见的错误和异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-1"><span class="nav-number">3.1.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">3.2.</span> <span class="nav-text">运行时异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">3.3.</span> <span class="nav-text">编译时异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">异常的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%9A%84%E6%8A%93%E6%8A%9B%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.1.</span> <span class="nav-text">Java的异常处理的抓抛模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F1%EF%BC%9A%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8%EF%BC%88try-catch-finally%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">方式1：捕获异常（try-catch-finally）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch-finally-%E6%A6%82%E8%BF%B0"><span class="nav-number">4.2.1.</span> <span class="nav-text">try-catch-finally 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.2.2.</span> <span class="nav-text">使用举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finally%E4%BD%BF%E7%94%A8%E5%8F%8A%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.2.3.</span> <span class="nav-text">finally使用及举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F2%EF%BC%9A%E5%A3%B0%E6%98%8E%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%9E%8B%EF%BC%88throws%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">方式2：声明抛出异常类型（throws）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">4.3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throws%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.3.2.</span> <span class="nav-text">throws基本格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throws-%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.3.3.</span> <span class="nav-text">throws 使用举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99%E4%B8%ADthrows%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-number">4.3.4.</span> <span class="nav-text">方法重写中throws的要求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F%E7%9A%84%E9%80%89%E6%8B%A9%EF%BC%88%E7%BB%8F%E9%AA%8C%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">两种异常处理方式的选择（经验）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E5%AF%B9%E8%B1%A1%EF%BC%9Athrow"><span class="nav-number">5.</span> <span class="nav-text">手动抛出异常对象：throw</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="nav-number">5.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.2.</span> <span class="nav-text">格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%97%B6%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">5.3.</span> <span class="nav-text">使用时注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="nav-number">6.</span> <span class="nav-text">自定义异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="nav-number">6.1.</span> <span class="nav-text">为什么需要自定义异常类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="nav-number">6.2.</span> <span class="nav-text">如何自定义异常类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">6.3.</span> <span class="nav-text">注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">9.</span> <span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
@@ -644,7 +751,7 @@
             
                 <span class="count-box border-box word">
                     <span class="item-type border-box">Total words</span>
-                    <span class="item-value border-box word">4k</span>
+                    <span class="item-value border-box word">7.3k</span>
                 </span>
             
 
@@ -787,7 +894,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">异常概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%BC%82%E5%B8%B8"><span class="nav-number">1.1.</span> <span class="nav-text">什么是程序的异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8A%9B%E5%87%BA%E6%9C%BA%E5%88%B6"><span class="nav-number">1.2.</span> <span class="nav-text">异常的抛出机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9%E5%BE%85%E5%BC%82%E5%B8%B8"><span class="nav-number">1.3.</span> <span class="nav-text">如何对待异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">Java异常体系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Throwable"><span class="nav-number">2.1.</span> <span class="nav-text">Throwable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-number">2.1.1.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exception"><span class="nav-number">2.1.2.</span> <span class="nav-text">Exception</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">2.2.</span> <span class="nav-text">编译时异常和运行时异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF%E5%92%8C%E5%BC%82%E5%B8%B8"><span class="nav-number">3.</span> <span class="nav-text">常见的错误和异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-1"><span class="nav-number">3.1.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">3.2.</span> <span class="nav-text">运行时异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">3.3.</span> <span class="nav-text">编译时异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">异常的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%9A%84%E6%8A%93%E6%8A%9B%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.1.</span> <span class="nav-text">Java的异常处理的抓抛模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F1%EF%BC%9A%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8%EF%BC%88try-catch-finally%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">方式1：捕获异常（try-catch-finally）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch-finally-%E6%A6%82%E8%BF%B0"><span class="nav-number">4.2.1.</span> <span class="nav-text">try-catch-finally 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.2.2.</span> <span class="nav-text">使用举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finally%E4%BD%BF%E7%94%A8%E5%8F%8A%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.2.3.</span> <span class="nav-text">finally使用及举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F2%EF%BC%9A%E5%A3%B0%E6%98%8E%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%9E%8B%EF%BC%88throws%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">方式2：声明抛出异常类型（throws）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">6.</span> <span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">异常概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%BC%82%E5%B8%B8"><span class="nav-number">1.1.</span> <span class="nav-text">什么是程序的异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8A%9B%E5%87%BA%E6%9C%BA%E5%88%B6"><span class="nav-number">1.2.</span> <span class="nav-text">异常的抛出机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9%E5%BE%85%E5%BC%82%E5%B8%B8"><span class="nav-number">1.3.</span> <span class="nav-text">如何对待异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">Java异常体系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Throwable"><span class="nav-number">2.1.</span> <span class="nav-text">Throwable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-number">2.1.1.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exception"><span class="nav-number">2.1.2.</span> <span class="nav-text">Exception</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">2.2.</span> <span class="nav-text">编译时异常和运行时异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF%E5%92%8C%E5%BC%82%E5%B8%B8"><span class="nav-number">3.</span> <span class="nav-text">常见的错误和异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-1"><span class="nav-number">3.1.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">3.2.</span> <span class="nav-text">运行时异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="nav-number">3.3.</span> <span class="nav-text">编译时异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">异常的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%9A%84%E6%8A%93%E6%8A%9B%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.1.</span> <span class="nav-text">Java的异常处理的抓抛模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F1%EF%BC%9A%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8%EF%BC%88try-catch-finally%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">方式1：捕获异常（try-catch-finally）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch-finally-%E6%A6%82%E8%BF%B0"><span class="nav-number">4.2.1.</span> <span class="nav-text">try-catch-finally 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.2.2.</span> <span class="nav-text">使用举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finally%E4%BD%BF%E7%94%A8%E5%8F%8A%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.2.3.</span> <span class="nav-text">finally使用及举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F2%EF%BC%9A%E5%A3%B0%E6%98%8E%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%9E%8B%EF%BC%88throws%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">方式2：声明抛出异常类型（throws）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">4.3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throws%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.3.2.</span> <span class="nav-text">throws基本格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throws-%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.3.3.</span> <span class="nav-text">throws 使用举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99%E4%B8%ADthrows%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-number">4.3.4.</span> <span class="nav-text">方法重写中throws的要求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F%E7%9A%84%E9%80%89%E6%8B%A9%EF%BC%88%E7%BB%8F%E9%AA%8C%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">两种异常处理方式的选择（经验）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E5%AF%B9%E8%B1%A1%EF%BC%9Athrow"><span class="nav-number">5.</span> <span class="nav-text">手动抛出异常对象：throw</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="nav-number">5.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.2.</span> <span class="nav-text">格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%97%B6%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">5.3.</span> <span class="nav-text">使用时注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="nav-number">6.</span> <span class="nav-text">自定义异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="nav-number">6.1.</span> <span class="nav-text">为什么需要自定义异常类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="nav-number">6.2.</span> <span class="nav-text">如何自定义异常类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">6.3.</span> <span class="nav-text">注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">9.</span> <span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
