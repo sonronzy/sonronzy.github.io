@@ -187,12 +187,19 @@
     <div class="post-page-container border-box">
         <div class="post-content-container border-box">
             
-
-            <div class="post-content-bottom border-box">
-                
-                    <div class="post-title">
+                <div class="post-content-top border-box"
+                     style="height: 220px"
+                >
+                    <div class="cover-post-title">
                         《Java分布式系统解决方案 掌握企业级分布式项目方案》Study Notes
                     </div>
+                    <img class="post-cover" src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting-picx@picx/blog/image.4frhv2bwx2w0.webp"
+                         onerror="this.style.display='none'"
+                    >
+                </div>
+            
+
+            <div class="post-content-bottom border-box has-cover">
                 
 
                 
@@ -225,18 +232,37 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc" data-updated="Sun Dec 31 2023 22:03:13 GMT+0800">2023-12-31 22:03:13</span>
+                <span class="pc" data-updated="Mon Jan 01 2024 02:49:45 GMT+0800">2024-01-01 02:49:45</span>
             </span>
         
 
         
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Distributed/">Distributed</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Distributed/">Distributed</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>79 Words</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>310 Words</span>
             </span>
         
         
@@ -264,20 +290,63 @@
 
                     <br>
 
-<h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br>
+<h1 id="玩转N种企业级解决方案，笑傲分布式开发"><a href="#玩转N种企业级解决方案，笑傲分布式开发" class="headerlink" title="玩转N种企业级解决方案，笑傲分布式开发"></a>玩转N种企业级解决方案，笑傲分布式开发</h1><h2 id="分布式场景下解决方案和技术选型"><a href="#分布式场景下解决方案和技术选型" class="headerlink" title="分布式场景下解决方案和技术选型"></a>分布式场景下解决方案和技术选型</h2><img     src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting-picx@picx/blog/image.265q2ij3ww1s.webp"   width="90%">
+
+<br>
+
+<img     src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting-picx@picx/blog/image.39f6aq4wu7k0.webp"   width="90%">
 
 <br>
 
 <br>
 
-<h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br>
+<h2 id="环境参数"><a href="#环境参数" class="headerlink" title="环境参数"></a>环境参数</h2><ul>
+<li>SpringBoot:2.3.2</li>
+<li>Xxl-Job:2.2.0</li>
+<li>Jdk:8</li>
+<li>Mysql:5.7</li>
+<li>Docker:19.03.8</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="极速上手分布式ID"><a href="#极速上手分布式ID" class="headerlink" title="极速上手分布式ID"></a>极速上手分布式ID</h1><h2 id="分布式ID"><a href="#分布式ID" class="headerlink" title="分布式ID"></a>分布式ID</h2><ul>
+<li>传统方案在复杂分布式系统中，往往需要对大量的数据和消息进行唯一标识。对数据分库分表后需要有一个唯一ID来标识一条数据或消息</li>
+</ul>
+<img     src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting-picx@picx/blog/分布式ID.164r85wl0olc.svg"   width="90%">
+
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://tech.meituan.com/2017/04/21/mt-leaf.html" >Leaf——美团点评分布式ID生成系统<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="雪花算法"><a href="#雪花算法" class="headerlink" title="雪花算法"></a>雪花算法</h2><img     src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting-picx@picx/blog/image.78jsnzdepew0.webp"   width="90%">
 
 <br>
 
 <br>
 
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href=""></a></li>
+<br>
+
+<h1 id="SpringBoot整合分布式ID应用实战"><a href="#SpringBoot整合分布式ID应用实战" class="headerlink" title="SpringBoot整合分布式ID应用实战"></a>SpringBoot整合分布式ID应用实战</h1><h2 id="jar包编译"><a href="#jar包编译" class="headerlink" title="jar包编译"></a>jar包编译</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/Meituan-Dianping/Leaf/blob/feature/spring-boot-starter/README_CN.md" >Leaf<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:Meituan-Dianping/Leaf.git</span><br><span class="line">cd Leaf</span><br><span class="line">git checkout feature/spring-boot-starter</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意配置jdk为1.8 ，注意 maven-compiler-plugin 版本</span></span><br><span class="line">mvn clean install -Dmaven.test.skip=true</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h2 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://coding.imooc.com/class/chapter/453.html#Anchor" >Java分布式系统解决方案 掌握企业级分布式项目方案<i class="fas fa-external-link-alt"></i></a><ul>
+<li>从问题出发，结合企业经典案例，重难点逐一攻克</li>
+</ul>
+</li>
 </ul>
 <br>
 
@@ -302,6 +371,14 @@
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Distributed/">Distributed</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -373,7 +450,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">标题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">4.</span> <span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%A9%E8%BD%ACN%E7%A7%8D%E4%BC%81%E4%B8%9A%E7%BA%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%8C%E7%AC%91%E5%82%B2%E5%88%86%E5%B8%83%E5%BC%8F%E5%BC%80%E5%8F%91"><span class="nav-number">1.</span> <span class="nav-text">玩转N种企业级解决方案，笑傲分布式开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%9C%BA%E6%99%AF%E4%B8%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%92%8C%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">分布式场景下解决方案和技术选型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%82%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">环境参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E9%80%9F%E4%B8%8A%E6%89%8B%E5%88%86%E5%B8%83%E5%BC%8FID"><span class="nav-number">2.</span> <span class="nav-text">极速上手分布式ID</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8FID"><span class="nav-number">2.1.</span> <span class="nav-text">分布式ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">雪花算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot%E6%95%B4%E5%90%88%E5%88%86%E5%B8%83%E5%BC%8FID%E5%BA%94%E7%94%A8%E5%AE%9E%E6%88%98"><span class="nav-number">3.</span> <span class="nav-text">SpringBoot整合分布式ID应用实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jar%E5%8C%85%E7%BC%96%E8%AF%91"><span class="nav-number">3.1.</span> <span class="nav-text">jar包编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87"><span class="nav-number">3.2.</span> <span class="nav-text">项目准备</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">5.</span> <span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
@@ -394,7 +471,7 @@
     <div class="border-box website-info-box default">
         
             <div class="copyright-info info-item default">
-                &copy;&nbsp;<span>2018</span>&nbsp;-&nbsp;2023
+                &copy;&nbsp;<span>2018</span>&nbsp;-&nbsp;2024
                 
                     &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">sonronzy</a>
                 
@@ -424,7 +501,7 @@
             
                 <span class="count-box border-box word">
                     <span class="item-type border-box">Total words</span>
-                    <span class="item-value border-box word">15.6k</span>
+                    <span class="item-value border-box word">15.8k</span>
                 </span>
             
 
@@ -567,7 +644,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">标题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">4.</span> <span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%A9%E8%BD%ACN%E7%A7%8D%E4%BC%81%E4%B8%9A%E7%BA%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%8C%E7%AC%91%E5%82%B2%E5%88%86%E5%B8%83%E5%BC%8F%E5%BC%80%E5%8F%91"><span class="nav-number">1.</span> <span class="nav-text">玩转N种企业级解决方案，笑傲分布式开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%9C%BA%E6%99%AF%E4%B8%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%92%8C%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">分布式场景下解决方案和技术选型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%82%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">环境参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E9%80%9F%E4%B8%8A%E6%89%8B%E5%88%86%E5%B8%83%E5%BC%8FID"><span class="nav-number">2.</span> <span class="nav-text">极速上手分布式ID</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8FID"><span class="nav-number">2.1.</span> <span class="nav-text">分布式ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">雪花算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot%E6%95%B4%E5%90%88%E5%88%86%E5%B8%83%E5%BC%8FID%E5%BA%94%E7%94%A8%E5%AE%9E%E6%88%98"><span class="nav-number">3.</span> <span class="nav-text">SpringBoot整合分布式ID应用实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jar%E5%8C%85%E7%BC%96%E8%AF%91"><span class="nav-number">3.1.</span> <span class="nav-text">jar包编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87"><span class="nav-number">3.2.</span> <span class="nav-text">项目准备</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">5.</span> <span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 

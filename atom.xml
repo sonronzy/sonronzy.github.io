@@ -6,7 +6,7 @@
   <link href="https://sonronzy.github.io/atom.xml" rel="self"/>
   
   <link href="https://sonronzy.github.io/"/>
-  <updated>2023-12-31T14:03:13.830Z</updated>
+  <updated>2023-12-31T18:49:45.728Z</updated>
   <id>https://sonronzy.github.io/</id>
   
   <author>
@@ -21,26 +21,24 @@
     <link href="https://sonronzy.github.io/2023/%E3%80%8AJava%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%8E%8C%E6%8F%A1%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%88%86%E5%B8%83%E5%BC%8F%E9%A1%B9%E7%9B%AE%E6%96%B9%E6%A1%88%E3%80%8BStudy-Notes/"/>
     <id>https://sonronzy.github.io/2023/%E3%80%8AJava%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%8E%8C%E6%8F%A1%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%88%86%E5%B8%83%E5%BC%8F%E9%A1%B9%E7%9B%AE%E6%96%B9%E6%A1%88%E3%80%8BStudy-Notes/</id>
     <published>2023-12-31T14:03:13.000Z</published>
-    <updated>2023-12-31T14:03:13.830Z</updated>
+    <updated>2023-12-31T18:49:45.728Z</updated>
     
-    <content type="html"><![CDATA[<br><h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br><br><br><h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br><br><br><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href=""></a></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>xxx需要再深入学习</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
+    <content type="html"><![CDATA[<br><h1 id="玩转N种企业级解决方案，笑傲分布式开发"><a href="#玩转N种企业级解决方案，笑傲分布式开发" class="headerlink" title="玩转N种企业级解决方案，笑傲分布式开发"></a>玩转N种企业级解决方案，笑傲分布式开发</h1><h2 id="分布式场景下解决方案和技术选型"><a href="#分布式场景下解决方案和技术选型" class="headerlink" title="分布式场景下解决方案和技术选型"></a>分布式场景下解决方案和技术选型</h2><img     src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting-picx@picx/blog/image.265q2ij3ww1s.webp"   width="90%"><br><img     src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting-picx@picx/blog/image.39f6aq4wu7k0.webp"   width="90%"><br><br><h2 id="环境参数"><a href="#环境参数" class="headerlink" title="环境参数"></a>环境参数</h2><ul><li>SpringBoot:2.3.2</li><li>Xxl-Job:2.2.0</li><li>Jdk:8</li><li>Mysql:5.7</li><li>Docker:19.03.8</li></ul><br><br><br><h1 id="极速上手分布式ID"><a href="#极速上手分布式ID" class="headerlink" title="极速上手分布式ID"></a>极速上手分布式ID</h1><h2 id="分布式ID"><a href="#分布式ID" class="headerlink" title="分布式ID"></a>分布式ID</h2><ul><li>传统方案在复杂分布式系统中，往往需要对大量的数据和消息进行唯一标识。对数据分库分表后需要有一个唯一ID来标识一条数据或消息</li></ul><img     src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting-picx@picx/blog/分布式ID.164r85wl0olc.svg"   width="90%"><ul><li><a class="link"   href="https://tech.meituan.com/2017/04/21/mt-leaf.html" >Leaf——美团点评分布式ID生成系统<i class="fas fa-external-link-alt"></i></a></li></ul><br><br><h2 id="雪花算法"><a href="#雪花算法" class="headerlink" title="雪花算法"></a>雪花算法</h2><img     src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting-picx@picx/blog/image.78jsnzdepew0.webp"   width="90%"><br><br><br><h1 id="SpringBoot整合分布式ID应用实战"><a href="#SpringBoot整合分布式ID应用实战" class="headerlink" title="SpringBoot整合分布式ID应用实战"></a>SpringBoot整合分布式ID应用实战</h1><h2 id="jar包编译"><a href="#jar包编译" class="headerlink" title="jar包编译"></a>jar包编译</h2><ul><li><a class="link"   href="https://github.com/Meituan-Dianping/Leaf/blob/feature/spring-boot-starter/README_CN.md" >Leaf<i class="fas fa-external-link-alt"></i></a></li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:Meituan-Dianping/Leaf.git</span><br><span class="line">cd Leaf</span><br><span class="line">git checkout feature/spring-boot-starter</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意配置jdk为1.8 ，注意 maven-compiler-plugin 版本</span></span><br><span class="line">mvn clean install -Dmaven.test.skip=true</span><br></pre></td></tr></table></figure><br><br><h2 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a class="link"   href="https://coding.imooc.com/class/chapter/453.html#Anchor" >Java分布式系统解决方案 掌握企业级分布式项目方案<i class="fas fa-external-link-alt"></i></a><ul><li>从问题出发，结合企业经典案例，重难点逐一攻克</li></ul></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>xxx需要再深入学习</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
     
     
       
       
     <summary type="html">&lt;br&gt;
 
-&lt;h1 id=&quot;标题一&quot;&gt;&lt;a href=&quot;#标题一&quot; class=&quot;headerlink&quot; title=&quot;标题一&quot;&gt;&lt;/a&gt;标题一&lt;/h1&gt;&lt;br&gt;
-
-&lt;br&gt;
-
-&lt;br&gt;
-
-&lt;h1 id=&quot;标题二&quot;&gt;&lt;a href=&quot;#标题二&quot; class=&quot;headerlink</summary>
+&lt;h1 id=&quot;玩转N种企业级解决方案，笑傲分布式开发&quot;&gt;&lt;a href=&quot;#玩转N种企业级解决方案，笑傲分布式开发&quot; class=&quot;headerlink&quot; title=&quot;玩转N种企业级解决方案，笑傲分布式开发&quot;&gt;&lt;/a&gt;玩转N种企业级解决方案，笑傲分布式开发&lt;/h1</summary>
       
     
     
     
+    <category term="Distributed" scheme="https://sonronzy.github.io/categories/Distributed/"/>
+    
+    
+    <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
     
   </entry>
   
