@@ -187,12 +187,19 @@
     <div class="post-page-container border-box">
         <div class="post-content-container border-box">
             
-
-            <div class="post-content-bottom border-box">
-                
-                    <div class="post-title">
+                <div class="post-content-top border-box"
+                     style="height: 240px"
+                >
+                    <div class="cover-post-title">
                         《ZooKeeper 实战与源码剖析》Study Notes
                     </div>
+                    <img class="post-cover" src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting-picx@picx/blog/image.29xeo7p7seo0.webp"
+                         onerror="this.style.display='none'"
+                    >
+                </div>
+            
+
+            <div class="post-content-bottom border-box has-cover">
                 
 
                 
@@ -225,23 +232,48 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc" data-updated="Mon Jan 15 2024 02:12:50 GMT+0800">2024-01-15 02:12:50</span>
+                <span class="pc" data-updated="Tue Jan 16 2024 00:09:40 GMT+0800">2024-01-16 00:09:40</span>
             </span>
         
 
         
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Distributed/">Distributed</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/categories/Distributed/ZooKeeper/">ZooKeeper</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Distributed/">Distributed</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/ZooKeeper/">ZooKeeper</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>79 Words</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>2.4k Words</span>
             </span>
         
         
             <span class="meta-info-item post-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>1 Mins</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>9 Mins</span>
             </span>
         
         
@@ -264,13 +296,174 @@
 
                     <br>
 
-<h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br>
+<h1 id="基础篇-7讲"><a href="#基础篇-7讲" class="headerlink" title="基础篇 (7讲)"></a>基础篇 (7讲)</h1><h2 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h2><h3 id="ZooKeeper为什么值得学习"><a href="#ZooKeeper为什么值得学习" class="headerlink" title="ZooKeeper为什么值得学习"></a>ZooKeeper为什么值得学习</h3><ul>
+<li>ZooKeeper是一个开源的分布式协同系统；业界使用广泛，是主流的分布式协同系统</li>
+<li>熟悉ZooKeeper成功的研发思路，提升系统设计水平</li>
+<li>ZooKeeper是用Java语言研发的，通过学习可以积累Java研发系统级软件的实战经验</li>
+</ul>
+<h3 id="ZooKeeper学习难点"><a href="#ZooKeeper学习难点" class="headerlink" title="ZooKeeper学习难点"></a>ZooKeeper学习难点</h3><ul>
+<li>ZooKeeper上手容易，如果需要根据自身的业务场景设计ZooKeeper协同服务能力，需要深刻理解ZooKeeper的内部工作原理（包括分布式系统知识、操作系统、计算机系统）</li>
+</ul>
+<h3 id="课程学习收获"><a href="#课程学习收获" class="headerlink" title="课程学习收获"></a>课程学习收获</h3><ul>
+<li>基础知识：结合代码讲解实战的例子；分布式系统基本概念</li>
+<li>高阶：ZooKeeper内部原理和源代码剖析；同类软件的对比（etcd）</li>
+<li>深入理解ZooKeeper内部运行机制；掌握有效的使用ZooKeeper；</li>
+<li>掌握分布式系统的经典设计理念：<ul>
+<li>如何设计一个本地数据节点？</li>
+<li>分布式环境中节点之间如何通讯？</li>
+<li>如何从0到1设计一个RPC子系统？</li>
+<li>如何使用数据一致性协议保证数据的高可用？</li>
+<li>如何在数据一致性和系统性能之间做取舍？</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="内容综述"><a href="#内容综述" class="headerlink" title="内容综述"></a>内容综述</h2><h4 id="ZooKeeper基础"><a href="#ZooKeeper基础" class="headerlink" title="ZooKeeper基础"></a>ZooKeeper基础</h4><ul>
+<li>ZooKeeper的安装配置</li>
+<li>基本概念</li>
+<li>zkCli.sh 使用</li>
+</ul>
+<h4 id="ZooKeeper开发"><a href="#ZooKeeper开发" class="headerlink" title="ZooKeeper开发"></a>ZooKeeper开发</h4><ul>
+<li>ZooKeeper 核心 API的使用</li>
+<li>实战</li>
+</ul>
+<h4 id="ZooKeeper运维"><a href="#ZooKeeper运维" class="headerlink" title="ZooKeeper运维"></a>ZooKeeper运维</h4><ul>
+<li>ZooKeeper生产环境的安装配置、监控</li>
+<li>其他监控系统的集成</li>
+</ul>
+<h4 id="ZooKeeper开发进阶"><a href="#ZooKeeper开发进阶" class="headerlink" title="ZooKeeper开发进阶"></a>ZooKeeper开发进阶</h4><ul>
+<li>实战项目：使用 ZooKeeper来实现服务发现</li>
+<li>ApacheCurator</li>
+<li>Apache Kafka + ZooKeeper</li>
+</ul>
+<h4 id="比较-ZooKeeper、etcd和-Chubby"><a href="#比较-ZooKeeper、etcd和-Chubby" class="headerlink" title="比较 ZooKeeper、etcd和 Chubby"></a>比较 ZooKeeper、etcd和 Chubby</h4><ul>
+<li>etcd和 Chubby介绍，以及和 ZooKeeper 的对比</li>
+</ul>
+<h4 id="ZooKeeper-实现原理和源码解读"><a href="#ZooKeeper-实现原理和源码解读" class="headerlink" title="ZooKeeper 实现原理和源码解读"></a>ZooKeeper 实现原理和源码解读</h4><ul>
+<li>结合 ZooKeeper的 Paper讲一下 ZooKeeper的设计实现原理</li>
+<li>阅读 ZooKeeper 的核心模块</li>
+<li>相关的计算机理论知识点</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="ZooKeeper-概述"><a href="#ZooKeeper-概述" class="headerlink" title="ZooKeeper 概述"></a>ZooKeeper 概述</h2><h3 id="ZooKeeper-是什么"><a href="#ZooKeeper-是什么" class="headerlink" title="ZooKeeper 是什么"></a>ZooKeeper 是什么</h3><ul>
+<li>ZooKeeper 是一个开源的分布式协同服务应用中间件</li>
+<li>ZooKeeper 的设计目标：将复杂的容易出错的分布式一致性服务封装起来，提供简单易用的API给用户使用</li>
+</ul>
+<h3 id="ZooKeeper发展历史"><a href="#ZooKeeper发展历史" class="headerlink" title="ZooKeeper发展历史"></a>ZooKeeper发展历史</h3><blockquote>
+<p>ZooKeeper最早起源于雅虎研究院的一个研究小组。在当时，研究人员发现，在雅虎内部很多大型系统基本都需要依赖一个类似的系统来进行分布式协同，但是这些系统往往都存在分布式单点问题。</p>
+<p>所以，雅虎的开发人员就开发了一个通用的无单点问题的分布式协调框架，这就是ZooKeeper。ZooKeeper 之后在开源界被大量使用，下面列出了 3个著名开源项目是如何使用 ZooKeeper：</p>
+<ul>
+<li>Hadoop：使用 ZooKeeper做Namenode的高可用</li>
+<li>HBase：保证集群中只有一个 master，保存 hbase:meta表的位置，保存集群中的RegionServer列表</li>
+<li>Kafka：集群成员管理，controller 节点选举</li>
+</ul>
+</blockquote>
+<h3 id="ZooKeeper-典型应用场景"><a href="#ZooKeeper-典型应用场景" class="headerlink" title="ZooKeeper 典型应用场景"></a>ZooKeeper 典型应用场景</h3><ul>
+<li>配置管理（configurationmanagement）</li>
+<li>DNS服务</li>
+<li>组成员管理（groupmembership）</li>
+<li>各种分布式锁</li>
+</ul>
+<blockquote>
+<p>ZooKeeper适用于存储和协同相关的关键数据，不适合用于大数据量存储</p>
+</blockquote>
+<h3 id="ZooKeeper-提供什么服务"><a href="#ZooKeeper-提供什么服务" class="headerlink" title="ZooKeeper 提供什么服务"></a>ZooKeeper 提供什么服务</h3><ul>
+<li>ZooKeeper 是Client&#x2F;Server 架构</li>
+<li>应用使用 ZooKeeper客户端库使用 ZooKeeper服务</li>
+<li>ZooKeeper客户端负责和 ZooKeeper集群的交互</li>
+</ul>
+<h4 id="ZooKeeper数据模型"><a href="#ZooKeeper数据模型" class="headerlink" title="ZooKeeper数据模型"></a>ZooKeeper数据模型</h4><ul>
+<li>ZooKeeper的数据模型是层次模型（Google Chubby也是这么做的）。层次模型常见于文件系统。层次模型和key-value模型是两种主流的数据模型。ZooKeeper使用文件系统模型主要基于以下两点考虑：<ul>
+<li>文件系统的树形结构便于表达数据之间的层次关系</li>
+<li>文件系统的树形结构便于为不同的应用分配独立的命名空间（namespace）</li>
+</ul>
+</li>
+<li>ZooKeeper的层次模型称作datatree。Datatree的每个节点叫作 znode。不同于文件系统，每个节点都可以保存数据。每个节点都有一个版本(version)。版本从 0 开始计数</li>
+</ul>
+<h4 id="datatree接口"><a href="#datatree接口" class="headerlink" title="datatree接口"></a>datatree接口</h4><ul>
+<li>ZooKeeper对外提供一个用来访问 datatree的简化文件系统 API：<ul>
+<li>使用UNIX 风格的路径名来定位 znode,例如 &#x2F;A&#x2F;X 表示 znodeA的子节点 X</li>
+<li>znode的数据只支持全量写入和读取，没有像通用文件系统那样支持部分写入和读取</li>
+<li>datatree的所有 API都是 wait-free的，正在执行中的 API调用不会影响其他 API的完成</li>
+<li>datatree的 API都是对文件系统的 wait-free操作，不直接提供锁这样的分布式协同机制。但是 datatree的 API非常强大，可以用来实现多种分布式协同机制</li>
+</ul>
+</li>
+</ul>
+<h4 id="znode分类"><a href="#znode分类" class="headerlink" title="znode分类"></a>znode分类</h4><ul>
+<li><strong>持久性的 znode(PERSISTENT)</strong>: ZooKeeper宕机，或者 client宕机，这个 znode一旦创建就不会丢失</li>
+<li><strong>临时性的 znode(EPHEMERAL)</strong>: ZooKeeper宕机了，或者 client在指定的 timeout时间内没有连接server，都会被认为丢失</li>
+<li><strong>持久顺序性的 znode(PERSISTENT_SEQUENTIAL)</strong>: znode除了具备持久性 znode的特点之外，znode的名字具备顺序性</li>
+<li><strong>临时顺序性的 znode(EPHEMERAL_SEQUENTIAL)</strong>: znode除了具备临时性 znode的特点之外，znode的名字具备顺序性</li>
+</ul>
+<blockquote>
+<p>每一个顺序性的 znode关联一个唯一的单调递增整数。这个单调递增整数是 znode名字的后缀</p>
+</blockquote>
+<h3 id="使用ZooKeeper"><a href="#使用ZooKeeper" class="headerlink" title="使用ZooKeeper"></a>使用ZooKeeper</h3><h4 id="ZooKeeper-的安装"><a href="#ZooKeeper-的安装" class="headerlink" title="ZooKeeper 的安装"></a>ZooKeeper 的安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">wget -P /usr/local/src/ https://archive.apache.org/dist/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf /usr/local/src/apache-zookeeper-3.5.5-bin.tar.gz -C /usr/local/</span><br><span class="line"></span><br><span class="line">ln -s /usr/local/apache-zookeeper-3.5.5-bin /usr/local/zookeeper</span><br><span class="line"></span><br><span class="line">cp /usr/local/zookeeper/conf/zoo_sample.cfg /usr/local/zookeeper/conf/zoo.cfg</span><br><span class="line"></span><br><span class="line">vim /usr/local/zookeeper/conf/zoo.cfg</span><br><span class="line"></span><br><span class="line">dataDir=/usr/local/zookeeper/dataDir/</span><br><span class="line"></span><br><span class="line">mkdir -p /usr/local/zookeeper/dataDir/</span><br><span class="line"></span><br><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line">export ZK_HOME=/usr/local/zookeeper</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$ZK_HOME/bin</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 zkServer.shstart启动 ZooKeeper 服务</span></span><br><span class="line">zkServer.sh start</span><br><span class="line"></span><br><span class="line">zkServer.sh status</span><br><span class="line">zkServer.sh restart</span><br><span class="line">zkServer.sh stop</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查 ZooKeeper是否在 2181端口上监听</span></span><br><span class="line">netstat -anp | grep 2181</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查 ZooKeeper数据文件</span></span><br><span class="line">tree /usr/local/zookeeper/dataDir/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查 ZooKeeper日志是否有出错信息</span></span><br><span class="line">grep  -E -i &quot;((exception)|(error))&quot; /usr/local/zookeeper/logs/*</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="实现一个分布式锁"><a href="#实现一个分布式锁" class="headerlink" title="实现一个分布式锁"></a>实现一个分布式锁</h4><ul>
+<li>分布式锁要求锁的持有者宕了，锁可以被释放。（zookeeper的EPHEMERAL节点满足这样的特性）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">终端1</span></span><br><span class="line">[zk: localhost:2181(CONNECTED) 5] create -e /lock</span><br><span class="line">Created /lock</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">终端2</span></span><br><span class="line">[zk: localhost:2181(CONNECTED) 0] create -e /lock</span><br><span class="line">Node already exists: /lock</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">终端2</span></span><br><span class="line">[zk: localhost:2181(CONNECTED) 1] stat -w /lock</span><br><span class="line">cZxid = 0x5</span><br><span class="line">ctime = Mon Jan 15 05:54:50 CST 2024</span><br><span class="line">mZxid = 0x5</span><br><span class="line">mtime = Mon Jan 15 05:54:50 CST 2024</span><br><span class="line">pZxid = 0x5</span><br><span class="line">cversion = 0</span><br><span class="line">dataVersion = 0</span><br><span class="line">aclVersion = 0</span><br><span class="line">ephemeralOwner = 0x1000008dab10000</span><br><span class="line">dataLength = 0</span><br><span class="line">numChildren = 0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">终端1</span></span><br><span class="line"></span><br><span class="line">[zk: localhost:2181(CONNECTED) 6] quit</span><br><span class="line"></span><br><span class="line">WATCHER::</span><br><span class="line"></span><br><span class="line">WatchedEvent state:Closed type:None path:null</span><br><span class="line">2024-01-15 05:56:29,686 [myid:] - INFO  [main:ZooKeeper@1422] - Session: 0x1000008dab10000 closed</span><br><span class="line">2024-01-15 05:56:29,686 [myid:] - INFO  [main-EventThread:ClientCnxn$EventThread@524] - EventThread shut down for session: 0x1000008dab10000</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">终端2</span></span><br><span class="line"></span><br><span class="line">[zk: localhost:2181(CONNECTED) 2]</span><br><span class="line">WATCHER::</span><br><span class="line"></span><br><span class="line">WatchedEvent state:SyncConnected type:NodeDeleted path:/lock</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用ZooKeeper实现Master-Worker协同"><a href="#使用ZooKeeper实现Master-Worker协同" class="headerlink" title="使用ZooKeeper实现Master-Worker协同"></a>使用ZooKeeper实现Master-Worker协同</h3><ul>
+<li>ZooKeeper可以使用很多复杂的协同服务：比如分布式锁、分布式队列</li>
+<li>Master-Worker协同：即父节点可以监听到子节点的删除与创建</li>
+<li>设计一个master-worker的组成员管理系统，要求系统中只能有一个master，master能实时获取系统中worker的情况</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">保证组里只有唯一一个master</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">客户端1</span></span><br><span class="line">    [zk: localhost:2181(CONNECTED) 0] create -e /master &quot;m1:2223&quot;</span><br><span class="line">Created /master</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">客户端2</span></span><br><span class="line">[zk: localhost:2181(CONNECTED) 0] create -e /master &quot;m2:2223&quot;</span><br><span class="line">Node already exists: /master</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">客户端2</span> </span><br><span class="line">[zk: localhost:2181(CONNECTED) 4] stat /master watch</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">退出客户端1</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">客户端2 监听到客户端1关闭</span></span><br><span class="line">WATCHER::</span><br><span class="line"></span><br><span class="line">WatchedEvent state:SyncConnected type:NodeDeleted path:/master</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">客户端2 成为master</span></span><br><span class="line">[zk: localhost:2181(CONNECTED) 8] create -e /master &quot;m2:2223&quot;</span><br><span class="line">Created /master</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Master-Worker协同：即父节点可以监听到子节点的删除与创建</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ZooKeeper-架构"><a href="#ZooKeeper-架构" class="headerlink" title="ZooKeeper 架构"></a>ZooKeeper 架构</h3><h4 id="ZooKeeper集群模式："><a href="#ZooKeeper集群模式：" class="headerlink" title="ZooKeeper集群模式："></a>ZooKeeper集群模式：</h4><ul>
+<li>standalone模式：处于standalone模式的ZooKeeper集群只有一个独立运行的 ZooKeeper节点</li>
+<li>quorum模式：处于 quorum模式的 ZooKeeper集群包含多个 ZooKeeper节点</li>
+</ul>
+<h4 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h4><ul>
+<li>ZooKeeper客户端库和ZooKeeper集群中的节点创建一个 session</li>
+<li>客户端可以主动关闭 session</li>
+<li>如果ZooKeeper节点没有在 session关联的 timeout时间内收到客户端的数据的话，ZooKeeper节点也会关闭session</li>
+<li>会话重连：ZooKeeper客户端库如果发现连接的ZooKeeper出错，会自动的和其他ZooKeeper节点建立连接</li>
+</ul>
+<h4 id="Quorum模式的-ZooKeeper集群"><a href="#Quorum模式的-ZooKeeper集群" class="headerlink" title="Quorum模式的 ZooKeeper集群"></a>Quorum模式的 ZooKeeper集群</h4><ul>
+<li>Quorum模式的 ZooKeeper集群包含多个 ZooKeeper节点</li>
+<li>leader 节点可以处理读写请求，follower只可以处理读请求</li>
+<li>follower在接到写请求时会把写请求转发给leader来处理</li>
+</ul>
+<h4 id="数据一致性"><a href="#数据一致性" class="headerlink" title="数据一致性"></a>数据一致性</h4><ul>
+<li>可线性化（Linearizable）写入：先到达 leader 的写请求会被先处理，leader 决定写请求的执行顺序</li>
+<li>客户端 FIFO顺序：来自给定客户端的请求按照发送顺序执行</li>
+</ul>
+<h4 id="单机伪集群"><a href="#单机伪集群" class="headerlink" title="单机伪集群"></a>单机伪集群</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">单机伪集群中的配置</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第一个端口：quorum之间的通信</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第二个端口：leader选举的端口</span></span><br><span class="line">server.1=192.168.137.211:2888:3888</span><br><span class="line">server.2=192.168.137.211:2889:3889</span><br><span class="line">server.3=192.168.137.211:2890:3890</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动集群</span></span><br><span class="line">zkServer.sh start-foreground src/main/resources/quorum/zoo-quorum-node1.cfg</span><br><span class="line">zkServer.sh start-foreground src/main/resources/quorum/zoo-quorum-node2.cfg</span><br><span class="line">zkServer.sh start-foreground src/main/resources/quorum/zoo-quorum-node3.cfg</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">start-foreground选项: zkServer.sh在前台运行，把日志直接打到 console。如果把日志打到文件的话，这三个 zkServer.sh会把日志打到同一个文件</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zkCli.sh -server 127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183</span><br></pre></td></tr></table></figure>
 
 <br>
 
 <br>
 
-<h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br>
+<br>
+
+<h1 id="开发篇-6讲"><a href="#开发篇-6讲" class="headerlink" title="开发篇 (6讲)"></a>开发篇 (6讲)</h1><br>
 
 <br>
 
@@ -302,6 +495,18 @@
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Distributed/">Distributed</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/ZooKeeper/">ZooKeeper</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -373,7 +578,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">标题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">4.</span> <span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%AF%87-7%E8%AE%B2"><span class="nav-number">1.</span> <span class="nav-text">基础篇 (7讲)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">课程介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper%E4%B8%BA%E4%BB%80%E4%B9%88%E5%80%BC%E5%BE%97%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.1.1.</span> <span class="nav-text">ZooKeeper为什么值得学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper%E5%AD%A6%E4%B9%A0%E9%9A%BE%E7%82%B9"><span class="nav-number">1.1.2.</span> <span class="nav-text">ZooKeeper学习难点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%94%B6%E8%8E%B7"><span class="nav-number">1.1.3.</span> <span class="nav-text">课程学习收获</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E7%BB%BC%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">内容综述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E5%9F%BA%E7%A1%80"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">ZooKeeper基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E5%BC%80%E5%8F%91"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">ZooKeeper开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E8%BF%90%E7%BB%B4"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">ZooKeeper运维</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">ZooKeeper开发进阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83-ZooKeeper%E3%80%81etcd%E5%92%8C-Chubby"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">比较 ZooKeeper、etcd和 Chubby</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%92%8C%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="nav-number">1.2.0.6.</span> <span class="nav-text">ZooKeeper 实现原理和源码解读</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZooKeeper-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.3.</span> <span class="nav-text">ZooKeeper 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.3.1.</span> <span class="nav-text">ZooKeeper 是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="nav-number">1.3.2.</span> <span class="nav-text">ZooKeeper发展历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper-%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.3.3.</span> <span class="nav-text">ZooKeeper 典型应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper-%E6%8F%90%E4%BE%9B%E4%BB%80%E4%B9%88%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.3.4.</span> <span class="nav-text">ZooKeeper 提供什么服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">ZooKeeper数据模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#datatree%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">datatree接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#znode%E5%88%86%E7%B1%BB"><span class="nav-number">1.3.4.3.</span> <span class="nav-text">znode分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8ZooKeeper"><span class="nav-number">1.3.5.</span> <span class="nav-text">使用ZooKeeper</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper-%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">ZooKeeper 的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">实现一个分布式锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8ZooKeeper%E5%AE%9E%E7%8E%B0Master-Worker%E5%8D%8F%E5%90%8C"><span class="nav-number">1.3.6.</span> <span class="nav-text">使用ZooKeeper实现Master-Worker协同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper-%E6%9E%B6%E6%9E%84"><span class="nav-number">1.3.7.</span> <span class="nav-text">ZooKeeper 架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F%EF%BC%9A"><span class="nav-number">1.3.7.1.</span> <span class="nav-text">ZooKeeper集群模式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session"><span class="nav-number">1.3.7.2.</span> <span class="nav-text">Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Quorum%E6%A8%A1%E5%BC%8F%E7%9A%84-ZooKeeper%E9%9B%86%E7%BE%A4"><span class="nav-number">1.3.7.3.</span> <span class="nav-text">Quorum模式的 ZooKeeper集群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-number">1.3.7.4.</span> <span class="nav-text">数据一致性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E6%9C%BA%E4%BC%AA%E9%9B%86%E7%BE%A4"><span class="nav-number">1.3.7.5.</span> <span class="nav-text">单机伪集群</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E7%AF%87-6%E8%AE%B2"><span class="nav-number">2.</span> <span class="nav-text">开发篇 (6讲)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">4.</span> <span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
@@ -424,7 +629,7 @@
             
                 <span class="count-box border-box word">
                     <span class="item-type border-box">Total words</span>
-                    <span class="item-value border-box word">25k</span>
+                    <span class="item-value border-box word">27.3k</span>
                 </span>
             
 
@@ -567,7 +772,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">标题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">4.</span> <span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%AF%87-7%E8%AE%B2"><span class="nav-number">1.</span> <span class="nav-text">基础篇 (7讲)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">课程介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper%E4%B8%BA%E4%BB%80%E4%B9%88%E5%80%BC%E5%BE%97%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.1.1.</span> <span class="nav-text">ZooKeeper为什么值得学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper%E5%AD%A6%E4%B9%A0%E9%9A%BE%E7%82%B9"><span class="nav-number">1.1.2.</span> <span class="nav-text">ZooKeeper学习难点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%94%B6%E8%8E%B7"><span class="nav-number">1.1.3.</span> <span class="nav-text">课程学习收获</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E7%BB%BC%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">内容综述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E5%9F%BA%E7%A1%80"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">ZooKeeper基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E5%BC%80%E5%8F%91"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">ZooKeeper开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E8%BF%90%E7%BB%B4"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">ZooKeeper运维</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">ZooKeeper开发进阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83-ZooKeeper%E3%80%81etcd%E5%92%8C-Chubby"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">比较 ZooKeeper、etcd和 Chubby</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%92%8C%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="nav-number">1.2.0.6.</span> <span class="nav-text">ZooKeeper 实现原理和源码解读</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZooKeeper-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.3.</span> <span class="nav-text">ZooKeeper 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.3.1.</span> <span class="nav-text">ZooKeeper 是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="nav-number">1.3.2.</span> <span class="nav-text">ZooKeeper发展历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper-%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.3.3.</span> <span class="nav-text">ZooKeeper 典型应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper-%E6%8F%90%E4%BE%9B%E4%BB%80%E4%B9%88%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.3.4.</span> <span class="nav-text">ZooKeeper 提供什么服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">ZooKeeper数据模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#datatree%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">datatree接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#znode%E5%88%86%E7%B1%BB"><span class="nav-number">1.3.4.3.</span> <span class="nav-text">znode分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8ZooKeeper"><span class="nav-number">1.3.5.</span> <span class="nav-text">使用ZooKeeper</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper-%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">ZooKeeper 的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">实现一个分布式锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8ZooKeeper%E5%AE%9E%E7%8E%B0Master-Worker%E5%8D%8F%E5%90%8C"><span class="nav-number">1.3.6.</span> <span class="nav-text">使用ZooKeeper实现Master-Worker协同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper-%E6%9E%B6%E6%9E%84"><span class="nav-number">1.3.7.</span> <span class="nav-text">ZooKeeper 架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZooKeeper%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F%EF%BC%9A"><span class="nav-number">1.3.7.1.</span> <span class="nav-text">ZooKeeper集群模式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session"><span class="nav-number">1.3.7.2.</span> <span class="nav-text">Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Quorum%E6%A8%A1%E5%BC%8F%E7%9A%84-ZooKeeper%E9%9B%86%E7%BE%A4"><span class="nav-number">1.3.7.3.</span> <span class="nav-text">Quorum模式的 ZooKeeper集群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-number">1.3.7.4.</span> <span class="nav-text">数据一致性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E6%9C%BA%E4%BC%AA%E9%9B%86%E7%BE%A4"><span class="nav-number">1.3.7.5.</span> <span class="nav-text">单机伪集群</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E7%AF%87-6%E8%AE%B2"><span class="nav-number">2.</span> <span class="nav-text">开发篇 (6讲)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">4.</span> <span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
