@@ -6,7 +6,7 @@
   <link href="https://sonronzy.github.io/atom.xml" rel="self"/>
   
   <link href="https://sonronzy.github.io/"/>
-  <updated>2024-02-19T15:26:44.503Z</updated>
+  <updated>2024-02-24T13:07:06.903Z</updated>
   <id>https://sonronzy.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>《基于社区电商场景的Redis缓存架构实战》Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/%E3%80%8A%E5%9F%BA%E4%BA%8E%E7%A4%BE%E5%8C%BA%E7%94%B5%E5%95%86%E5%9C%BA%E6%99%AF%E7%9A%84Redis%E7%BC%93%E5%AD%98%E6%9E%B6%E6%9E%84%E5%AE%9E%E6%88%98%E3%80%8BStudy-Notes/"/>
-    <id>https://sonronzy.github.io/2024/%E3%80%8A%E5%9F%BA%E4%BA%8E%E7%A4%BE%E5%8C%BA%E7%94%B5%E5%95%86%E5%9C%BA%E6%99%AF%E7%9A%84Redis%E7%BC%93%E5%AD%98%E6%9E%B6%E6%9E%84%E5%AE%9E%E6%88%98%E3%80%8BStudy-Notes/</id>
-    <published>2024-02-19T15:26:44.000Z</published>
-    <updated>2024-02-19T15:26:44.503Z</updated>
+    <title>《高级Redis进阶课 解决Redis实际问题+掌握Redis6.x特性》Study Notes</title>
+    <link href="https://sonronzy.github.io/2024/%E3%80%8A%E9%AB%98%E7%BA%A7Redis%E8%BF%9B%E9%98%B6%E8%AF%BE-%E8%A7%A3%E5%86%B3Redis%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98-%E6%8E%8C%E6%8F%A1Redis6-x%E7%89%B9%E6%80%A7%E3%80%8BStudy-Notes/"/>
+    <id>https://sonronzy.github.io/2024/%E3%80%8A%E9%AB%98%E7%BA%A7Redis%E8%BF%9B%E9%98%B6%E8%AF%BE-%E8%A7%A3%E5%86%B3Redis%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98-%E6%8E%8C%E6%8F%A1Redis6-x%E7%89%B9%E6%80%A7%E3%80%8BStudy-Notes/</id>
+    <published>2024-02-24T13:07:06.000Z</published>
+    <updated>2024-02-24T13:07:06.903Z</updated>
     
     <content type="html"><![CDATA[<br><h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br><br><br><h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br><br><br><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href=""></a></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>xxx需要再深入学习</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
     
@@ -37,6 +37,29 @@
 &lt;br&gt;
 
 &lt;h1 id=&quot;标题二&quot;&gt;&lt;a href=&quot;#标题二&quot; class=&quot;headerlink</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《基于社区电商场景的Redis缓存架构实战》Study Notes</title>
+    <link href="https://sonronzy.github.io/2024/%E3%80%8A%E5%9F%BA%E4%BA%8E%E7%A4%BE%E5%8C%BA%E7%94%B5%E5%95%86%E5%9C%BA%E6%99%AF%E7%9A%84Redis%E7%BC%93%E5%AD%98%E6%9E%B6%E6%9E%84%E5%AE%9E%E6%88%98%E3%80%8BStudy-Notes/"/>
+    <id>https://sonronzy.github.io/2024/%E3%80%8A%E5%9F%BA%E4%BA%8E%E7%A4%BE%E5%8C%BA%E7%94%B5%E5%95%86%E5%9C%BA%E6%99%AF%E7%9A%84Redis%E7%BC%93%E5%AD%98%E6%9E%B6%E6%9E%84%E5%AE%9E%E6%88%98%E3%80%8BStudy-Notes/</id>
+    <published>2024-02-19T15:26:44.000Z</published>
+    <updated>2024-02-19T15:38:19.036Z</updated>
+    
+    <content type="html"><![CDATA[<br><h1 id="基于文件事件的网络通信模型"><a href="#基于文件事件的网络通信模型" class="headerlink" title="基于文件事件的网络通信模型"></a>基于文件事件的网络通信模型</h1><ul><li>在Redis内部，网络通信各种事件，其实都是一些文件事件</li><li>Redis Server 内部，有File Event Handler 文件事件处理器</li></ul><br><br><br><h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br><br><br><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href=""></a></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>xxx需要再深入学习</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;br&gt;
+
+&lt;h1 id=&quot;基于文件事件的网络通信模型&quot;&gt;&lt;a href=&quot;#基于文件事件的网络通信模型&quot; class=&quot;headerlink&quot; title=&quot;基于文件事件的网络通信模型&quot;&gt;&lt;/a&gt;基于文件事件的网络通信模型&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;在Redis内部，网络通信各</summary>
       
     
     
