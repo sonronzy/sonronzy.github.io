@@ -6,7 +6,7 @@
   <link href="https://sonronzy.github.io/atom.xml" rel="self"/>
   
   <link href="https://sonronzy.github.io/"/>
-  <updated>2024-02-24T13:07:06.903Z</updated>
+  <updated>2024-02-25T02:44:30.888Z</updated>
   <id>https://sonronzy.github.io/</id>
   
   <author>
@@ -21,26 +21,35 @@
     <link href="https://sonronzy.github.io/2024/%E3%80%8A%E9%AB%98%E7%BA%A7Redis%E8%BF%9B%E9%98%B6%E8%AF%BE-%E8%A7%A3%E5%86%B3Redis%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98-%E6%8E%8C%E6%8F%A1Redis6-x%E7%89%B9%E6%80%A7%E3%80%8BStudy-Notes/"/>
     <id>https://sonronzy.github.io/2024/%E3%80%8A%E9%AB%98%E7%BA%A7Redis%E8%BF%9B%E9%98%B6%E8%AF%BE-%E8%A7%A3%E5%86%B3Redis%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98-%E6%8E%8C%E6%8F%A1Redis6-x%E7%89%B9%E6%80%A7%E3%80%8BStudy-Notes/</id>
     <published>2024-02-24T13:07:06.000Z</published>
-    <updated>2024-02-24T13:07:06.903Z</updated>
+    <updated>2024-02-25T02:44:30.888Z</updated>
     
-    <content type="html"><![CDATA[<br><h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br><br><br><h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br><br><br><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href=""></a></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>xxx需要再深入学习</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
+    <content type="html"><![CDATA[<br><h1 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h1><ul><li><p><strong>Redis是目前使用非常广泛的中间件</strong></p></li><li><p><strong>为何Redis经久不衰：</strong></p><ul><li>功能强大：<ul><li>高性能：底层C语言编写，内存数据库，通讯采用epoll非阻塞I&#x2F;O多路复用机制</li><li>线程安全：原子操作、单线程</li><li>功能丰富：<ul><li>数据结构：<ul><li>基本：String、List、HashSet、SortedSet</li><li>高阶：GEO、BitMap、HyperLogLog</li></ul></li><li>持久化：RDB持久化、AOF持久化、RDB—AOF混合持久化</li><li>主从：Master—Slave</li><li>哨兵：Sentinel</li><li>集群</li><li>模块化：能够支撑很多的互联网应用场景，比如缓存、分布式锁队列、集合、GEO、BitMap操作等</li></ul></li></ul></li><li>持续改进</li></ul></li><li><p><strong>以项目，穿针引线（理论+实践）</strong></p><ul><li>典型的业务场景</li><li>丰富的数据类型</li><li>新特性：多线程IO</li><li>微服务与分布式</li></ul></li></ul><img     src="https://cdn.statically.io/gh/ratears/images-hosting@picx/picx/image.z5a1scmzyzk.webp"   ><ul><li><strong>项目架构</strong><ul><li>单节点-&gt;主从-&gt;哨兵-&gt;集群</li></ul></li></ul><img     src="https://cdn.statically.io/gh/ratears/images-hosting@picx/picx/image.1ua6qm7bk0a.webp"   ><ul><li><p><strong>课程内容概述（以问带学）</strong></p><ul><li>项目系统搭建：SpringBoot整合Redis， SpringCloud搭建微服务</li><li>系统响应慢：用最合适的数据类型来缓存，满日志，BigKey，连接池优化</li><li>缓存异常：分布式锁，LRU淘汰算法，（缓存穿透，缓存击穿，缓存雪崩）</li><li>数据丢失、不安全：RDB—AOF混合持久化，全量&#x2F;部分同步，主从复制数据一致性</li><li>主从复制故障：哨兵监控，主观&#x2F;客观下线</li><li>存储不够用：集群分片存储，集群内部原理，故障自动转移</li><li>服务器宕机：集群动态收缩，MOVED&#x2F;ASK转向，故障演示与恢复方案</li></ul></li><li><p>底层原理：</p><ul><li>网络底层</li><li>事务处理</li><li>持久化原理</li><li>主从复制原理</li><li>哨兵机制</li><li>分片存储原理</li></ul></li><li><p>底层算法：</p><ul><li>Sorted Set底层</li><li>Bitmap、Geo算法</li><li>数据过期淘汰算法</li><li>Leader选举流程</li><li>槽位定位算法</li><li>备份迁移及其算法</li></ul></li><li><p>性能提升方案：</p><ul><li>Key与Value设计规范</li><li>避免BigKey</li><li>避免耗时操作</li><li>Pipeline管道操作</li><li>连接池性能优化</li><li>子进程的开销与优化</li></ul></li><li><p>故障解决方案：</p><ul><li>数据延迟</li><li>数据脏读</li><li>数据抖动</li><li>数据一致性</li><li>热点数据存储</li><li>RDB文件损坏</li></ul></li></ul><br><br><br><h1 id="第2章-Redis快速入门"><a href="#第2章-Redis快速入门" class="headerlink" title="第2章 Redis快速入门"></a>第2章 Redis快速入门</h1><br><br><br><h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br><br><br><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href=""></a></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>xxx需要再深入学习</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
     
     
       
       
     <summary type="html">&lt;br&gt;
 
-&lt;h1 id=&quot;标题一&quot;&gt;&lt;a href=&quot;#标题一&quot; class=&quot;headerlink&quot; title=&quot;标题一&quot;&gt;&lt;/a&gt;标题一&lt;/h1&gt;&lt;br&gt;
-
-&lt;br&gt;
-
-&lt;br&gt;
-
-&lt;h1 id=&quot;标题二&quot;&gt;&lt;a href=&quot;#标题二&quot; class=&quot;headerlink</summary>
+&lt;h1 id=&quot;课程介绍&quot;&gt;&lt;a href=&quot;#课程介绍&quot; class=&quot;headerlink&quot; title=&quot;课程介绍&quot;&gt;&lt;/a&gt;课程介绍&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Redis是目前使用非常广泛的中间件&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;</summary>
       
     
     
     
+    <category term="Database" scheme="https://sonronzy.github.io/categories/Database/"/>
+    
+    <category term="Redis" scheme="https://sonronzy.github.io/categories/Database/Redis/"/>
+    
+    
+    <category term="Redis" scheme="https://sonronzy.github.io/tags/Redis/"/>
+    
+    <category term="Cache" scheme="https://sonronzy.github.io/tags/Cache/"/>
+    
+    <category term="NoSQL" scheme="https://sonronzy.github.io/tags/NoSQL/"/>
+    
+    <category term="Database" scheme="https://sonronzy.github.io/tags/Database/"/>
     
   </entry>
   
@@ -141,9 +150,9 @@
     <category term="ZooKeeper" scheme="https://sonronzy.github.io/categories/Distributed/ZooKeeper/"/>
     
     
-    <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
-    
     <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
+    
+    <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
     
   </entry>
   
@@ -197,9 +206,9 @@
     <category term="ZooKeeper" scheme="https://sonronzy.github.io/categories/Distributed/ZooKeeper/"/>
     
     
-    <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
-    
     <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
+    
+    <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
     
   </entry>
   

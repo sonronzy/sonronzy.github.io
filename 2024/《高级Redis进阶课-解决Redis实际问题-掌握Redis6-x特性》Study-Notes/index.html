@@ -225,23 +225,54 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc" data-updated="Sat Feb 24 2024 21:07:06 GMT+0800">2024-02-24 21:07:06</span>
+                <span class="pc" data-updated="Sun Feb 25 2024 10:44:30 GMT+0800">2024-02-25 10:44:30</span>
             </span>
         
 
         
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Database/">Database</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/categories/Database/Redis/">Redis</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Redis/">Redis</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Cache/">Cache</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/NoSQL/">NoSQL</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Database/">Database</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>79 Words</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>613 Words</span>
             </span>
         
         
             <span class="meta-info-item post-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>1 Mins</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>2 Mins</span>
             </span>
         
         
@@ -264,7 +295,111 @@
 
                     <br>
 
-<h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br>
+<h1 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h1><ul>
+<li><p><strong>Redis是目前使用非常广泛的中间件</strong></p>
+</li>
+<li><p><strong>为何Redis经久不衰：</strong></p>
+<ul>
+<li>功能强大：<ul>
+<li>高性能：底层C语言编写，内存数据库，通讯采用epoll非阻塞I&#x2F;O多路复用机制</li>
+<li>线程安全：原子操作、单线程</li>
+<li>功能丰富：<ul>
+<li>数据结构：<ul>
+<li>基本：String、List、HashSet、SortedSet</li>
+<li>高阶：GEO、BitMap、HyperLogLog</li>
+</ul>
+</li>
+<li>持久化：RDB持久化、AOF持久化、RDB—AOF混合持久化</li>
+<li>主从：Master—Slave</li>
+<li>哨兵：Sentinel</li>
+<li>集群</li>
+<li>模块化：能够支撑很多的互联网应用场景，比如缓存、分布式锁队列、集合、GEO、BitMap操作等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>持续改进</li>
+</ul>
+</li>
+<li><p><strong>以项目，穿针引线（理论+实践）</strong></p>
+<ul>
+<li>典型的业务场景</li>
+<li>丰富的数据类型</li>
+<li>新特性：多线程IO</li>
+<li>微服务与分布式</li>
+</ul>
+</li>
+</ul>
+<img     src="https://cdn.statically.io/gh/ratears/images-hosting@picx/picx/image.z5a1scmzyzk.webp"   >
+
+<ul>
+<li><strong>项目架构</strong><ul>
+<li>单节点-&gt;主从-&gt;哨兵-&gt;集群</li>
+</ul>
+</li>
+</ul>
+<img     src="https://cdn.statically.io/gh/ratears/images-hosting@picx/picx/image.1ua6qm7bk0a.webp"   >
+
+<ul>
+<li><p><strong>课程内容概述（以问带学）</strong></p>
+<ul>
+<li>项目系统搭建：SpringBoot整合Redis， SpringCloud搭建微服务</li>
+<li>系统响应慢：用最合适的数据类型来缓存，满日志，BigKey，连接池优化</li>
+<li>缓存异常：分布式锁，LRU淘汰算法，（缓存穿透，缓存击穿，缓存雪崩）</li>
+<li>数据丢失、不安全：RDB—AOF混合持久化，全量&#x2F;部分同步，主从复制数据一致性</li>
+<li>主从复制故障：哨兵监控，主观&#x2F;客观下线</li>
+<li>存储不够用：集群分片存储，集群内部原理，故障自动转移</li>
+<li>服务器宕机：集群动态收缩，MOVED&#x2F;ASK转向，故障演示与恢复方案</li>
+</ul>
+</li>
+<li><p>底层原理：</p>
+<ul>
+<li>网络底层</li>
+<li>事务处理</li>
+<li>持久化原理</li>
+<li>主从复制原理</li>
+<li>哨兵机制</li>
+<li>分片存储原理</li>
+</ul>
+</li>
+<li><p>底层算法：</p>
+<ul>
+<li>Sorted Set底层</li>
+<li>Bitmap、Geo算法</li>
+<li>数据过期淘汰算法</li>
+<li>Leader选举流程</li>
+<li>槽位定位算法</li>
+<li>备份迁移及其算法</li>
+</ul>
+</li>
+<li><p>性能提升方案：</p>
+<ul>
+<li>Key与Value设计规范</li>
+<li>避免BigKey</li>
+<li>避免耗时操作</li>
+<li>Pipeline管道操作</li>
+<li>连接池性能优化</li>
+<li>子进程的开销与优化</li>
+</ul>
+</li>
+<li><p>故障解决方案：</p>
+<ul>
+<li>数据延迟</li>
+<li>数据脏读</li>
+<li>数据抖动</li>
+<li>数据一致性</li>
+<li>热点数据存储</li>
+<li>RDB文件损坏</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="第2章-Redis快速入门"><a href="#第2章-Redis快速入门" class="headerlink" title="第2章 Redis快速入门"></a>第2章 Redis快速入门</h1><br>
 
 <br>
 
@@ -302,6 +437,26 @@
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Redis/">Redis</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Cache/">Cache</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/NoSQL/">NoSQL</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Database/">Database</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -373,7 +528,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">标题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">4.</span> <span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">课程介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-Redis%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="nav-number">2.</span> <span class="nav-text">第2章 Redis快速入门</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-number">3.</span> <span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">5.</span> <span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
@@ -424,7 +579,7 @@
             
                 <span class="count-box border-box word">
                     <span class="item-type border-box">Total words</span>
-                    <span class="item-value border-box word">33.8k</span>
+                    <span class="item-value border-box word">34.3k</span>
                 </span>
             
 
@@ -567,7 +722,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">标题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">4.</span> <span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">课程介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-Redis%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="nav-number">2.</span> <span class="nav-text">第2章 Redis快速入门</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-number">3.</span> <span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-number">5.</span> <span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
