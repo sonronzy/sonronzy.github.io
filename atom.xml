@@ -45,9 +45,9 @@
     
     <category term="Redis" scheme="https://sonronzy.github.io/tags/Redis/"/>
     
-    <category term="Cache" scheme="https://sonronzy.github.io/tags/Cache/"/>
-    
     <category term="NoSQL" scheme="https://sonronzy.github.io/tags/NoSQL/"/>
+    
+    <category term="Cache" scheme="https://sonronzy.github.io/tags/Cache/"/>
     
     <category term="Database" scheme="https://sonronzy.github.io/tags/Database/"/>
     
@@ -150,9 +150,9 @@
     <category term="ZooKeeper" scheme="https://sonronzy.github.io/categories/Distributed/ZooKeeper/"/>
     
     
-    <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
-    
     <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
+    
+    <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
     
   </entry>
   
@@ -206,9 +206,9 @@
     <category term="ZooKeeper" scheme="https://sonronzy.github.io/categories/Distributed/ZooKeeper/"/>
     
     
-    <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
-    
     <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
+    
+    <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
     
   </entry>
   
