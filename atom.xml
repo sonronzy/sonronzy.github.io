@@ -6,7 +6,7 @@
   <link href="https://sonronzy.github.io/atom.xml" rel="self"/>
   
   <link href="https://sonronzy.github.io/"/>
-  <updated>2024-02-28T15:46:38.001Z</updated>
+  <updated>2024-02-29T15:56:29.070Z</updated>
   <id>https://sonronzy.github.io/</id>
   
   <author>
@@ -21,26 +21,30 @@
     <link href="https://sonronzy.github.io/2024/%E3%80%8AZooKeeper%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E6%88%98%E3%80%8BStudy-Notes/"/>
     <id>https://sonronzy.github.io/2024/%E3%80%8AZooKeeper%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E6%88%98%E3%80%8BStudy-Notes/</id>
     <published>2024-02-28T15:17:23.000Z</published>
-    <updated>2024-02-28T15:46:38.001Z</updated>
+    <updated>2024-02-29T15:56:29.070Z</updated>
     
-    <content type="html"><![CDATA[<br><h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br><br><br><h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br><br><br><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href=""></a></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>xxx需要再深入学习</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
+    <content type="html"><![CDATA[<br><h1 id="开篇词"><a href="#开篇词" class="headerlink" title="开篇词"></a>开篇词</h1><ul><li>提高分布式架构能力，深入学习 ZooKeeper 是最佳选择：<ul><li>ZooKeeper 是一个分布式应用协调框架</li><li>ZooKeeper 可以实现分布式系统下的<strong>配置管理</strong>、<strong>域名服务</strong>、<strong>分布式同步</strong>、<strong>发布订阅</strong>等使用场景，而这些场景基本就是分布式系统中最常见的问题</li></ul></li><li>想真正掌握 ZooKeeper 这门技术，不能局限在软件应用层面，而是应该<strong>从实际的应用场景出发，学习具体的解决方案，再深入底层分析实现原理，具备相关的实践经验</strong>，这样才是真正地学会了</li></ul><br><br><br><h1 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h1><h2 id="第01讲：ZooKeeper-数据模型：节点的特性与应用"><a href="#第01讲：ZooKeeper-数据模型：节点的特性与应用" class="headerlink" title="第01讲：ZooKeeper 数据模型：节点的特性与应用"></a>第01讲：ZooKeeper 数据模型：节点的特性与应用</h2><ul><li>ZooKeeper 基础知识基本分为三大模块：<ul><li><strong>数据模型</strong></li><li><strong>ACL 权限控制</strong></li><li><strong>Watch 监控</strong></li></ul></li></ul><blockquote><p>数据模型是最重要的</p><p>可以利用数据模型中的临时节点和 Watch 监控机制来实现一个发布订阅的功能</p></blockquote><br><br><h3 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h3><ul><li>ZooKeeper 中的数据模型是一种树形结构</li><li>具有一个固定的根节点（&#x2F;），可以在根节点下创建子节点，并在子节点下继续创建下一级节点</li><li>ZooKeeper 树中的每一层级用斜杠（&#x2F;）分隔开，且<strong>只能用绝对路径（如“get &#x2F;work&#x2F;task1”）的方式查询 ZooKeeper 节点</strong>，而不能使用相对路径</li><li>ZooKeeper 中的数据是由多个数据节点最终构成的一个层级的树状结构</li></ul><h3 id="znode-节点类型与特性"><a href="#znode-节点类型与特性" class="headerlink" title="znode 节点类型与特性"></a>znode 节点类型与特性</h3><h4 id="持久节点"><a href="#持久节点" class="headerlink" title="持久节点"></a>持久节点</h4><ul><li>一旦将节点创建为持久节点，该数据节点会一直存储在 ZooKeeper 服务器上，即使创建该节点的客户端与服务端的会话关闭了，该节点依然不会被删除</li><li>如果我们想删除持久节点，就要显式调用 delete 函数进行删除操作</li></ul><h4 id="临时节点"><a href="#临时节点" class="headerlink" title="临时节点"></a>临时节点</h4><ul><li>将节点创建为临时节点，那么该节点数据不会一直存储在 ZooKeeper 服务器上。当创建该临时节点的客户端会话因超时或发生异常而关闭时，该节点也相应在 ZooKeeper 服务器上被删除</li><li>可以像删除持久节点一样主动删除临时节点</li></ul><blockquote><p>可以利用临时节点的这一特性来做服务器集群内机器运行情况的统计，将集群设置为“&#x2F;servers”节点，并为集群下的每台服务器创建一个临时节点“&#x2F;servers&#x2F;host”，当服务器下线时该节点自动被删除（即客户端会话失效），最后统计临时节点个数就可以知道集群中的运行情况。</p></blockquote><h4 id="有序节点"><a href="#有序节点" class="headerlink" title="有序节点"></a>有序节点</h4><ul><li>有序节点并不算是一种单独种类的节点，而是在之前提到的持久节点和临时节点特性的基础上，增加了一个节点有序的性质。</li><li>节点有序：在我们创建有序节点的时候，ZooKeeper 服务器会自动使用一个单调递增的数字作为后缀，追加到我们创建节点的后边。（可以直观的查看到节点的创建顺序）</li></ul><h3 id="znode-节点的状态结构"><a href="#znode-节点的状态结构" class="headerlink" title="znode 节点的状态结构"></a>znode 节点的状态结构</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 3] stat /locks</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">表示该数据节点被创建时的事务 ID</span></span><br><span class="line">cZxid = 0xa</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">表示该节点的创建时间</span></span><br><span class="line">ctime = Thu Feb 29 23:11:21 CST 2024</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">表示该节点最后一次被更新时的事务ID</span></span><br><span class="line">mZxid = 0xa</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">表示该节点最后一次被更新的时间</span></span><br><span class="line">mtime = Thu Feb 29 23:11:21 CST 2024</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">表示该节点的子节点列表最后一次被修改时的事务ID</span></span><br><span class="line">pZxid = 0xa</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">子节点的版本号</span></span><br><span class="line">cversion = 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">对节点数据内容的修改次数</span></span><br><span class="line">dataVersion = 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ACL 信息的修改次数</span></span><br><span class="line">aclVersion = 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建该临时节点的会话 SessionlD;如果该节点是持久节点，那么这个属性值是 0</span></span><br><span class="line">ephemeralOwner = 0x0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">数据内容的长度</span></span><br><span class="line">dataLength = 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前节点的子节点个数</span></span><br><span class="line">numChildren = 0</span><br></pre></td></tr></table></figure><h3 id="实践：使用-ZooKeeper-实现锁"><a href="#实践：使用-ZooKeeper-实现锁" class="headerlink" title="实践：使用 ZooKeeper 实现锁"></a>实践：使用 ZooKeeper 实现锁</h3><ul><li><strong>（商品超卖问题）情景：</strong></li></ul><blockquote><p>一个购物网站，某个商品库存只剩一件，客户 A 搜索到这件商品并准备下单，但在这期间客户 B 也查询到了该件商品并提交了购买，于此同时，客户 A 也下单购买了此商品，这样就出现了只有一件库存的商品实际上卖出了两件的情况。</p></blockquote><ul><li>解决方式：加锁，我们可以在客户 A 对商品进行操作的时候对这件商品进行锁定从而避免这种超卖的情况发生</li><li>实现锁的方式有很多中，比如：悲观锁、乐观锁</li></ul><h4 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h4><ul><li><p>悲观锁认为进程对临界区的竞争总是会出现，为了保证进程在操作数据时，该条数据不被其他进程修改。数据会一直处于被锁定的状态。</p></li><li><p>解决方案（实现一个简单的悲观锁）：</p><ul><li>假设一个具有 n 个进程的应用，同时访问临界区资源，我们通过进程创建 ZooKeeper 节点 &#x2F;locks 的方式获取锁。</li><li>线程 a 通过成功创建 ZooKeeper 节点“&#x2F;locks”的方式获取锁后继续执行</li><li>这时进程 b 也要访问临界区资源，于是进程 b 也尝试创建“&#x2F;locks”节点来获取锁，因为之前进程 a 已经创建该节点，所以进程 b 创建节点失败无法获得锁</li></ul></li><li><p>隐含的问题：</p><ul><li>当进程 a 因为异常中断导致 &#x2F;locks 节点始终存在，其他线程因为无法再次创建节点而无法获取锁，这就<strong>产生了一个死锁问题</strong></li><li>解决方案：针对这种情况我们可以通过将节点设置为临时节点的方式避免。并通过在服务器端添加监听事件来通知其他进程重新获取锁</li></ul></li></ul><h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4><ul><li><p>乐观锁认为，进程对临界区资源的竞争不会总是出现，所以相对悲观锁而言。加锁方式没有那么激烈，不会全程的锁定资源，而是在数据进行提交更新的时候，对数据的冲突与否进行检测，如果发现冲突了，则拒绝操作。</p></li><li><p>乐观锁基本可以分为读取、校验、写入三个步骤</p></li><li><p>CAS（Compare-And-Swap），即比较并替换，就是一个乐观锁的实现。CAS 有 3 个操作数，内存值 V，旧的预期值 A，要修改的新值 B。当且仅当预期值 A 和内存值 V 相同时，将内存值 V 修改为 B，否则什么都不做</p></li><li><p><strong>ZooKeeper的乐观锁实现原理</strong>：</p><ul><li><p>ZooKeeper 中的 version 属性就是用来实现乐观锁机制中的“校验”的，ZooKeeper 每个节点都有数据版本的概念，在调用更新操作的时候，假如有一个客户端试图进行更新操作，它会携带上次获取到的 version 值进行更新。而如果在这段时间内，ZooKeeper 服务器上该节点的数值恰好已经被其他客户端更新了，那么其数据版本一定也会发生变化，因此肯定与客户端携带的 version 无法匹配，便无法成功更新，因此可以有效地避免一些分布式更新的并发问题</p></li><li><p>ZooKeeper 的底层实现中，当服务端处理 setDataRequest 请求时，首先会调用 checkAndIncVersion 方法进行数据版本校验。ZooKeeper 会从 setDataRequest 请求中获取当前请求的版本 version，同时通过 getRecordForPath 方法获取服务器数据记录 nodeRecord， 从中得到当前服务器上的版本信息 currentversion。如果 version 为 -1，表示该请求操作不使用乐观锁，可以忽略版本对比；如果 version 不是 -1，那么就对比 version 和 currentversion，如果相等，则进行更新操作，否则就会抛出 BadVersionException 异常中断操作</p></li></ul></li></ul><h3 id="思考题：为什么-ZooKeeper-不采用相对路径查找节点呢"><a href="#思考题：为什么-ZooKeeper-不采用相对路径查找节点呢" class="headerlink" title="思考题：为什么 ZooKeeper 不采用相对路径查找节点呢"></a>思考题：为什么 ZooKeeper 不采用相对路径查找节点呢</h3><ul><li>因为 ZooKeeper 大多是应用场景是定位数据模型上的节点，并在相关节点上进行操作。像这种查找与给定值相等的记录问题最适合用散列来解决。因此 ZooKeeper 在底层实现的时候，使用了一个 hashtable，即 hashtableConcurrentHashMap&lt;String, DataNode&gt; nodes ，用节点的完整路径来作为 key 存储节点数据。这样就大大提高了 ZooKeeper 的性能</li></ul><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul><li><a class="link"   href="https://zookeeper.apache.org/doc/r3.6.0/zookeeperProgrammers.html" >https://zookeeper.apache.org/doc/r3.6.0/zookeeperProgrammers.html<i class="fas fa-external-link-alt"></i></a></li></ul><br><br><h2 id="第02讲：发布订阅模式：如何使用-Watch-机制实现分布式通知"><a href="#第02讲：发布订阅模式：如何使用-Watch-机制实现分布式通知" class="headerlink" title="第02讲：发布订阅模式：如何使用 Watch 机制实现分布式通知"></a>第02讲：发布订阅模式：如何使用 Watch 机制实现分布式通知</h2><br><br><br><h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br><br><br><h1 id="Reference-1"><a href="#Reference-1" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href=""></a></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>第一讲中的扩展，可以作为阅读扩展以及学习英文的起始</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
     
     
       
       
     <summary type="html">&lt;br&gt;
 
-&lt;h1 id=&quot;标题一&quot;&gt;&lt;a href=&quot;#标题一&quot; class=&quot;headerlink&quot; title=&quot;标题一&quot;&gt;&lt;/a&gt;标题一&lt;/h1&gt;&lt;br&gt;
-
-&lt;br&gt;
-
-&lt;br&gt;
-
-&lt;h1 id=&quot;标题二&quot;&gt;&lt;a href=&quot;#标题二&quot; class=&quot;headerlink</summary>
+&lt;h1 id=&quot;开篇词&quot;&gt;&lt;a href=&quot;#开篇词&quot; class=&quot;headerlink&quot; title=&quot;开篇词&quot;&gt;&lt;/a&gt;开篇词&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;提高分布式架构能力，深入学习 ZooKeeper 是最佳选择：&lt;ul&gt;
+&lt;li&gt;ZooKeeper 是一个分</summary>
       
     
     
     
+    <category term="Distributed" scheme="https://sonronzy.github.io/categories/Distributed/"/>
+    
+    <category term="ZooKeeper" scheme="https://sonronzy.github.io/categories/Distributed/ZooKeeper/"/>
+    
+    
+    <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
+    
+    <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
     
   </entry>
   
@@ -73,9 +77,9 @@
     
     <category term="Redis" scheme="https://sonronzy.github.io/tags/Redis/"/>
     
-    <category term="Cache" scheme="https://sonronzy.github.io/tags/Cache/"/>
-    
     <category term="NoSQL" scheme="https://sonronzy.github.io/tags/NoSQL/"/>
+    
+    <category term="Cache" scheme="https://sonronzy.github.io/tags/Cache/"/>
     
     <category term="Database" scheme="https://sonronzy.github.io/tags/Database/"/>
     
@@ -178,9 +182,9 @@
     <category term="ZooKeeper" scheme="https://sonronzy.github.io/categories/Distributed/ZooKeeper/"/>
     
     
-    <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
-    
     <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
+    
+    <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
     
   </entry>
   
@@ -234,9 +238,9 @@
     <category term="ZooKeeper" scheme="https://sonronzy.github.io/categories/Distributed/ZooKeeper/"/>
     
     
-    <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
-    
     <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
+    
+    <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
     
   </entry>
   
