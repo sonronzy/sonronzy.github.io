@@ -6,7 +6,7 @@
   <link href="https://sonronzy.github.io/atom.xml" rel="self"/>
   
   <link href="https://sonronzy.github.io/"/>
-  <updated>2024-03-03T02:53:21.106Z</updated>
+  <updated>2024-03-08T13:19:11.907Z</updated>
   <id>https://sonronzy.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>《Zookeeper分布式系统开发实战》Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/%E3%80%8AZookeeper%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%E3%80%8BStudy-Notes/"/>
-    <id>https://sonronzy.github.io/2024/%E3%80%8AZookeeper%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%E3%80%8BStudy-Notes/</id>
-    <published>2024-03-03T02:53:21.000Z</published>
-    <updated>2024-03-03T02:53:21.106Z</updated>
+    <title>《跟阿铭学 Linux》Study Notes</title>
+    <link href="https://sonronzy.github.io/2024/%E3%80%8A%E8%B7%9F%E9%98%BF%E9%93%AD%E5%AD%A6-Linux%E3%80%8BStudy-Notes/"/>
+    <id>https://sonronzy.github.io/2024/%E3%80%8A%E8%B7%9F%E9%98%BF%E9%93%AD%E5%AD%A6-Linux%E3%80%8BStudy-Notes/</id>
+    <published>2024-03-08T13:19:11.000Z</published>
+    <updated>2024-03-08T13:19:11.907Z</updated>
     
     <content type="html"><![CDATA[<br><h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br><br><br><h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br><br><br><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href=""></a></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>xxx需要再深入学习</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
     
@@ -41,6 +41,36 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>《Zookeeper分布式系统开发实战》Study Notes</title>
+    <link href="https://sonronzy.github.io/2024/%E3%80%8AZookeeper%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%E3%80%8BStudy-Notes/"/>
+    <id>https://sonronzy.github.io/2024/%E3%80%8AZookeeper%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%E3%80%8BStudy-Notes/</id>
+    <published>2024-03-03T02:53:21.000Z</published>
+    <updated>2024-03-03T13:38:13.508Z</updated>
+    
+    <content type="html"><![CDATA[<br><h1 id="ZooKeeper熟悉和用途综述"><a href="#ZooKeeper熟悉和用途综述" class="headerlink" title="ZooKeeper熟悉和用途综述"></a>ZooKeeper熟悉和用途综述</h1><h2 id="ZooKeeper介绍"><a href="#ZooKeeper介绍" class="headerlink" title="ZooKeeper介绍"></a>ZooKeeper介绍</h2><ul><li><strong>ZooKeeper是一个高性能，分布式的，开源分布式应用协调服</strong></li><li>ZooKeeper提供了简单原始的功能能，分布式应用可以基于它实现更高级的服务，比如同步，配置管理，集群管理，命名空间</li><li>ZooKeeper被设计为易于编程，使用文件系统目录树作为数据模型。</li><li>服务跑在Java上，提供Java和C的客户端API</li></ul><br><br><h2 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h2><ul><li><p>A distributed system consists of multiple computers that communicate through a computer network and interact with each other to achieve a common goal（分布式系统由多台计算机组成，这些计算机通过计算机网络进行通信，并相互交互以实现共同的目标）</p></li><li><p>多台计算机构成</p></li><li><p>计算机之间通过网络通信</p></li><li><p>彼此进行交互</p></li><li><p>共同目标</p></li></ul><br><br><h2 id="分布式系统协调"><a href="#分布式系统协调" class="headerlink" title="分布式系统协调"></a>分布式系统协调</h2><ul><li>协调：多个节点一起完成一个动作（An act that multiple nodes must perform together）</li><li>举例：<ul><li>集群成员管理（Group membership）</li><li>锁（locking）</li><li>选主（Leader Election）</li><li>同步（Synchronization）</li><li>发布&#x2F;订阅（Publisher&#x2F;Subscriber）</li></ul></li></ul><br><br><h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><ul><li>分层结构</li><li>树形结构中的每个节点叫做Znode</li><li></li></ul><br><br><br><h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br><br><br><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href=""></a></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>xxx需要再深入学习</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;br&gt;
+
+&lt;h1 id=&quot;ZooKeeper熟悉和用途综述&quot;&gt;&lt;a href=&quot;#ZooKeeper熟悉和用途综述&quot; class=&quot;headerlink&quot; title=&quot;ZooKeeper熟悉和用途综述&quot;&gt;&lt;/a&gt;ZooKeeper熟悉和用途综述&lt;/h1&gt;&lt;h2 id=&quot;Zoo</summary>
+      
+    
+    
+    
+    <category term="Distributed" scheme="https://sonronzy.github.io/categories/Distributed/"/>
+    
+    <category term="ZooKeeper" scheme="https://sonronzy.github.io/categories/Distributed/ZooKeeper/"/>
+    
+    
+    <category term="ZooKeeper" scheme="https://sonronzy.github.io/tags/ZooKeeper/"/>
+    
+    <category term="Distributed" scheme="https://sonronzy.github.io/tags/Distributed/"/>
     
   </entry>
   
@@ -105,9 +135,9 @@
     
     <category term="Redis" scheme="https://sonronzy.github.io/tags/Redis/"/>
     
-    <category term="NoSQL" scheme="https://sonronzy.github.io/tags/NoSQL/"/>
-    
     <category term="Cache" scheme="https://sonronzy.github.io/tags/Cache/"/>
+    
+    <category term="NoSQL" scheme="https://sonronzy.github.io/tags/NoSQL/"/>
     
     <category term="Database" scheme="https://sonronzy.github.io/tags/Database/"/>
     
