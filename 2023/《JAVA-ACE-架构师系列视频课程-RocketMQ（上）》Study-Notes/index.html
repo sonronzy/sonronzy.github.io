@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Kierke sonronzy">
+    <meta name="description" content="Kierke&#39;s Blog">
+    <meta name="author" content="Kierke">
+    
+    <title>
+        
+            《JAVA-ACE-架构师系列视频课程- RocketMQ（上）》Study Notes |
+        
+        Kierke&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-head.8z6btc9ei5.webp">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/font/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/font/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/font/css/brands.min.css">
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"sonronzy.github.io","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#CCCCCC","title":"Kierke's Blog","author":"Kierke","avatar":"https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-head.8z6btc9ei5.webp","logo":"https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-head.8z6btc9ei5.webp","favicon":"https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-head.8z6btc9ei5.webp"},"menu":{"home":"/ || fa-solid fa-home","archives":"/archives || fa-solid fa-box-archive","tags":"/tags || fa-solid fa-tags","categories":"/categories || fa-solid fa-layer-group","links":"/links || fa-solid fa-link","about":"/about || fa-solid fa-user-graduate"},"first_screen":{"enable":true,"background_img":"/images/bg.jpg","background_img_dark":"/images/bg.jpg","description":"Stay hungry, Stay foolish","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"https://github.com/sonronzy","weixin":"img | https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-588648de40ffc096d74f91d340f4e58.7p3en1mkg7.webp","qq":"img | https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-80e8494e86c191e3dbadffc969df432.lvj7fjv66.webp","weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"sonronzy@gmail.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created","post_datetime_format":"YYYY-MM-DD"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-1714407409574.6f0hgreq3y.webp","text":"请作者喝咖啡"}},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"highlight":{"enable":true},"prismjs":{"enable":false},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.21"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":true,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2018,"word_count":true,"icp":{"enable":false,"record_code":null,"url":"https://beian.miit.gov.cn"},"site_deploy":{"enable":true,"provider":"github","url":null},"shields_style":{"enable":false,"custom":[{"link_url":null,"img_url":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.1.1"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Kierke's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-head.8z6btc9ei5.webp">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               Kierke&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                
+                                    <i class="menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                
+                                    <i class="menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                
+                                    <i class="menu-icon fa-solid fa-tags"></i>
+                                
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                
+                                    <i class="menu-icon fa-solid fa-layer-group"></i>
+                                
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                
+                                    <i class="menu-icon fa-solid fa-link"></i>
+                                
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                
+                                    <i class="menu-icon fa-solid fa-user-graduate"></i>
+                                
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/"
+                    >HOME</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives"
+                    >ARCHIVES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags"
+                    >TAGS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories"
+                    >CATEGORIES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links"
+                    >LINKS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about"
+                    >ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+                <div class="post-content-top border-box"
+                     style="height: 280px"
+                >
+                    <div class="cover-post-title">
+                        《JAVA-ACE-架构师系列视频课程- RocketMQ（上）》Study Notes
+                    </div>
+                    <img class="post-cover" src="https://cdn.statically.io/gh/ratears/images-hosting@picx/picx/image.4c7ou0womcg0.webp"
+                         onerror="this.style.display='none'"
+                    >
+                </div>
+            
+
+            <div class="post-content-bottom border-box has-cover">
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-head.8z6btc9ei5.webp">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">sonronzy</span>
+                                
+                                    <span class="author-badge">Lv1</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2023-12-29</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Mon Jan 22 2024 07:58:19 GMT+0800">2024-01-22</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/MQ/">MQ</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/categories/MQ/RocketMQ/">RocketMQ</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/MQ/">MQ</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/RocketMQ/">RocketMQ</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>5k Words</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>20 Mins</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body">
+                    
+
+                    <br>
+
+<h1 id="RocketMQ简介"><a href="#RocketMQ简介" class="headerlink" title="RocketMQ简介"></a>RocketMQ简介</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><strong>RocketMQ是一款开源的、分布式、队列模型的消息中间件</strong></li>
+</ul>
+<blockquote>
+<p>由阿里巴巴研发，借鉴参考了JMS规范的MQ实现，更参考了优秀的开源消息中间件Kafka，并且结合阿里实际业务需求，在天猫双十一的场景，实现业务消峰、分布式事务的优秀框架</p>
+</blockquote>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/apache/rocketmq" >rocketmq github<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<blockquote>
+<p>其底层代码编写清晰优秀，采用Netty NIO框架进行数据通信。</p>
+</blockquote>
+<ul>
+<li><p><strong>3.X版本摒弃了ZooKeeper，内部使用更轻量级的NameServer进行网络路由，提高服务性能，</strong>并且支持消息失败重试机制**</p>
+</li>
+<li><p><strong>天然支持集群模型，消费者负载均衡、水平扩展能力，支持广播模式</strong></p>
+</li>
+<li><p><strong>采用零拷贝的原理、顺序写盘、支持亿级消息堆积能力</strong></p>
+</li>
+<li><p><strong>提供丰富的消息机制，如顺序消息、事务消息等</strong></p>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="特点-优势"><a href="#特点-优势" class="headerlink" title="特点 &amp; 优势"></a>特点 &amp; 优势</h2><ul>
+<li>能够保证严格的消息顺序</li>
+<li>提供丰富的消息拉取模式</li>
+<li>高效的订阅者水平扩展能力</li>
+<li>实时的消息订阅机制</li>
+<li>亿级消息堆积能力</li>
+<li>Metaq2.x版本之后：改名为RocketMQ</li>
+<li><font color=red>Rocket4.x ( 分布式事务。事务消息 )</font></li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="选择RocketMQ的理由"><a href="#选择RocketMQ的理由" class="headerlink" title="选择RocketMQ的理由"></a>选择RocketMQ的理由</h2><ul>
+<li>强调集群无单点，可扩展，任意一点高可用，水平可扩展</li>
+<li>海量消息堆积能力，消息堆积后，写入低延迟</li>
+<li>支持上万个队列</li>
+<li>消息失败重试机制</li>
+<li>消息可查询</li>
+<li>开源社区活跃</li>
+<li>成熟度(经过双十一考验)</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="核心概念-专业术语"><a href="#核心概念-专业术语" class="headerlink" title="核心概念&#x2F;专业术语"></a>核心概念&#x2F;专业术语</h2><ul>
+<li><strong>Producer</strong>：消息生产者，负责产生消息，一般由业务系统负责产生消息</li>
+<li><strong>Consumer</strong>：消息消费者，负责消费消息，一般是后台系统负责异步消费</li>
+<li><strong>Push Consumer</strong>：Consumer 的一种，应用通常向 Consumer 对象注册一个 Listener 接口，一旦收到消息，Consumer 对象立刻回调 Listener 接口方法</li>
+<li><strong>Pull Consumer</strong>：Consumer 的一种，应用通常主动调用 Consumer 的拉消息方法从 Broker 拉消息，主动权由应用控制。</li>
+<li><strong>Producer Group</strong>：一类 Producer 的集合名称，返类 Producer 通常収送一类消息，丏収送逡辑一致</li>
+<li><strong>Consumer Group</strong>：一类 Consumer 的集合名称，返类 Consumer 通常消费一类消息，且消费逻辑一致</li>
+<li><strong>Broker</strong>：消息中转角色，负责存储消息，转发消息，一般也称为 Server。在 JMS 规范中称为 Provider</li>
+<li><strong>广播消费</strong>：<ul>
+<li>一条消息被多个 Consumer 消费，即使这些 Consumer 属于同一个 Consumer Group，消息也会被 Consumer Group 中的每个 Consumer 都消费一次，广播消费中的 Consumer Group 概念可以认为在消息划分方面无意义。</li>
+<li>在 CORBA Notification 规范中，消费方式都属亍广播消费。</li>
+<li>在 JMS 规范中，相当亍 JMS publish&#x2F;subscribe model</li>
+</ul>
+</li>
+<li><strong>集群消费</strong>：<ul>
+<li>一个 Consumer Group 中的 Consumer 实例平均分摊消费消息。例如某个 Topic 有 9 条消息，其中一个Consumer Group 有 3 个实例（可能是 3 个迕程，或者 3 台机器），那举每个实例只消费其中的 3 条消息。</li>
+<li>在 CORBA Notification 规范中，无此消费方式。</li>
+</ul>
+</li>
+<li><strong>顺序消息</strong>：<ul>
+<li>消费消息的顺序要同发送消息的顺序一致，在 RocketMQ 中，主要指的是局部顺序，即一类消息为满足顺序性，必须 Producer 单线程顺序发送，且发送到同一个队列，这样 Consumer 就可以按照 Producer 发送的顺序去消费消息</li>
+</ul>
+</li>
+<li><strong>普通顺序消息</strong>：<ul>
+<li>顺序消息的一种，正常情况下可以保证完全的顺序消息，但是一旦发生通信异常，Broker 重启，由队列总数发生变化，哈希取模后定位的队列会变化，产生短暂的消息顺序不一致。</li>
+<li>如果业务能容忍在集群异常情况（如某个 Broker 宕机或者重启）下，消息短暂的乱序，使用普通顺序方式比较合适。</li>
+</ul>
+</li>
+<li><strong>严格顺序消息</strong>：<ul>
+<li>顺序消息的一种，无论正常异常情况都能保证顺序，但是牺牲了分布式 Failover 特性，即 Broker 集群中只要有一台机器不可用，则整个集群都不可用，服务可用性大大降低。</li>
+<li>如果服务器部署为同步双写模式，此缺陷可通过备机自动切换为主避免，不过仍然会存在几分钟的服务不可用。（依赖同步双写，主备自动切换，自动切换功能目前还未实现）</li>
+<li>目前已知的应用只有数据库 binlog 同步强依赖严格顺序消息，其他应用绝大部分都可以容忍短暂乱序，推荐使用普通的顺序消息。</li>
+</ul>
+</li>
+<li><strong>Message Queue</strong>：<ul>
+<li>在 RocketMQ 中，所有消息队列都是持久化，长度无限的数据结构，所谓长度无限是指队列中的每个存储单元都是定长，访问其中的存储单元使用 Offset 来访问，offset 为 java long 类型，64 位，理论上在 100年内不会溢出，所以认为是长度无限，另外队列中只保存最近几天的数据，之前的数据会按照过期时间来删除。</li>
+<li>也可以认为 Message Queue 是一个长度无限的数组，offset 就是下标。</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="RocketMQ-Overview"><a href="#RocketMQ-Overview" class="headerlink" title="RocketMQ Overview"></a>RocketMQ Overview</h2><h3 id="RocketMQ-是什么？"><a href="#RocketMQ-是什么？" class="headerlink" title="RocketMQ 是什么？"></a>RocketMQ 是什么？</h3><ul>
+<li>是一个队列模型的消息中间件，具有高性能、高可靠、高实时、分布式特点。</li>
+<li>Producer、Consumer、队列都可以分布式。</li>
+<li>Producer 吐一些队列轮流収送消息，队列集合称为 Topic，Consumer 如果做广播消费，则一个 consumer实例消费返个 Topic 对应的所有队列，如果做集群消费，则多个 Consumer 实例平均消费返个 topic 对应的队列集合。</li>
+<li>能够保证严格的消息顺序</li>
+<li>提供丰富的消息拉取模式</li>
+<li>高效的订阅者水平扩展能力</li>
+<li>实时的消息订阅机制</li>
+<li>亿级消息堆积能力</li>
+<li>较少的依赖</li>
+</ul>
+<br>
+
+<h3 id="RocketMQ-物理部署结构"><a href="#RocketMQ-物理部署结构" class="headerlink" title="RocketMQ 物理部署结构"></a>RocketMQ 物理部署结构</h3><ul>
+<li>RocketMQ 网络部署图</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.statically.io/gh/ratears/images-hosting@picx/picx/image.3u9v4axb4ie0.webp"
+                         width="100%"
+                 >
+
+<ul>
+<li>Name Server 是一个几乎无状态节点，可集群部署，节点之间无任何信息同步。</li>
+<li>Broker 部署相对复杂，Broker 分为 Master 与 Slave，一个 Master 可以对应多个 Slave，但是一个 Slave 只能对应一个Master，Master与 Slave的对应关系通过指定相同的BrokerName，不同的BrokerId来定指定，BrokerId为 0 表示 Master，非 0 表示 Slave。Master 也可以部署多个。每个 Broker 与 Name Server 集群中的所有节点建立长连接，定时注册 Topic 信息到所有 Name Server。</li>
+<li>Producer 与 Name Server 集群中的其中一个节点（随机选择）建立长连接，定期从 Name Server 取 Topic 路 由信息，并向提供 Topic 服务的 Master 建立长连接，且定时向 Master 发送心跳。Producer 完全无状态，可 集群部署。</li>
+<li>Consumer 与Name Server 集群中的其中一个节点（随机选择）建立长连接，定期从 Name Server 取 Topic 路 由信息，并向提供 Topic 服务的 Master、Slave 建立长连接，且定时向 Master、Slave 发送心跳。Consumer 既可以从 Master 订阅消息，也可以从 Slave 订阅消息，订阅规则由 Broker 配置决定。</li>
+</ul>
+<br>
+
+<h3 id="RocketMQ-逻辑部署结构"><a href="#RocketMQ-逻辑部署结构" class="headerlink" title="RocketMQ 逻辑部署结构"></a><strong>RocketMQ</strong> <strong>逻辑部署结构</strong></h3><ul>
+<li>RocketMQ 逻辑部署结构图</li>
+</ul>
+<img src= "https://cdn.statically.io/gh/ratears/images-hosting@picx/picx/image.574x9bxe6n40.webp" width="70%" />
+
+<ul>
+<li>Producer Group<ul>
+<li>用来表示一个发送消息应用，一个 Producer Group 下包含多个 Producer 实例，可以是多台机器，也可以 是一台机器的多个进程，或者一个进程的多个 Producer 对象。一个 Producer Group 可以发送多个 Topic 消息，Producer Group 作用如下：<ul>
+<li>标识一类 Producer </li>
+<li>可以通过运维工具查询返个収送消息应用下有多个 Producer 实例 </li>
+<li>収送分布式事务消息时，如果 Producer 中途意外宕机，Broker 会主劢回调 Producer Group 内的任意 一台机器来确认事务状态。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Consumer Group <ul>
+<li>用来表示一个消费消息应用，一个 Consumer Group 下包含多个 Consumer 实例，可以是多台机器，也可 以是多个迕程，或者是一个进程的多个 Consumer 对象。一个 Consumer Group 下的多个 Consumer 以均摊 方式消费消息，如果设置为广播方式，那么这个 Consumer Group 下的每个实例都消费全量数据。</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="集群环境"><a href="#集群环境" class="headerlink" title="集群环境"></a>集群环境</h1><h2 id="集群环境介绍"><a href="#集群环境介绍" class="headerlink" title="集群环境介绍"></a>集群环境介绍</h2><ul>
+<li>RocketMQ就是为了分布式而产生的，当然天然支持集群</li>
+<li>RocketMO的集群模型：<ul>
+<li>单机模式(M)<ul>
+<li>方式风险较大，一旦 Broker 重启戒者宕机时，会导致整个服务丌可用，丌建议线上环境使用</li>
+</ul>
+</li>
+<li>Master-Slave模式(M-S)</li>
+<li>双（多）Master模式 ( 2M)<ul>
+<li>优点：配置简单，单个 Master 宕机戒重启维护对应用无影响消息也丌会丢（异步刷盘丢失少量消息，同步刷盘一条丌丢）。性能最高</li>
+<li>缺点：单台机器宕机期间，返台机器上未被消费的消息在机器恢复乀前丌可订阅，消息实时性会叐到叐到影响</li>
+</ul>
+</li>
+<li>双主双从模式(2M-2S)</li>
+<li>多主多从模式(NM-NS)<ul>
+<li>多 Master 多 Slave 模式，异步复制<ul>
+<li>优点：即使磁盘损坏，消息丢失的非常少，且消息实时性不会受影响</li>
+<li>缺点：Master 宕机，磁盘损坏情冴，会丢失少量消息</li>
+</ul>
+</li>
+<li>多 Master 多 Slave 模式，同步双写<ul>
+<li>优点：数据不服务都无单点，Master 宕机情冴下，消息无延迟，服务可用性不数据可用性都非常高</li>
+<li>缺点：性能比异步复制模式略低，大约低 10%左史，収送单个消息的 RT 会略高。目前主宕机后，备机丌能自动切换为主机，后续会支持自劢切换功能。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="RocketMQ-部署【双Master-方式】"><a href="#RocketMQ-部署【双Master-方式】" class="headerlink" title="RocketMQ 部署【双Master 方式】"></a>RocketMQ 部署【双Master 方式】</h2><h3 id="服务器环境"><a href="#服务器环境" class="headerlink" title="服务器环境"></a>服务器环境</h3><table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">IP</th>
+<th align="center">用户名</th>
+<th align="center">角色</th>
+<th align="center">模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">192.168.137.201</td>
+<td align="center">root</td>
+<td align="center">nameServer1,brokerServer1</td>
+<td align="center">Master1</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">192.168.137.202</td>
+<td align="center">root</td>
+<td align="center">nameServer2,brokerServer2</td>
+<td align="center">Master2</td>
+</tr>
+</tbody></table>
+<br>
+
+<h3 id="Hosts-添加信息【两台机器】"><a href="#Hosts-添加信息【两台机器】" class="headerlink" title="Hosts 添加信息【两台机器】"></a>Hosts 添加信息【两台机器】</h3><blockquote>
+<p><font color=red>注意</font>：两台机器需要在9876端口互通，需要开通相关网络策略</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">192.168.137.201  rocketmq-nameserver1</span><br><span class="line">192.168.137.201  rocketmq-master1</span><br><span class="line">192.168.137.202  rocketmq-nameserver2</span><br><span class="line">192.168.137.202  rocketmq-master2</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="上传安装包并解压【两台机器】"><a href="#上传安装包并解压【两台机器】" class="headerlink" title="上传安装包并解压【两台机器】"></a>上传安装包并解压【两台机器】</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> 上传 alibaba-rocketmq-3.2.6.tar.gz 文件至/usr/local/src/</span></span><br><span class="line"></span><br><span class="line">tar -zxvf /usr/local/src/alibaba-rocketmq-3.2.6.tar.gz -C /usr/local/</span><br><span class="line"></span><br><span class="line">mv /usr/local/alibaba-rocketmq /usr/local/alibaba-rocketmq-3.2.6</span><br><span class="line"></span><br><span class="line">ln -s /usr/local/alibaba-rocketmq-3.2.6 /usr/local/rocketmq</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="创建存储路径【两台机器】"><a href="#创建存储路径【两台机器】" class="headerlink" title="创建存储路径【两台机器】"></a>创建存储路径【两台机器】</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/rocketmq/store</span><br><span class="line">mkdir /usr/local/rocketmq/store/commitlog</span><br><span class="line">mkdir /usr/local/rocketmq/store/consumequeue</span><br><span class="line">mkdir /usr/local/rocketmq/store/index</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="修改RocketMQ-配置文件【两台机器】"><a href="#修改RocketMQ-配置文件【两台机器】" class="headerlink" title="修改RocketMQ  配置文件【两台机器】"></a>修改RocketMQ  配置文件【两台机器】</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/rocketmq/conf/2m-noslave/broker-a.properties</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">brokerClusterName=rocketmq-cluster</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">broker 名字，注意此处不同的配置文件填写的不一样</span></span><br><span class="line">brokerName=broker-a</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">0 表示 Master，&gt;0 表示 Slave</span></span><br><span class="line">brokerId=0</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">nameServer 地址，分号分割</span></span><br><span class="line">namesrvAddr=rocketmq-nameserver1:9876;rocketmq-nameserver2:9876</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在发送消息时，自动创建服务器不存在的 topic，默认创建的队列数</span></span><br><span class="line">defaultTopicQueueNums=4</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">是否允许 Broker 自动创建 Topic，建议线下开启，线上关闭</span></span><br><span class="line">autoCreateTopicEnable=true</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭</span></span><br><span class="line">autoCreateSubscriptionGroup=true</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Broker 对外服务的监听端口</span></span><br><span class="line">listenPort=10911</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除文件时间点，默认凌晨 4 点</span></span><br><span class="line">deleteWhen=04</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件保留时间，默认 48 小时</span></span><br><span class="line">fileReservedTime=120</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">commitLog 每个文件的大小默认 1G</span></span><br><span class="line">mapedFileSizeCommitLog=1073741824</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ConsumeQueue 每个文件默认存 30W 条，根据业务情况调整</span></span><br><span class="line">mapedFileSizeConsumeQueue=300000</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">destroyMapedFileIntervalForcibly=120000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">redeleteHangedFileInterval=120000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">检测物理文件磁盘空间</span></span><br><span class="line">diskMaxUsedSpaceRatio=88</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">存储路径</span></span><br><span class="line">storePathRootDir=/usr/local/rocketmq/store</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">commitLog 存储路径</span></span><br><span class="line">storePathCommitLog=/usr/local/rocketmq/store/commitlog</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">消费队列存储路径存储路径</span></span><br><span class="line">storePathConsumeQueue=/usr/local/rocketmq/store/consumequeue</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">消息索引存储路径</span></span><br><span class="line">storePathIndex=/usr/local/rocketmq/store/index</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">checkpoint 文件存储路径</span></span><br><span class="line">storeCheckpoint=/usr/local/rocketmq/store/checkpoint</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">abort 文件存储路径</span></span><br><span class="line">abortFile=/usr/local/rocketmq/store/abort</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">限制的消息大小</span></span><br><span class="line">maxMessageSize=65536</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushCommitLogLeastPages=4</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushConsumeQueueLeastPages=2</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushCommitLogThoroughInterval=10000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushConsumeQueueThoroughInterval=60000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Broker 的角色</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- ASYNC_MASTER 异步复制 Master</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- SYNC_MASTER 同步双写 Master</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- SLAVE</span></span><br><span class="line">brokerRole=ASYNC_MASTER</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">刷盘方式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- ASYNC_FLUSH 异步刷盘</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- SYNC_FLUSH 同步刷盘</span></span><br><span class="line">flushDiskType=ASYNC_FLUSH</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">checkTransactionMessageEnable=<span class="literal">false</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">发消息线程池数量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sendMessageThreadPoolNums=128</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">拉消息线程池数量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">pullMessageThreadPoolNums=128</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/rocketmq/conf/2m-noslave/broker-b.properties</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">brokerClusterName=rocketmq-cluster</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">broker 名字，注意此处不同的配置文件填写的不一样</span></span><br><span class="line">brokerName=broker-b</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">0 表示 Master，&gt;0 表示 Slave</span></span><br><span class="line">brokerId=0</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">nameServer 地址，分号分割</span></span><br><span class="line">namesrvAddr=rocketmq-nameserver1:9876;rocketmq-nameserver2:9876</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在发送消息时，自动创建服务器不存在的 topic，默认创建的队列数</span></span><br><span class="line">defaultTopicQueueNums=4</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">是否允许 Broker 自动创建 Topic，建议线下开启，线上关闭</span></span><br><span class="line">autoCreateTopicEnable=true</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭</span></span><br><span class="line">autoCreateSubscriptionGroup=true</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Broker 对外服务的监听端口</span></span><br><span class="line">listenPort=10911</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除文件时间点，默认凌晨 4 点</span></span><br><span class="line">deleteWhen=04</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件保留时间，默认 48 小时</span></span><br><span class="line">fileReservedTime=120</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">commitLog 每个文件的大小默认 1G</span></span><br><span class="line">mapedFileSizeCommitLog=1073741824</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ConsumeQueue 每个文件默认存 30W 条，根据业务情况调整</span></span><br><span class="line">mapedFileSizeConsumeQueue=300000</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">destroyMapedFileIntervalForcibly=120000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">redeleteHangedFileInterval=120000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">检测物理文件磁盘空间</span></span><br><span class="line">diskMaxUsedSpaceRatio=88</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">存储路径</span></span><br><span class="line">storePathRootDir=/usr/local/rocketmq/store</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">commitLog 存储路径</span></span><br><span class="line">storePathCommitLog=/usr/local/rocketmq/store/commitlog</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">消费队列存储路径存储路径</span></span><br><span class="line">storePathConsumeQueue=/usr/local/rocketmq/store/consumequeue</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">消息索引存储路径</span></span><br><span class="line">storePathIndex=/usr/local/rocketmq/store/index</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">checkpoint 文件存储路径</span></span><br><span class="line">storeCheckpoint=/usr/local/rocketmq/store/checkpoint</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">abort 文件存储路径</span></span><br><span class="line">abortFile=/usr/local/rocketmq/store/abort</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">限制的消息大小</span></span><br><span class="line">maxMessageSize=65536</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushCommitLogLeastPages=4</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushConsumeQueueLeastPages=2</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushCommitLogThoroughInterval=10000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushConsumeQueueThoroughInterval=60000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Broker 的角色</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- ASYNC_MASTER 异步复制 Master</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- SYNC_MASTER 同步双写 Master</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- SLAVE</span></span><br><span class="line">brokerRole=ASYNC_MASTER</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">刷盘方式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- ASYNC_FLUSH 异步刷盘</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- SYNC_FLUSH 同步刷盘</span></span><br><span class="line">flushDiskType=ASYNC_FLUSH</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">checkTransactionMessageEnable=<span class="literal">false</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">发消息线程池数量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sendMessageThreadPoolNums=128</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">拉消息线程池数量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">pullMessageThreadPoolNums=128</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改日志配置文件【两台机器】"><a href="#修改日志配置文件【两台机器】" class="headerlink" title="修改日志配置文件【两台机器】"></a>修改日志配置文件【两台机器】</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/local/rocketmq/logs</span><br><span class="line"></span><br><span class="line">cd /usr/local/rocketmq/conf &amp;&amp; sed -i &#x27;s#$&#123;user.home&#125;#/usr/local/rocketmq#g&#x27; *.xml</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="修改启动脚本参数【两台机器】"><a href="#修改启动脚本参数【两台机器】" class="headerlink" title="修改启动脚本参数【两台机器】"></a>修改启动脚本参数【两台机器】</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/rocketmq/bin/runbroker.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">==============================================================================</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开发环境 JVM Configuration</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">==============================================================================</span></span><br><span class="line">JAVA_OPT=&quot;$&#123;JAVA_OPT&#125;  -server  -Xms1g  -Xmx1g  -Xmn512m  -XX:PermSize=128m  -</span><br><span class="line">XX:MaxPermSize=320m&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/rocketmq/bin/runserver.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JAVA_OPT=&quot;$&#123;JAVA_OPT&#125;  -server  -Xms1g  -Xmx1g  -Xmn512m  -XX:PermSize=128m  -</span><br><span class="line">XX:MaxPermSize=320m&quot;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="启动-NameServer-【两台机器】"><a href="#启动-NameServer-【两台机器】" class="headerlink" title="启动 NameServer 【两台机器】"></a>启动 NameServer 【两台机器】</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/rocketmq/bin</span><br><span class="line"></span><br><span class="line">nohup sh mqnamesrv &amp;</span><br><span class="line"></span><br><span class="line">jps</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="启动-BrokerServer1"><a href="#启动-BrokerServer1" class="headerlink" title="启动 BrokerServer1"></a>启动 BrokerServer1</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/rocketmq/bin</span><br><span class="line">nohup sh mqbroker -c /usr/local/rocketmq/conf/2m-noslave/broker-a.properties &gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line">netstat -ntlp</span><br><span class="line">jps</span><br><span class="line">tail -f -n 500 /usr/local/rocketmq/logs/rocketmqlogs/broker.log</span><br><span class="line">tail -f -n 500 /usr/local/rocketmq/logs/rocketmqlogs/namesrv.log</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="启动-BrokerServer2"><a href="#启动-BrokerServer2" class="headerlink" title="启动 BrokerServer2"></a>启动 BrokerServer2</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/rocketmq/bin</span><br><span class="line">nohup sh mqbroker -c /usr/local/rocketmq/conf/2m-noslave/broker-b.properties &gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line">netstat -ntlp</span><br><span class="line">jps</span><br><span class="line">tail -f -n 500 /usr/local/rocketmq/logs/rocketmqlogs/broker.log</span><br><span class="line">tail -f -n 500 /usr/local/rocketmq/logs/rocketmqlogs/namesrv.log</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h2 id="RocketMQ-监控台"><a href="#RocketMQ-监控台" class="headerlink" title="RocketMQ 监控台"></a>RocketMQ 监控台</h2><ul>
+<li>我们使用RocketMQ自带的web项目监控集群消费信息。rocketmg-console-3.26war把这个部署到tomcat上即可</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上传 apache-tomcat-8.5.93.tar.gz 到 /usr/local/src/ 目录下</span></span><br><span class="line"></span><br><span class="line">tar -zxvf  apache-tomcat-8.5.93.tar.gz -C /usr/local/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上传 rocketmq-console.war 到 /usr/local/apache-tomcat-8.5.93/webapps/ 目录下</span></span><br><span class="line"></span><br><span class="line">cd /usr/local/apache-tomcat-8.5.93/webapps/</span><br><span class="line"></span><br><span class="line">unzip rocketmq-console.war -d rocketmq-console</span><br><span class="line"></span><br><span class="line">rm -rf rocketmq-console.war</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/apache-tomcat-8.5.93/webapps/rocketmq-console/WEB-INF/classes/config.properties</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rocketmq.namesrv.addr=rocketmq-nameserver1:9876;rocketmq-nameserver2:9876</span><br><span class="line">throwDone=true</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/apache-tomcat-8.5.93/bin/startup.sh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="http://192.168.137.201:8080/rocketmq-console/" >http://192.168.137.201:8080/rocketmq-console/<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.statically.io/gh/ratears/images-hosting@picx/picx/image.1tes78fvpnvk.webp"
+                         
+                 >
+
+<br>
+
+<br>
+
+<h2 id="Broker配置文件详解"><a href="#Broker配置文件详解" class="headerlink" title="Broker配置文件详解"></a>Broker配置文件详解</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">brokerClusterName=rocketmq-cluster</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">broker 名字，注意此处不同的配置文件填写的不一样</span></span><br><span class="line">brokerName=broker-a</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">0 表示 Master，&gt;0 表示 Slave</span></span><br><span class="line">brokerId=0</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">nameServer 地址，分号分割</span></span><br><span class="line">namesrvAddr=rocketmq-nameserver1:9876;rocketmq-nameserver2:9876</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在发送消息时，自动创建服务器不存在的 topic，默认创建的队列数</span></span><br><span class="line">defaultTopicQueueNums=4</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">是否允许 Broker 自动创建 Topic，建议线下开启，线上关闭</span></span><br><span class="line">autoCreateTopicEnable=true</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭</span></span><br><span class="line">autoCreateSubscriptionGroup=true</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Broker 对外服务的监听端口</span></span><br><span class="line">listenPort=10911</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除文件时间点，默认凌晨 4 点</span></span><br><span class="line">deleteWhen=04</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件保留时间，默认 48 小时</span></span><br><span class="line">fileReservedTime=120</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">commitLog 每个文件的大小默认 1G</span></span><br><span class="line">mapedFileSizeCommitLog=1073741824</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ConsumeQueue 每个文件默认存 30W 条，根据业务情况调整</span></span><br><span class="line">mapedFileSizeConsumeQueue=300000</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">destroyMapedFileIntervalForcibly=120000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">redeleteHangedFileInterval=120000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">检测物理文件磁盘空间</span></span><br><span class="line">diskMaxUsedSpaceRatio=88</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">存储路径</span></span><br><span class="line">storePathRootDir=/usr/local/rocketmq/store</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">commitLog 存储路径</span></span><br><span class="line">storePathCommitLog=/usr/local/rocketmq/store/commitlog</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">消费队列存储路径存储路径</span></span><br><span class="line">storePathConsumeQueue=/usr/local/rocketmq/store/consumequeue</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">消息索引存储路径</span></span><br><span class="line">storePathIndex=/usr/local/rocketmq/store/index</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">checkpoint 文件存储路径</span></span><br><span class="line">storeCheckpoint=/usr/local/rocketmq/store/checkpoint</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">abort 文件存储路径</span></span><br><span class="line">abortFile=/usr/local/rocketmq/store/abort</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">限制的消息大小</span></span><br><span class="line">maxMessageSize=65536</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushCommitLogLeastPages=4</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushConsumeQueueLeastPages=2</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushCommitLogThoroughInterval=10000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">flushConsumeQueueThoroughInterval=60000</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Broker 的角色</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- ASYNC_MASTER 异步复制 Master</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- SYNC_MASTER 同步双写 Master</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- SLAVE</span></span><br><span class="line">brokerRole=ASYNC_MASTER</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">刷盘方式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- ASYNC_FLUSH 异步刷盘</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">- SYNC_FLUSH 同步刷盘</span></span><br><span class="line">flushDiskType=ASYNC_FLUSH</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">checkTransactionMessageEnable=<span class="literal">false</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">发消息线程池数量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sendMessageThreadPoolNums=128</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">拉消息线程池数量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">pullMessageThreadPoolNums=128</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<br>
+
+<h1 id="RocketMQ-hello-word-模型"><a href="#RocketMQ-hello-word-模型" class="headerlink" title="RocketMQ hello word 模型"></a>RocketMQ hello word 模型</h1><h2 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h2><ul>
+<li>第一步:创建DefaultMOProducer类并设定生产者名称，设置setNamesrvAddr，集群模式用”;”进行分割，调用start方法启动即可</li>
+<li>第二步:使用Message类进行实例化消息，参数分别为:主题、标签、内容</li>
+<li>第三步:调用send方法发送消息，并且关闭生产者即可</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Producer</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> MQClientException, RemotingException, MQBrokerException, InterruptedException &#123;</span><br><span class="line">		<span class="comment">//第一步:创建DefaultMOProducer类并设定生产者名称，设置setNamesrvAddr，集群模式用&quot;;&quot;进行分割，调用start方法启动即可</span></span><br><span class="line">		<span class="type">DefaultMQProducer</span> <span class="variable">producer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DefaultMQProducer</span>(<span class="string">&quot;quickstart_producer&quot;</span>);</span><br><span class="line">		</span><br><span class="line">		producer.setNamesrvAddr(<span class="string">&quot;192.168.137.201:9876;192.168.137.202:9876&quot;</span>);</span><br><span class="line">		producer.start();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;<span class="number">10</span>;i++) &#123;</span><br><span class="line">			<span class="comment">// 第二步:使用Message类进行实例化消息，参数分别为:主题、标签、内容</span></span><br><span class="line">			<span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Message</span>(<span class="string">&quot;TopicQuickStart&quot;</span>,<span class="string">&quot;tagA&quot;</span>,<span class="string">&quot;key1&quot;</span>,(<span class="string">&quot;this is a message&quot;</span>+i).getBytes());</span><br><span class="line">			<span class="comment">// 第三步:调用send方法发送消息，并且关闭生产者即可</span></span><br><span class="line">			<span class="type">SendResult</span> <span class="variable">sendResult</span> <span class="operator">=</span> producer.send(message);</span><br><span class="line">			System.out.println(sendResult);</span><br><span class="line">		&#125;</span><br><span class="line">		producer.shutdown();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h2 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h2><ul>
+<li>第一步:创建DefaultMOPushConsumer类并设定消费者名称，设置setNamesrvAddr，集群模式用”;”进行分割</li>
+<li>第二步:设置DefauitMQPushConsumer实例的订阅主题，一个消费者对荣可以订阅多个主题，使用subscribe方法订园(参数1王题名称，参数2标签内容，可以使用” ”对标签内容进行合并获取)</li>
+<li>第三步:消费者实例进行注册监听:设置registerMessageListener方法。</li>
+<li>第四步:监听类实现MessagelistenerConcurrently接口即可，重写consumeMessage方法接受数据<ul>
+<li>ConsumeConcurrentlyStatusRECONSUME LATER</li>
+<li>ConsumeConcurrentlyStatus.CONSUMESUCCESS</li>
+</ul>
+</li>
+<li>第五步:启动消费者实例对象，调用start方法即可</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Consumer</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> MQClientException &#123;</span><br><span class="line">		<span class="comment">// 第一步:创建DefaultMOPushConsumer类并设定消费者名称，设置setNamesrvAddr，集群模式用&quot;;&quot;进行分割</span></span><br><span class="line">		<span class="type">DefaultMQPushConsumer</span> <span class="variable">consumer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DefaultMQPushConsumer</span>(<span class="string">&quot;quickstart_consumer&quot;</span>);</span><br><span class="line">		consumer.setNamesrvAddr(<span class="string">&quot;192.168.137.201:9876;192.168.137.202:9876&quot;</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//- 第二步:设置DefauitMQPushConsumer实例的订阅主题，一个消费者对荣可以订阅多个主题，使用subscribe方法订园(参数1王题名称，参数2标签内容，可以使用&quot; ”对标签内容进行合并获取)</span></span><br><span class="line">		consumer.subscribe(<span class="string">&quot;TopicQuickStart&quot;</span>, <span class="string">&quot;*&quot;</span>);</span><br><span class="line">		consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);</span><br><span class="line">		<span class="comment">//- 第三步:消费者实例进行注册监听:设置registerMessageListener方法。</span></span><br><span class="line">		<span class="comment">//- 第四步:监听类实现MessagelistenerConcurrently接口即可，重写consumeMessage方法接受数据</span></span><br><span class="line">		consumer.registerMessageListener(<span class="keyword">new</span> <span class="title class_">MessageListenerConcurrently</span>() &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="keyword">public</span> ConsumeConcurrentlyStatus <span class="title function_">consumeMessage</span><span class="params">(List&lt;MessageExt&gt; msgs, ConsumeConcurrentlyContext arg1)</span> &#123;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					System.out.println(<span class="string">&quot;条数：&quot;</span>+msgs.size());</span><br><span class="line">					</span><br><span class="line">					<span class="type">MessageExt</span> <span class="variable">messageExt</span> <span class="operator">=</span> msgs.get(<span class="number">0</span>);</span><br><span class="line">					<span class="type">String</span> <span class="variable">topic</span> <span class="operator">=</span> messageExt.getTopic();</span><br><span class="line">					<span class="type">String</span> <span class="variable">tags</span> <span class="operator">=</span> messageExt.getTags();</span><br><span class="line">					<span class="type">String</span> <span class="variable">body</span>  <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(messageExt.getBody(),<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">					System.out.println(<span class="string">&quot;topic:&quot;</span>+topic);</span><br><span class="line">					System.out.println(<span class="string">&quot;tags:&quot;</span>+tags);</span><br><span class="line">					System.out.println(<span class="string">&quot;body:&quot;</span>+body);</span><br><span class="line">				&#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">					<span class="keyword">return</span> ConsumeConcurrentlyStatus.RECONSUME_LATER;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">return</span> ConsumeConcurrentlyStatus.CONSUME_SUCCESS;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 第五步:启动消费者实例对象，调用start方法即可</span></span><br><span class="line">		consumer.start();</span><br><span class="line">		System.out.println(<span class="string">&quot;Consumer start...&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<br>
+
+<h1 id="RocketMQ-Java-API-helloword"><a href="#RocketMQ-Java-API-helloword" class="headerlink" title="RocketMQ Java API helloword"></a>RocketMQ Java API helloword</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<br>
+
+<h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br>
+
+<br>
+
+<br>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://edu.51cto.com/course/7498.html" >JAVA-ACE-架构师系列视频课程- RocketMQ（上）<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote>
+<ol>
+<li>熟悉一下RocketMQ的官网，看看相关文档</li>
+<li>hello word部分实践过一遍，以后还应该再学习一下</li>
+<li>不同集群环境的优缺点这块需要补充笔记（3），需要熟悉</li>
+</ol>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;90%&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+                </div>
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                《JAVA-ACE-架构师系列视频课程- RocketMQ（上）》Study Notes
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2023/《JAVA-ACE-架构师系列视频课程-RocketMQ（上）》Study-Notes/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">Kierke</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2023-12-29 05:33</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/MQ/">MQ</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/RocketMQ/">RocketMQ</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    <div class="reward-author-container border-box flex-center">
+    <div class="reward-btn keep-button border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="请作者喝咖啡"
+            data-tooltip-img-url="https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-1714407409574.6f0hgreq3y.webp"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -8px;"
+    >
+        <i class="fa-solid fa-hand-holding-heart"></i>
+    </div>
+</div>
+
+                
+
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="configuration-items-error-tip border-box">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    Please fill in the required configuration items for Valine comment plugin
+</div>
+
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RocketMQ%E7%AE%80%E4%BB%8B"><span class="nav-text">RocketMQ简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-%E4%BC%98%E5%8A%BF"><span class="nav-text">特点 &amp; 优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9RocketMQ%E7%9A%84%E7%90%86%E7%94%B1"><span class="nav-text">选择RocketMQ的理由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD"><span class="nav-text">核心概念&#x2F;专业术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RocketMQ-Overview"><span class="nav-text">RocketMQ Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RocketMQ-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">RocketMQ 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RocketMQ-%E7%89%A9%E7%90%86%E9%83%A8%E7%BD%B2%E7%BB%93%E6%9E%84"><span class="nav-text">RocketMQ 物理部署结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RocketMQ-%E9%80%BB%E8%BE%91%E9%83%A8%E7%BD%B2%E7%BB%93%E6%9E%84"><span class="nav-text">RocketMQ 逻辑部署结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83"><span class="nav-text">集群环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D"><span class="nav-text">集群环境介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RocketMQ-%E9%83%A8%E7%BD%B2%E3%80%90%E5%8F%8CMaster-%E6%96%B9%E5%BC%8F%E3%80%91"><span class="nav-text">RocketMQ 部署【双Master 方式】</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83"><span class="nav-text">服务器环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hosts-%E6%B7%BB%E5%8A%A0%E4%BF%A1%E6%81%AF%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">Hosts 添加信息【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%AE%89%E8%A3%85%E5%8C%85%E5%B9%B6%E8%A7%A3%E5%8E%8B%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">上传安装包并解压【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%98%E5%82%A8%E8%B7%AF%E5%BE%84%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">创建存储路径【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9RocketMQ-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">修改RocketMQ  配置文件【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">修改日志配置文件【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E5%8F%82%E6%95%B0%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">修改启动脚本参数【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-NameServer-%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">启动 NameServer 【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-BrokerServer1"><span class="nav-text">启动 BrokerServer1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-BrokerServer2"><span class="nav-text">启动 BrokerServer2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RocketMQ-%E7%9B%91%E6%8E%A7%E5%8F%B0"><span class="nav-text">RocketMQ 监控台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Broker%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3"><span class="nav-text">Broker配置文件详解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RocketMQ-hello-word-%E6%A8%A1%E5%9E%8B"><span class="nav-text">RocketMQ hello word 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85"><span class="nav-text">生产者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85"><span class="nav-text">消费者</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RocketMQ-Java-API-helloword"><span class="nav-text">RocketMQ Java API helloword</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2018</span>&nbsp;-&nbsp;2024
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Kierke</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+            </div>
+
+            
+
+            
+                
+                <div class="deploy-info info-item default">
+                    
+                        This site is deployed on <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span>
+                    
+                </div>
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">5k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-toggle-theme-mode flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RocketMQ%E7%AE%80%E4%BB%8B"><span class="nav-text">RocketMQ简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-%E4%BC%98%E5%8A%BF"><span class="nav-text">特点 &amp; 优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9RocketMQ%E7%9A%84%E7%90%86%E7%94%B1"><span class="nav-text">选择RocketMQ的理由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD"><span class="nav-text">核心概念&#x2F;专业术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RocketMQ-Overview"><span class="nav-text">RocketMQ Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RocketMQ-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">RocketMQ 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RocketMQ-%E7%89%A9%E7%90%86%E9%83%A8%E7%BD%B2%E7%BB%93%E6%9E%84"><span class="nav-text">RocketMQ 物理部署结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RocketMQ-%E9%80%BB%E8%BE%91%E9%83%A8%E7%BD%B2%E7%BB%93%E6%9E%84"><span class="nav-text">RocketMQ 逻辑部署结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83"><span class="nav-text">集群环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D"><span class="nav-text">集群环境介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RocketMQ-%E9%83%A8%E7%BD%B2%E3%80%90%E5%8F%8CMaster-%E6%96%B9%E5%BC%8F%E3%80%91"><span class="nav-text">RocketMQ 部署【双Master 方式】</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83"><span class="nav-text">服务器环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hosts-%E6%B7%BB%E5%8A%A0%E4%BF%A1%E6%81%AF%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">Hosts 添加信息【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%AE%89%E8%A3%85%E5%8C%85%E5%B9%B6%E8%A7%A3%E5%8E%8B%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">上传安装包并解压【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%98%E5%82%A8%E8%B7%AF%E5%BE%84%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">创建存储路径【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9RocketMQ-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">修改RocketMQ  配置文件【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">修改日志配置文件【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E5%8F%82%E6%95%B0%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">修改启动脚本参数【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-NameServer-%E3%80%90%E4%B8%A4%E5%8F%B0%E6%9C%BA%E5%99%A8%E3%80%91"><span class="nav-text">启动 NameServer 【两台机器】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-BrokerServer1"><span class="nav-text">启动 BrokerServer1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-BrokerServer2"><span class="nav-text">启动 BrokerServer2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RocketMQ-%E7%9B%91%E6%8E%A7%E5%8F%B0"><span class="nav-text">RocketMQ 监控台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Broker%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3"><span class="nav-text">Broker配置文件详解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RocketMQ-hello-word-%E6%A8%A1%E5%9E%8B"><span class="nav-text">RocketMQ hello word 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85"><span class="nav-text">生产者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85"><span class="nav-text">消费者</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RocketMQ-Java-API-helloword"><span class="nav-text">RocketMQ Java API helloword</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<!-- common -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/header-shrink.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/back2top.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/toggle-theme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/code-block.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/libs/anime.min.js"></script>
+
+<!-- local-search -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/local-search.min.js"></script>
+
+
+<!-- lazyload -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/lazyload.min.js"></script>
+
+
+<div class="pjax">
+    
+        <!-- post-helper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/post/post-helper.min.js"></script>
+
+        <!-- toc -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/post/toc.min.js"></script>
+        
+
+        <!-- copyright-info -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/post/copyright-info.min.js"></script>
+        
+
+        <!-- share -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/post/share.min.js"></script>
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.1/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
