@@ -268,23 +268,47 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Wed May 01 2024 18:31:19 GMT+0800">2024-05-01</span>
+                <span class="datetime" data-updated="Wed May 01 2024 23:21:03 GMT+0800">2024-05-01</span>
             </span>
         
 
         
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Distributed-Transaction/">Distributed-Transaction</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/categories/Distributed-Transaction/Transaction/">Transaction</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Distributed-Transaction/">Distributed-Transaction</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Transaction/">Transaction</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>75 Words</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.7k Words</span>
             </span>
         
         
             <span class="meta-info-item post-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>1 Mins</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>6 Mins</span>
             </span>
         
         
@@ -307,16 +331,288 @@
 
                     <br>
 
-<p>文章摘要信息……</p>
-<span id="more"></span>
+<h1 id="basic-concept"><a href="#basic-concept" class="headerlink" title="basic concept"></a>basic concept</h1><h2 id="What’s-Transaction"><a href="#What’s-Transaction" class="headerlink" title="What’s Transaction"></a>What’s Transaction</h2><ul>
+<li><strong>定义：</strong> <strong>数据库事务</strong>是<strong>访问</strong>并可能<strong>更新</strong>数据库中各种<strong>数据项</strong>的一个<strong>程序执行单元(unit)</strong></li>
+<li><strong>组成：</strong> 一个数据库事务通常包含对数据库进行<strong>读</strong>或<strong>写</strong>的一个<strong>操作序列</strong></li>
+<li><strong>目的：</strong><ul>
+<li>（1）为数据库操作提供了一个<strong>从失败中恢复到正常状态的方法</strong>，同时提供了数据库即使在<strong>异常状态下仍能保持一致性的方法</strong></li>
+<li>（2）当多个应用程序在并发访问数据库时，可以<strong>在这些应用程序之间提供一个隔离方法，以防止彼此的操作互相干扰</strong></li>
+</ul>
+</li>
+</ul>
+<br>
 
-<h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br>
+<br>
+
+<h2 id="事务目标（目的）分析"><a href="#事务目标（目的）分析" class="headerlink" title="事务目标（目的）分析"></a>事务目标（目的）分析</h2><ul>
+<li><p><strong>事务的目的就是要提供3种方法</strong>：</p>
+<ul>
+<li>（1）失败恢复方法</li>
+<li>（2）保持一致性的方法</li>
+<li>（3）操作隔离的方法</li>
+</ul>
+</li>
+<li><p><strong>成功情况下：</strong>能将数据从一种状态变为另外一种状态，并能够持久化</p>
+</li>
+<li><p><strong>异常情况下：</strong></p>
+<ul>
+<li>能将数据恢复到正常状态</li>
+<li>要能保证一致性，包含数据的一致性和约束的一致性</li>
+</ul>
+</li>
+<li><p><strong>并发情况下：</strong>并发的操作之间不能产生相互影响</p>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="Transaction-Features"><a href="#Transaction-Features" class="headerlink" title="Transaction Features"></a>Transaction Features</h2><blockquote>
+<p>事务的目的指向了事务的特性</p>
+</blockquote>
+<ul>
+<li><strong>原子性Actomicity</strong>：事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行</li>
+<li><strong>一致性 Consistency</strong>：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。一致状态的含义是数据库中的数据应满足完整性约束</li>
+<li><strong>隔离性 Isolation</strong>：多个事务并发执行时，一个事务的执行不应影响其他事务的执行</li>
+<li><strong>持久性 Durability</strong>：一个事务一旦提交，他对数据库的修改应该永久保存在数据库中</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="Transaction-Concurrency-Exception"><a href="#Transaction-Concurrency-Exception" class="headerlink" title="Transaction Concurrency Exception"></a>Transaction Concurrency Exception</h2><ul>
+<li><strong>Update Lost&#x2F;回滚丢失&#x2F;第一类更新丢失</strong>：此种更新丢失是因为回滚的原因，所以也叫回滚丢失</li>
+<li><strong>Seconde Update Lost&#x2F;覆盖丢失&#x2F;第二类更新丢失</strong>：此种更新丢失是因为更新被其他事务给覆盖了，也可以叫覆盖丢失</li>
+<li><strong>Dirty Read&#x2F;脏读</strong>：此种异常时因为一个事务读取了另一个事务修改了但是未提交的数据</li>
+<li><strong>Not Repeatable Read&#x2F;不可重复读</strong>：一个事务对同一行数据执行了两次或更多次查询，但是却得到了不同的结果</li>
+<li><strong>Phantom Read&#x2F;幻读</strong>：幻读和不可重复读有点像，只是针对的不是数据的值而是数据的数量</li>
+</ul>
+<h3 id="Update-Lost-回滚丢失"><a href="#Update-Lost-回滚丢失" class="headerlink" title="Update Lost&#x2F;回滚丢失"></a>Update Lost&#x2F;回滚丢失</h3><table>
+<thead>
+<tr>
+<th align="center">事务A</th>
+<th align="center">事务B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">查询数据得到初始值10</td>
+<td align="center">查询数据得到初始值10</td>
+</tr>
+<tr>
+<td align="center">更新为10+1&#x3D;11</td>
+<td align="center">更新10+2&#x3D;12</td>
+</tr>
+<tr>
+<td align="center">提交</td>
+<td align="center">失败回滚</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">数据回到初始化状态10，导致事务A的更新丢失了<br>由于回滚导致丢失所以叫做回滚丢失</td>
+</tr>
+</tbody></table>
+<h3 id="Seconde-Update-Lost-覆盖丢失"><a href="#Seconde-Update-Lost-覆盖丢失" class="headerlink" title="Seconde Update Lost&#x2F;覆盖丢失"></a>Seconde Update Lost&#x2F;覆盖丢失</h3><table>
+<thead>
+<tr>
+<th align="center">事务A</th>
+<th align="center">事务B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">查询数据得到初始值10</td>
+<td align="center">查询数据得到初始值10</td>
+</tr>
+<tr>
+<td align="center">更新为10+1&#x3D;11</td>
+<td align="center">更新10+2&#x3D;12</td>
+</tr>
+<tr>
+<td align="center">提交</td>
+<td align="center">提交</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">最终结果变为12<br>由于事务B是从10开始计算，并不知道数据已经发生了变化，所以导致事务A的更新结果被覆盖了，所以叫覆盖更新。</td>
+</tr>
+</tbody></table>
+<h3 id="Dirty-Read"><a href="#Dirty-Read" class="headerlink" title="Dirty Read"></a>Dirty Read</h3><table>
+<thead>
+<tr>
+<th align="center">事务A</th>
+<th align="center">事务B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">查询数据得到初始值10</td>
+<td align="center">查询数据得到初始值10</td>
+</tr>
+<tr>
+<td align="center">更新为10+1&#x3D;11</td>
+<td align="center">再此读取数值的到11</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">更新数据11+1&#x3D;12</td>
+</tr>
+<tr>
+<td align="center">回滚</td>
+<td align="center">提交</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">最终数据变为12<br>由于读取到的数据11被回滚了，结果是错误的，读取到了脏数据</td>
+</tr>
+</tbody></table>
+<h3 id="Not-Repeatable-Read"><a href="#Not-Repeatable-Read" class="headerlink" title="Not Repeatable Read"></a>Not Repeatable Read</h3><table>
+<thead>
+<tr>
+<th align="center">事务A</th>
+<th align="center">事务B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">查询数据得到初始值10</td>
+<td align="center">查询数据得到初始值10</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">再此读取数据得到11</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">在一个事务内两次对同一条数据查询，得到的结果是不同的，因此叫做不可重复读</td>
+</tr>
+</tbody></table>
+<h3 id="Phantom-Read"><a href="#Phantom-Read" class="headerlink" title="Phantom Read"></a>Phantom Read</h3><table>
+<thead>
+<tr>
+<th align="center">事务A</th>
+<th align="center">事务B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">查询数据有11条</td>
+<td align="center">查询数据有是一条</td>
+</tr>
+<tr>
+<td align="center">更新全部数据为1</td>
+<td align="center">插入一条数据</td>
+</tr>
+<tr>
+<td align="center">查询结果由一条没被更新，比原来多了一条</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">仿佛全表更新语句不正常，自己出现了幻觉，因此叫幻读</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<br>
+
+<br>
+
+<h2 id="Transaction-Isolation-Level"><a href="#Transaction-Isolation-Level" class="headerlink" title="Transaction Isolation Level"></a>Transaction Isolation Level</h2><h3 id="Read-Uncommitted"><a href="#Read-Uncommitted" class="headerlink" title="Read Uncommitted"></a>Read Uncommitted</h3><ul>
+<li>即使一个事务的更新语句没有提交，但是别的事务可以读到这个改变</li>
+<li>无法消除任何事务并发异常</li>
+</ul>
+<h3 id="Read-Committed"><a href="#Read-Committed" class="headerlink" title="Read Committed"></a>Read Committed</h3><ul>
+<li>一个事务只能看到其他事务的已经提交的更新，看不到未提交的更新</li>
+<li>消除了脏读和第一类丢失更新</li>
+<li>这是大多数数据库的默认隔离级别：<strong>Oracle、SqlServer</strong></li>
+</ul>
+<h3 id="Repeatable-Read"><a href="#Repeatable-Read" class="headerlink" title="Repeatable Read"></a>Repeatable Read</h3><ul>
+<li>一个事务中进行两次或多次同样的对于数据内容的查询，得到的结果是一样的，但不保证对于数据条数的查询是一样的，只要存在读改行数据就禁止写</li>
+<li>消除了不可重复读和第二类更新丢失</li>
+<li><strong>这是Mysql数据库的默认隔离级别</strong></li>
+</ul>
+<h3 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h3><ul>
+<li>事务执行的时候不允许别的事务并发执行，完全串行化的读，只要存在读就禁止写，但可以同时读</li>
+<li>消除了幻读</li>
+<li>这是事务隔离的最高级别，虽然最安全最省心，但是效率太低，一般不会用</li>
+</ul>
+<h3 id="各种隔离级别能解决哪些并发异常"><a href="#各种隔离级别能解决哪些并发异常" class="headerlink" title="各种隔离级别能解决哪些并发异常"></a>各种隔离级别能解决哪些并发异常</h3><table>
+<thead>
+<tr>
+<th align="center">隔离级别\并发异常</th>
+<th align="center">回滚丢失</th>
+<th align="center">脏读</th>
+<th align="center">不可重复读</th>
+<th align="center">覆盖丢失</th>
+<th align="center">幻读</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">读未提交</td>
+<td align="center"><font color=red>×</font></td>
+<td align="center"><font color=red>×</font></td>
+<td align="center"><font color=red>×</font></td>
+<td align="center"><font color=red>×</font></td>
+<td align="center"><font color=red>×</font></td>
+</tr>
+<tr>
+<td align="center">读已提交</td>
+<td align="center"><font color=green>✓</font></td>
+<td align="center"><font color=green>✓</font></td>
+<td align="center"><font color=red>×</font></td>
+<td align="center"><font color=red>×</font></td>
+<td align="center"><font color=red>×</font></td>
+</tr>
+<tr>
+<td align="center">可重复读</td>
+<td align="center"><font color=green>✓</font></td>
+<td align="center"><font color=green>✓</font></td>
+<td align="center"><font color=green>✓</font></td>
+<td align="center"><font color=green>✓</font></td>
+<td align="center"><font color=red>×</font></td>
+</tr>
+<tr>
+<td align="center">串行化</td>
+<td align="center"><font color=green>✓</font></td>
+<td align="center"><font color=green>✓</font></td>
+<td align="center"><font color=green>✓</font></td>
+<td align="center"><font color=green>✓</font></td>
+<td align="center"><font color=green>✓</font></td>
+</tr>
+</tbody></table>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Transaction-Isolation-Operator"><a href="#Transaction-Isolation-Operator" class="headerlink" title="Transaction Isolation Operator"></a>Transaction Isolation Operator</h1><h2 id="environment"><a href="#environment" class="headerlink" title="environment"></a>environment</h2><ul>
+<li>环境信息</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 使用的数据库以及版本信息</span><br><span class="line">mysql&gt; select version();</span><br><span class="line">+-----------+</span><br><span class="line">| version() |</span><br><span class="line">+-----------+</span><br><span class="line">| 5.7.26    |</span><br><span class="line">+-----------+</span><br><span class="line"></span><br><span class="line"># MySQL InnoDB引擎的默认隔离级别为REPEATABLE-READ</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>操作指令</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 查看数据库版本：</span><br><span class="line">select version();</span><br><span class="line"></span><br><span class="line"># 查看隔离级别：</span><br><span class="line">select @@session.tx_isolation;</span><br><span class="line"></span><br><span class="line"># （会话级）修改隔离级别：</span><br><span class="line">set @@session.tx_isolation=&#x27;参数&#x27;;</span><br><span class="line"># 可选参数</span><br><span class="line">set @@session.tx_isolation=&#x27;READ-UNCOMMITTED&#x27;;</span><br><span class="line">set @@session.tx_isolation=&#x27;READ-COMMITTED&#x27;;</span><br><span class="line">set @@session.tx_isolation=&#x27;REPEATABLE-READ&#x27;;</span><br><span class="line">set @@session.tx_isolation=&#x27;SERIALIZABLE&#x27;;</span><br><span class="line"></span><br><span class="line"># 开启事务：</span><br><span class="line">start transaction;</span><br><span class="line"></span><br><span class="line"># 提交：</span><br><span class="line">commit;</span><br><span class="line"></span><br><span class="line"># 回滚</span><br><span class="line">rollback;</span><br></pre></td></tr></table></figure>
 
 <br>
 
 <br>
 
-<h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br>
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<h1 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h1><br>
 
 <br>
 
@@ -333,7 +629,8 @@
 
 <h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote>
 <ol>
-<li>xxx需要再深入学习</li>
+<li>事务并发异常和事务隔离级别非常非常重要需要熟记</li>
+<li>需要整理不同隔离级别的并发性能，需要理解并记忆不同隔离级别为何能消除某些事务并发异常</li>
 </ol>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure>
@@ -401,6 +698,18 @@
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Distributed-Transaction/">Distributed-Transaction</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Transaction/">Transaction</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -525,7 +834,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="nav-text">标题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#basic-concept"><span class="nav-text">basic concept</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What%E2%80%99s-Transaction"><span class="nav-text">What’s Transaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9B%AE%E6%A0%87%EF%BC%88%E7%9B%AE%E7%9A%84%EF%BC%89%E5%88%86%E6%9E%90"><span class="nav-text">事务目标（目的）分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Features"><span class="nav-text">Transaction Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Concurrency-Exception"><span class="nav-text">Transaction Concurrency Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-Lost-%E5%9B%9E%E6%BB%9A%E4%B8%A2%E5%A4%B1"><span class="nav-text">Update Lost&#x2F;回滚丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Seconde-Update-Lost-%E8%A6%86%E7%9B%96%E4%B8%A2%E5%A4%B1"><span class="nav-text">Seconde Update Lost&#x2F;覆盖丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dirty-Read"><span class="nav-text">Dirty Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Not-Repeatable-Read"><span class="nav-text">Not Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phantom-Read"><span class="nav-text">Phantom Read</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Isolation-Level"><span class="nav-text">Transaction Isolation Level</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Uncommitted"><span class="nav-text">Read Uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Committed"><span class="nav-text">Read Committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-Read"><span class="nav-text">Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable"><span class="nav-text">Serializable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E8%83%BD%E8%A7%A3%E5%86%B3%E5%93%AA%E4%BA%9B%E5%B9%B6%E5%8F%91%E5%BC%82%E5%B8%B8"><span class="nav-text">各种隔离级别能解决哪些并发异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transaction-Isolation-Operator"><span class="nav-text">Transaction Isolation Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#environment"><span class="nav-text">environment</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%983"><span class="nav-text">标题3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
@@ -571,7 +880,7 @@
             
                 <span class="count-box border-box word">
                     <span class="item-type border-box">Total words</span>
-                    <span class="item-value border-box word">1k</span>
+                    <span class="item-value border-box word">2.6k</span>
                 </span>
             
 
@@ -728,7 +1037,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="nav-text">标题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#basic-concept"><span class="nav-text">basic concept</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What%E2%80%99s-Transaction"><span class="nav-text">What’s Transaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9B%AE%E6%A0%87%EF%BC%88%E7%9B%AE%E7%9A%84%EF%BC%89%E5%88%86%E6%9E%90"><span class="nav-text">事务目标（目的）分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Features"><span class="nav-text">Transaction Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Concurrency-Exception"><span class="nav-text">Transaction Concurrency Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-Lost-%E5%9B%9E%E6%BB%9A%E4%B8%A2%E5%A4%B1"><span class="nav-text">Update Lost&#x2F;回滚丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Seconde-Update-Lost-%E8%A6%86%E7%9B%96%E4%B8%A2%E5%A4%B1"><span class="nav-text">Seconde Update Lost&#x2F;覆盖丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dirty-Read"><span class="nav-text">Dirty Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Not-Repeatable-Read"><span class="nav-text">Not Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phantom-Read"><span class="nav-text">Phantom Read</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Isolation-Level"><span class="nav-text">Transaction Isolation Level</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Uncommitted"><span class="nav-text">Read Uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Committed"><span class="nav-text">Read Committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-Read"><span class="nav-text">Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable"><span class="nav-text">Serializable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E8%83%BD%E8%A7%A3%E5%86%B3%E5%93%AA%E4%BA%9B%E5%B9%B6%E5%8F%91%E5%BC%82%E5%B8%B8"><span class="nav-text">各种隔离级别能解决哪些并发异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transaction-Isolation-Operator"><span class="nav-text">Transaction Isolation Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#environment"><span class="nav-text">environment</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%983"><span class="nav-text">标题3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
