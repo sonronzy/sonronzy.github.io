@@ -268,7 +268,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Wed May 01 2024 23:21:03 GMT+0800">2024-05-01</span>
+                <span class="datetime" data-updated="Sat May 04 2024 23:01:41 GMT+0800">2024-05-04</span>
             </span>
         
 
@@ -303,12 +303,12 @@
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.7k Words</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>2.8k Words</span>
             </span>
         
         
             <span class="meta-info-item post-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>6 Mins</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>10 Mins</span>
             </span>
         
         
@@ -598,15 +598,131 @@
 
 
 
-
-
-
-
-
-
-
+<br>
 
 <br>
+
+<br>
+
+<h1 id="Spring-Transaction"><a href="#Spring-Transaction" class="headerlink" title="Spring Transaction"></a>Spring Transaction</h1><h2 id="Spring事务注解"><a href="#Spring事务注解" class="headerlink" title="Spring事务注解"></a>Spring事务注解</h2><table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">readOnly</td>
+<td>该属性用于<font color=red>设置当前事务是否为只读事务，设置为true表示只读，false则表示可读写，默认值为false。</font><br>例如：@Transactional(readOnly&#x3D;true)</td>
+</tr>
+<tr>
+<td align="left">rollbackFor</td>
+<td>该属性用于<font color=red>设置需要进行回滚的异常类数组，当方法中抛出指定异常数组中的异常时，则进行事务回滚。</font><br>例如：指定单一异常类：@Transactional(rollbackFor&#x3D;RuntimeException.class)<br/>指定多个异常类：@Transactional(rollbackFor&#x3D;{RuntimeException.class, Exception.class})</td>
+</tr>
+<tr>
+<td align="left">rollbackForClassName</td>
+<td>该属性用于<font color=red>设置需要进行回滚的异常类名称数组，当方法中抛出指定异常名称数组中的异常时，则进行事务回滚。</font><br>例如：指定单一异常类名称@Transactional(rollbackForClassName&#x3D;”RuntimeException”)<br/>指定多个异常类名称：@Transactional(rollbackForClassName&#x3D;{“RuntimeException”,”Exception”})</td>
+</tr>
+<tr>
+<td align="left">noRollbackFor</td>
+<td>该属性用于<font color=red>设置不需要进行回滚的异常类数组，当方法中抛出指定异常数组中的异常时，不进行事务回滚。</font><br>例如：指定单一异常类：@Transactional(noRollbackFor&#x3D;RuntimeException.class)<br/>指定多个异常类：@Transactional(noRollbackFor&#x3D;{RuntimeException.class, Exception.class})</td>
+</tr>
+<tr>
+<td align="left">noRollbackForClassName</td>
+<td>该属性用于<font color=red>设置不需要进行回滚的异常类名称数组，当方法中抛出指定异常名称数组中的异常时，不进行事务回滚。</font><br/>例如：指定单一异常类名称：@Transactional(noRollbackForClassName&#x3D;”RuntimeException”)<br/>指定多个异常类名称：@Transactional(noRollbackForClassName{“RuntimeException”,”Exception”})</td>
+</tr>
+<tr>
+<td align="left">propagation</td>
+<td>该属性用于<font color=red>设置事务的传播行为。</font><br/>例如Transactional(propagation&#x3D;Propagation.NOT_SUPPORTED,readOnly&#x3D;true)</td>
+</tr>
+<tr>
+<td align="left">isolation</td>
+<td>该属性用于<font color=red>设置底层数据库的事务隔离级别，事务隔离级别用于处理多事务并发的情况，通常使用数据库的默认隔离级别即可，基本不需要进行设置</font></td>
+</tr>
+<tr>
+<td align="left">timeout</td>
+<td>该属性用于<font color=red>设置事务的超时秒数，默认值为-1表示永不超时</font></td>
+</tr>
+</tbody></table>
+<br>
+
+<br>
+
+<h2 id="Spring事务传播行为"><a href="#Spring事务传播行为" class="headerlink" title="Spring事务传播行为"></a>Spring事务传播行为</h2><table>
+<thead>
+<tr>
+<th>传播行为</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>REQUIRED</td>
+<td>表示当前方法必须在一个具有事务的上下文中运行，如有客户端有事务在进行，那么被调用端将在该事务中运行，否则的话重新开启一个事务。（如果被调用端发生异常，那么调用端和被调用端事务都将回滚）</td>
+</tr>
+<tr>
+<td>SUPPORTS</td>
+<td>表示当前方法不必需要具有一个事务上下文，但是如果有一个事务的话，它也可以在这个事务中运行</td>
+</tr>
+<tr>
+<td>MANDATORY</td>
+<td>表示当前方法必须在一个事务中运行，如果没有事务，将抛出异常</td>
+</tr>
+<tr>
+<td>NESTED</td>
+<td>表示如果当前方法正有一个事务在运行中，则该方法应该运行在一个嵌套事务中，被嵌套的事务可以独立于被封装的事务中进行提交或者回滚。如果封装事务存在，并且外层事务抛出异常回滚，那么内层事务必须回滚，反之，内层事务并不影响外层事务。如果封装事务不存在，则同PROPAGATION_REQUIRED的一样</td>
+</tr>
+<tr>
+<td>NEVER</td>
+<td>表示当方法务不应该在一个事务中运行，如果存在一个事务，则抛出异常</td>
+</tr>
+<tr>
+<td>REQUIRES_NEW</td>
+<td>表示当前方法必须运行在它自己的事务中。一个新的事务将启动，而且如果有一个现有的事务在运行的话，则这个方法将在运行期被挂起，直到新的事务提交或者回滚才恢复执行。</td>
+</tr>
+<tr>
+<td>NOT_SUPPORTED</td>
+<td>表示该方法不应该在一个事务中运行。如果有一个事务正在运行，他将在运行期被挂起，直到这个事务提交或者回滚才恢复执行</td>
+</tr>
+</tbody></table>
+<br>
+
+<br>
+
+<h2 id="Spring隔离级别"><a href="#Spring隔离级别" class="headerlink" title="Spring隔离级别"></a>Spring隔离级别</h2><table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>idefault</td>
+<td>使用数据库默认的事务隔离级别</td>
+</tr>
+<tr>
+<td>read_uncommitted</td>
+<td>允许读取尚未提交的修改，可能导致脏读、幻读和不可重复读</td>
+</tr>
+<tr>
+<td>read_committed</td>
+<td>允许从已经提交的事务读取，可防止脏读、但幻读，不可重复读仍然有可能发生</td>
+</tr>
+<tr>
+<td>repeatable_read</td>
+<td>对相同字段的多次读取的结果是一致的，除非数据被当前事务自生修改。可防止脏读和不可重复读，但幻读仍有可能发生</td>
+</tr>
+<tr>
+<td>serializable</td>
+<td>完全服从acid隔离原则，确保不发生脏读、不可重复读、和幻读，但执行效率最低。</td>
+</tr>
+</tbody></table>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Distributed-Transactions"><a href="#Distributed-Transactions" class="headerlink" title="Distributed Transactions"></a>Distributed Transactions</h1><br>
 
 <br>
 
@@ -757,6 +873,22 @@
                 
                     <div class="post-nav border-box">
                         
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/%E3%80%8AJava%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%B2%BE%E8%AE%B2-Debug%E6%96%B9%E5%BC%8F-%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90%E3%80%8BStudy-Notes/"
+                                   title="《Java设计模式精讲 Debug方式+内存分析》Study Notes"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">《Java设计模式精讲 Debug方式+内存分析》Study Notes</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
                         
                             <div class="next-post">
                                 <a class="next"
@@ -834,7 +966,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#basic-concept"><span class="nav-text">basic concept</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What%E2%80%99s-Transaction"><span class="nav-text">What’s Transaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9B%AE%E6%A0%87%EF%BC%88%E7%9B%AE%E7%9A%84%EF%BC%89%E5%88%86%E6%9E%90"><span class="nav-text">事务目标（目的）分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Features"><span class="nav-text">Transaction Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Concurrency-Exception"><span class="nav-text">Transaction Concurrency Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-Lost-%E5%9B%9E%E6%BB%9A%E4%B8%A2%E5%A4%B1"><span class="nav-text">Update Lost&#x2F;回滚丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Seconde-Update-Lost-%E8%A6%86%E7%9B%96%E4%B8%A2%E5%A4%B1"><span class="nav-text">Seconde Update Lost&#x2F;覆盖丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dirty-Read"><span class="nav-text">Dirty Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Not-Repeatable-Read"><span class="nav-text">Not Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phantom-Read"><span class="nav-text">Phantom Read</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Isolation-Level"><span class="nav-text">Transaction Isolation Level</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Uncommitted"><span class="nav-text">Read Uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Committed"><span class="nav-text">Read Committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-Read"><span class="nav-text">Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable"><span class="nav-text">Serializable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E8%83%BD%E8%A7%A3%E5%86%B3%E5%93%AA%E4%BA%9B%E5%B9%B6%E5%8F%91%E5%BC%82%E5%B8%B8"><span class="nav-text">各种隔离级别能解决哪些并发异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transaction-Isolation-Operator"><span class="nav-text">Transaction Isolation Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#environment"><span class="nav-text">environment</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%983"><span class="nav-text">标题3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#basic-concept"><span class="nav-text">basic concept</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What%E2%80%99s-Transaction"><span class="nav-text">What’s Transaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9B%AE%E6%A0%87%EF%BC%88%E7%9B%AE%E7%9A%84%EF%BC%89%E5%88%86%E6%9E%90"><span class="nav-text">事务目标（目的）分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Features"><span class="nav-text">Transaction Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Concurrency-Exception"><span class="nav-text">Transaction Concurrency Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-Lost-%E5%9B%9E%E6%BB%9A%E4%B8%A2%E5%A4%B1"><span class="nav-text">Update Lost&#x2F;回滚丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Seconde-Update-Lost-%E8%A6%86%E7%9B%96%E4%B8%A2%E5%A4%B1"><span class="nav-text">Seconde Update Lost&#x2F;覆盖丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dirty-Read"><span class="nav-text">Dirty Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Not-Repeatable-Read"><span class="nav-text">Not Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phantom-Read"><span class="nav-text">Phantom Read</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Isolation-Level"><span class="nav-text">Transaction Isolation Level</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Uncommitted"><span class="nav-text">Read Uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Committed"><span class="nav-text">Read Committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-Read"><span class="nav-text">Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable"><span class="nav-text">Serializable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E8%83%BD%E8%A7%A3%E5%86%B3%E5%93%AA%E4%BA%9B%E5%B9%B6%E5%8F%91%E5%BC%82%E5%B8%B8"><span class="nav-text">各种隔离级别能解决哪些并发异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transaction-Isolation-Operator"><span class="nav-text">Transaction Isolation Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#environment"><span class="nav-text">environment</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Transaction"><span class="nav-text">Spring Transaction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E4%BA%8B%E5%8A%A1%E6%B3%A8%E8%A7%A3"><span class="nav-text">Spring事务注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%E8%A1%8C%E4%B8%BA"><span class="nav-text">Spring事务传播行为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-text">Spring隔离级别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Distributed-Transactions"><span class="nav-text">Distributed Transactions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%983"><span class="nav-text">标题3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
@@ -880,7 +1012,7 @@
             
                 <span class="count-box border-box word">
                     <span class="item-type border-box">Total words</span>
-                    <span class="item-value border-box word">2.6k</span>
+                    <span class="item-value border-box word">4.2k</span>
                 </span>
             
 
@@ -1037,7 +1169,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#basic-concept"><span class="nav-text">basic concept</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What%E2%80%99s-Transaction"><span class="nav-text">What’s Transaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9B%AE%E6%A0%87%EF%BC%88%E7%9B%AE%E7%9A%84%EF%BC%89%E5%88%86%E6%9E%90"><span class="nav-text">事务目标（目的）分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Features"><span class="nav-text">Transaction Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Concurrency-Exception"><span class="nav-text">Transaction Concurrency Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-Lost-%E5%9B%9E%E6%BB%9A%E4%B8%A2%E5%A4%B1"><span class="nav-text">Update Lost&#x2F;回滚丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Seconde-Update-Lost-%E8%A6%86%E7%9B%96%E4%B8%A2%E5%A4%B1"><span class="nav-text">Seconde Update Lost&#x2F;覆盖丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dirty-Read"><span class="nav-text">Dirty Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Not-Repeatable-Read"><span class="nav-text">Not Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phantom-Read"><span class="nav-text">Phantom Read</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Isolation-Level"><span class="nav-text">Transaction Isolation Level</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Uncommitted"><span class="nav-text">Read Uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Committed"><span class="nav-text">Read Committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-Read"><span class="nav-text">Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable"><span class="nav-text">Serializable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E8%83%BD%E8%A7%A3%E5%86%B3%E5%93%AA%E4%BA%9B%E5%B9%B6%E5%8F%91%E5%BC%82%E5%B8%B8"><span class="nav-text">各种隔离级别能解决哪些并发异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transaction-Isolation-Operator"><span class="nav-text">Transaction Isolation Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#environment"><span class="nav-text">environment</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%983"><span class="nav-text">标题3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#basic-concept"><span class="nav-text">basic concept</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What%E2%80%99s-Transaction"><span class="nav-text">What’s Transaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9B%AE%E6%A0%87%EF%BC%88%E7%9B%AE%E7%9A%84%EF%BC%89%E5%88%86%E6%9E%90"><span class="nav-text">事务目标（目的）分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Features"><span class="nav-text">Transaction Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Concurrency-Exception"><span class="nav-text">Transaction Concurrency Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-Lost-%E5%9B%9E%E6%BB%9A%E4%B8%A2%E5%A4%B1"><span class="nav-text">Update Lost&#x2F;回滚丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Seconde-Update-Lost-%E8%A6%86%E7%9B%96%E4%B8%A2%E5%A4%B1"><span class="nav-text">Seconde Update Lost&#x2F;覆盖丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dirty-Read"><span class="nav-text">Dirty Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Not-Repeatable-Read"><span class="nav-text">Not Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phantom-Read"><span class="nav-text">Phantom Read</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Isolation-Level"><span class="nav-text">Transaction Isolation Level</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Uncommitted"><span class="nav-text">Read Uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-Committed"><span class="nav-text">Read Committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-Read"><span class="nav-text">Repeatable Read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable"><span class="nav-text">Serializable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E8%83%BD%E8%A7%A3%E5%86%B3%E5%93%AA%E4%BA%9B%E5%B9%B6%E5%8F%91%E5%BC%82%E5%B8%B8"><span class="nav-text">各种隔离级别能解决哪些并发异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transaction-Isolation-Operator"><span class="nav-text">Transaction Isolation Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#environment"><span class="nav-text">environment</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Transaction"><span class="nav-text">Spring Transaction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E4%BA%8B%E5%8A%A1%E6%B3%A8%E8%A7%A3"><span class="nav-text">Spring事务注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%E8%A1%8C%E4%B8%BA"><span class="nav-text">Spring事务传播行为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-text">Spring隔离级别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Distributed-Transactions"><span class="nav-text">Distributed Transactions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%983"><span class="nav-text">标题3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
