@@ -6,7 +6,7 @@
   <link href="https://sonronzy.github.io/atom.xml" rel="self"/>
   
   <link href="https://sonronzy.github.io/"/>
-  <updated>2024-05-11T14:53:55.318Z</updated>
+  <updated>2024-05-12T03:16:55.908Z</updated>
   <id>https://sonronzy.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《JAVA-ACE-架构师系列视频课程- RocketMQ（上）》Study Notes</title>
+    <link href="https://sonronzy.github.io/2024/%E3%80%8AJAVA-ACE-%E6%9E%B6%E6%9E%84%E5%B8%88%E7%B3%BB%E5%88%97%E8%A7%86%E9%A2%91%E8%AF%BE%E7%A8%8B-RocketMQ%EF%BC%88%E4%B8%8A%EF%BC%89%E3%80%8BStudy-Notes/"/>
+    <id>https://sonronzy.github.io/2024/%E3%80%8AJAVA-ACE-%E6%9E%B6%E6%9E%84%E5%B8%88%E7%B3%BB%E5%88%97%E8%A7%86%E9%A2%91%E8%AF%BE%E7%A8%8B-RocketMQ%EF%BC%88%E4%B8%8A%EF%BC%89%E3%80%8BStudy-Notes/</id>
+    <published>2024-05-12T03:16:55.000Z</published>
+    <updated>2024-05-12T03:16:55.908Z</updated>
+    
+    <content type="html"><![CDATA[<br><p>文章摘要信息……</p><span id="more"></span><h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br><br><br><h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br><br><br><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href=""></a></li></ul><br><br><br><h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote><ol><li>xxx需要再深入学习</li></ol></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure><br><br>]]></content>
+    
+    
+    <summary type="html">&lt;br&gt;
+
+&lt;p&gt;文章摘要信息……&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>深入理解：面向对象设计原则</title>
