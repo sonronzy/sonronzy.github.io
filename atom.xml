@@ -3,11 +3,11 @@
   <title>Kierke&#39;s Blog</title>
   
   <subtitle>Kierke&#39;s Blog</subtitle>
-  <link href="https://sonronzy.github.io/atom.xml" rel="self"/>
+  <link href="http://www.kierke.art/atom.xml" rel="self"/>
   
-  <link href="https://sonronzy.github.io/"/>
+  <link href="http://www.kierke.art/"/>
   <updated>2024-08-12T18:11:01.649Z</updated>
-  <id>https://sonronzy.github.io/</id>
+  <id>http://www.kierke.art/</id>
   
   <author>
     <name>Kierke</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>后端工程师的高阶面经 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E9%AB%98%E9%98%B6%E9%9D%A2%E7%BB%8F-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E9%AB%98%E9%98%B6%E9%9D%A2%E7%BB%8F-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E9%AB%98%E9%98%B6%E9%9D%A2%E7%BB%8F-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E9%AB%98%E9%98%B6%E9%9D%A2%E7%BB%8F-Study-Notes/</id>
     <published>2024-08-12T16:22:43.000Z</published>
     <updated>2024-08-12T18:11:01.649Z</updated>
     
@@ -32,21 +32,21 @@
     
     
     
-    <category term="interview" scheme="https://sonronzy.github.io/categories/interview/"/>
+    <category term="interview" scheme="http://www.kierke.art/categories/interview/"/>
     
-    <category term="technical-interview" scheme="https://sonronzy.github.io/categories/interview/technical-interview/"/>
+    <category term="technical-interview" scheme="http://www.kierke.art/categories/interview/technical-interview/"/>
     
     
-    <category term="technical-interview" scheme="https://sonronzy.github.io/tags/technical-interview/"/>
+    <category term="technical-interview" scheme="http://www.kierke.art/tags/technical-interview/"/>
     
-    <category term="interview" scheme="https://sonronzy.github.io/tags/interview/"/>
+    <category term="interview" scheme="http://www.kierke.art/tags/interview/"/>
     
   </entry>
   
   <entry>
     <title>如何成为学习高手 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E5%AD%A6%E4%B9%A0%E9%AB%98%E6%89%8B-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E5%AD%A6%E4%B9%A0%E9%AB%98%E6%89%8B-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E5%AD%A6%E4%B9%A0%E9%AB%98%E6%89%8B-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E5%AD%A6%E4%B9%A0%E9%AB%98%E6%89%8B-Study-Notes/</id>
     <published>2024-08-10T17:35:38.000Z</published>
     <updated>2024-08-13T13:03:48.139Z</updated>
     
@@ -59,17 +59,17 @@
     
     
     
-    <category term="methodology" scheme="https://sonronzy.github.io/categories/methodology/"/>
+    <category term="methodology" scheme="http://www.kierke.art/categories/methodology/"/>
     
     
-    <category term="methodology" scheme="https://sonronzy.github.io/tags/methodology/"/>
+    <category term="methodology" scheme="http://www.kierke.art/tags/methodology/"/>
     
   </entry>
   
   <entry>
     <title>《Spring揭秘》Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/%E3%80%8ASpring%E6%8F%AD%E7%A7%98%E3%80%8BStudy-Notes/"/>
-    <id>https://sonronzy.github.io/2024/%E3%80%8ASpring%E6%8F%AD%E7%A7%98%E3%80%8BStudy-Notes/</id>
+    <link href="http://www.kierke.art/2024/%E3%80%8ASpring%E6%8F%AD%E7%A7%98%E3%80%8BStudy-Notes/"/>
+    <id>http://www.kierke.art/2024/%E3%80%8ASpring%E6%8F%AD%E7%A7%98%E3%80%8BStudy-Notes/</id>
     <published>2024-08-09T17:10:18.000Z</published>
     <updated>2024-08-09T17:28:15.891Z</updated>
     
@@ -82,19 +82,19 @@
     
     
     
-    <category term="Spring" scheme="https://sonronzy.github.io/categories/Spring/"/>
+    <category term="Spring" scheme="http://www.kierke.art/categories/Spring/"/>
     
     
-    <category term="Spring" scheme="https://sonronzy.github.io/tags/Spring/"/>
+    <category term="Spring" scheme="http://www.kierke.art/tags/Spring/"/>
     
-    <category term="Study-Notes" scheme="https://sonronzy.github.io/tags/Study-Notes/"/>
+    <category term="Study-Notes" scheme="http://www.kierke.art/tags/Study-Notes/"/>
     
   </entry>
   
   <entry>
     <title>12步通关求职面试 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/12%E6%AD%A5%E9%80%9A%E5%85%B3%E6%B1%82%E8%81%8C%E9%9D%A2%E8%AF%95-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/12%E6%AD%A5%E9%80%9A%E5%85%B3%E6%B1%82%E8%81%8C%E9%9D%A2%E8%AF%95-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/12%E6%AD%A5%E9%80%9A%E5%85%B3%E6%B1%82%E8%81%8C%E9%9D%A2%E8%AF%95-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/12%E6%AD%A5%E9%80%9A%E5%85%B3%E6%B1%82%E8%81%8C%E9%9D%A2%E8%AF%95-Study-Notes/</id>
     <published>2024-08-06T12:12:40.000Z</published>
     <updated>2024-08-06T19:46:17.514Z</updated>
     
@@ -112,8 +112,8 @@
   
   <entry>
     <title>Nacos 核心原理解读+高性能微服务系统实战 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/Nacos-%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E8%A7%A3%E8%AF%BB-%E9%AB%98%E6%80%A7%E8%83%BD%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/Nacos-%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E8%A7%A3%E8%AF%BB-%E9%AB%98%E6%80%A7%E8%83%BD%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/Nacos-%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E8%A7%A3%E8%AF%BB-%E9%AB%98%E6%80%A7%E8%83%BD%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/Nacos-%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E8%A7%A3%E8%AF%BB-%E9%AB%98%E6%80%A7%E8%83%BD%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98-Study-Notes/</id>
     <published>2024-08-02T16:04:27.000Z</published>
     <updated>2024-08-04T18:33:53.735Z</updated>
     
@@ -126,17 +126,17 @@
     
     
     
-    <category term="Nacos" scheme="https://sonronzy.github.io/categories/Nacos/"/>
+    <category term="Nacos" scheme="http://www.kierke.art/categories/Nacos/"/>
     
     
-    <category term="Nacos" scheme="https://sonronzy.github.io/tags/Nacos/"/>
+    <category term="Nacos" scheme="http://www.kierke.art/tags/Nacos/"/>
     
   </entry>
   
   <entry>
     <title>Docker 系统性入门+进阶实践 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/Docker-%E7%B3%BB%E7%BB%9F%E6%80%A7%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%E5%AE%9E%E8%B7%B5-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/Docker-%E7%B3%BB%E7%BB%9F%E6%80%A7%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%E5%AE%9E%E8%B7%B5-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/Docker-%E7%B3%BB%E7%BB%9F%E6%80%A7%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%E5%AE%9E%E8%B7%B5-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/Docker-%E7%B3%BB%E7%BB%9F%E6%80%A7%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%E5%AE%9E%E8%B7%B5-Study-Notes/</id>
     <published>2024-07-31T11:30:59.000Z</published>
     <updated>2024-07-31T14:21:32.202Z</updated>
     
@@ -149,17 +149,17 @@
     
     
     
-    <category term="Docker" scheme="https://sonronzy.github.io/categories/Docker/"/>
+    <category term="Docker" scheme="http://www.kierke.art/categories/Docker/"/>
     
     
-    <category term="Docker" scheme="https://sonronzy.github.io/tags/Docker/"/>
+    <category term="Docker" scheme="http://www.kierke.art/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>Spring Cloud Alibaba 大型互联网领域多场景实践 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/Spring-Cloud-Alibaba-%E5%A4%A7%E5%9E%8B%E4%BA%92%E8%81%94%E7%BD%91%E9%A2%86%E5%9F%9F%E5%A4%9A%E5%9C%BA%E6%99%AF%E5%AE%9E%E8%B7%B5-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/Spring-Cloud-Alibaba-%E5%A4%A7%E5%9E%8B%E4%BA%92%E8%81%94%E7%BD%91%E9%A2%86%E5%9F%9F%E5%A4%9A%E5%9C%BA%E6%99%AF%E5%AE%9E%E8%B7%B5-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/Spring-Cloud-Alibaba-%E5%A4%A7%E5%9E%8B%E4%BA%92%E8%81%94%E7%BD%91%E9%A2%86%E5%9F%9F%E5%A4%9A%E5%9C%BA%E6%99%AF%E5%AE%9E%E8%B7%B5-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/Spring-Cloud-Alibaba-%E5%A4%A7%E5%9E%8B%E4%BA%92%E8%81%94%E7%BD%91%E9%A2%86%E5%9F%9F%E5%A4%9A%E5%9C%BA%E6%99%AF%E5%AE%9E%E8%B7%B5-Study-Notes/</id>
     <published>2024-07-28T10:23:16.000Z</published>
     <updated>2024-07-30T16:04:16.709Z</updated>
     
@@ -172,17 +172,17 @@
     
     
     
-    <category term="Spring Cloud Alibaba" scheme="https://sonronzy.github.io/categories/Spring-Cloud-Alibaba/"/>
+    <category term="Spring Cloud Alibaba" scheme="http://www.kierke.art/categories/Spring-Cloud-Alibaba/"/>
     
     
-    <category term="Spring Cloud Alibaba" scheme="https://sonronzy.github.io/tags/Spring-Cloud-Alibaba/"/>
+    <category term="Spring Cloud Alibaba" scheme="http://www.kierke.art/tags/Spring-Cloud-Alibaba/"/>
     
   </entry>
   
   <entry>
     <title>微服务架构核心 20 讲 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%83-20-%E8%AE%B2-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%83-20-%E8%AE%B2-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%83-20-%E8%AE%B2-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%83-20-%E8%AE%B2-Study-Notes/</id>
     <published>2024-07-22T16:55:12.000Z</published>
     <updated>2024-07-23T18:39:45.009Z</updated>
     
@@ -195,17 +195,17 @@
     
     
     
-    <category term="Microservices" scheme="https://sonronzy.github.io/categories/Microservices/"/>
+    <category term="Microservices" scheme="http://www.kierke.art/categories/Microservices/"/>
     
     
-    <category term="Microservices" scheme="https://sonronzy.github.io/tags/Microservices/"/>
+    <category term="Microservices" scheme="http://www.kierke.art/tags/Microservices/"/>
     
   </entry>
   
   <entry>
     <title>Java高级面试突围课 ,搞定Java中高级面试的必考点 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/Java%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%95%E7%AA%81%E5%9B%B4%E8%AF%BE-%E6%90%9E%E5%AE%9AJava%E4%B8%AD%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%85%E8%80%83%E7%82%B9-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/Java%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%95%E7%AA%81%E5%9B%B4%E8%AF%BE-%E6%90%9E%E5%AE%9AJava%E4%B8%AD%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%85%E8%80%83%E7%82%B9-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/Java%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%95%E7%AA%81%E5%9B%B4%E8%AF%BE-%E6%90%9E%E5%AE%9AJava%E4%B8%AD%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%85%E8%80%83%E7%82%B9-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/Java%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%95%E7%AA%81%E5%9B%B4%E8%AF%BE-%E6%90%9E%E5%AE%9AJava%E4%B8%AD%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%85%E8%80%83%E7%82%B9-Study-Notes/</id>
     <published>2024-07-21T08:51:13.000Z</published>
     <updated>2024-07-21T10:12:28.844Z</updated>
     
@@ -218,19 +218,19 @@
     
     
     
-    <category term="technical-interview" scheme="https://sonronzy.github.io/categories/technical-interview/"/>
+    <category term="technical-interview" scheme="http://www.kierke.art/categories/technical-interview/"/>
     
     
-    <category term="technical-interview" scheme="https://sonronzy.github.io/tags/technical-interview/"/>
+    <category term="technical-interview" scheme="http://www.kierke.art/tags/technical-interview/"/>
     
-    <category term="Java" scheme="https://sonronzy.github.io/tags/Java/"/>
+    <category term="Java" scheme="http://www.kierke.art/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot3+Vue3 开发高并发秒杀抢购系统 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/SpringBoot3-Vue3-%E5%BC%80%E5%8F%91%E9%AB%98%E5%B9%B6%E5%8F%91%E7%A7%92%E6%9D%80%E6%8A%A2%E8%B4%AD%E7%B3%BB%E7%BB%9F-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/SpringBoot3-Vue3-%E5%BC%80%E5%8F%91%E9%AB%98%E5%B9%B6%E5%8F%91%E7%A7%92%E6%9D%80%E6%8A%A2%E8%B4%AD%E7%B3%BB%E7%BB%9F-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/SpringBoot3-Vue3-%E5%BC%80%E5%8F%91%E9%AB%98%E5%B9%B6%E5%8F%91%E7%A7%92%E6%9D%80%E6%8A%A2%E8%B4%AD%E7%B3%BB%E7%BB%9F-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/SpringBoot3-Vue3-%E5%BC%80%E5%8F%91%E9%AB%98%E5%B9%B6%E5%8F%91%E7%A7%92%E6%9D%80%E6%8A%A2%E8%B4%AD%E7%B3%BB%E7%BB%9F-Study-Notes/</id>
     <published>2024-07-20T09:17:44.000Z</published>
     <updated>2024-07-20T17:18:07.715Z</updated>
     
@@ -243,21 +243,21 @@
     
     
     
-    <category term="SpringBoot" scheme="https://sonronzy.github.io/categories/SpringBoot/"/>
+    <category term="SpringBoot" scheme="http://www.kierke.art/categories/SpringBoot/"/>
     
     
-    <category term="SpringBoot" scheme="https://sonronzy.github.io/tags/SpringBoot/"/>
+    <category term="SpringBoot" scheme="http://www.kierke.art/tags/SpringBoot/"/>
     
-    <category term="VUE" scheme="https://sonronzy.github.io/tags/VUE/"/>
+    <category term="VUE" scheme="http://www.kierke.art/tags/VUE/"/>
     
-    <category term="高并发" scheme="https://sonronzy.github.io/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    <category term="高并发" scheme="http://www.kierke.art/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot+Vue3打造企业级一体化SaaS系统 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/SpringBoot-Vue3%E6%89%93%E9%80%A0%E4%BC%81%E4%B8%9A%E7%BA%A7%E4%B8%80%E4%BD%93%E5%8C%96SaaS%E7%B3%BB%E7%BB%9F-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/SpringBoot-Vue3%E6%89%93%E9%80%A0%E4%BC%81%E4%B8%9A%E7%BA%A7%E4%B8%80%E4%BD%93%E5%8C%96SaaS%E7%B3%BB%E7%BB%9F-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/SpringBoot-Vue3%E6%89%93%E9%80%A0%E4%BC%81%E4%B8%9A%E7%BA%A7%E4%B8%80%E4%BD%93%E5%8C%96SaaS%E7%B3%BB%E7%BB%9F-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/SpringBoot-Vue3%E6%89%93%E9%80%A0%E4%BC%81%E4%B8%9A%E7%BA%A7%E4%B8%80%E4%BD%93%E5%8C%96SaaS%E7%B3%BB%E7%BB%9F-Study-Notes/</id>
     <published>2024-07-15T12:41:29.000Z</published>
     <updated>2024-07-15T15:44:07.555Z</updated>
     
@@ -270,23 +270,23 @@
     
     
     
-    <category term="实战" scheme="https://sonronzy.github.io/categories/%E5%AE%9E%E6%88%98/"/>
+    <category term="实战" scheme="http://www.kierke.art/categories/%E5%AE%9E%E6%88%98/"/>
     
     
-    <category term="实战" scheme="https://sonronzy.github.io/tags/%E5%AE%9E%E6%88%98/"/>
+    <category term="实战" scheme="http://www.kierke.art/tags/%E5%AE%9E%E6%88%98/"/>
     
-    <category term="Spring" scheme="https://sonronzy.github.io/tags/Spring/"/>
+    <category term="Spring" scheme="http://www.kierke.art/tags/Spring/"/>
     
-    <category term="Vue" scheme="https://sonronzy.github.io/tags/Vue/"/>
+    <category term="Vue" scheme="http://www.kierke.art/tags/Vue/"/>
     
-    <category term="SaaS" scheme="https://sonronzy.github.io/tags/SaaS/"/>
+    <category term="SaaS" scheme="http://www.kierke.art/tags/SaaS/"/>
     
   </entry>
   
   <entry>
     <title>Linux系统 从入门到进阶 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/Linux%E7%B3%BB%E7%BB%9F-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/Linux%E7%B3%BB%E7%BB%9F-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/Linux%E7%B3%BB%E7%BB%9F-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/Linux%E7%B3%BB%E7%BB%9F-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6-Study-Notes/</id>
     <published>2024-07-12T12:00:42.000Z</published>
     <updated>2024-07-21T18:16:56.748Z</updated>
     
@@ -299,17 +299,17 @@
     
     
     
-    <category term="Linux" scheme="https://sonronzy.github.io/categories/Linux/"/>
+    <category term="Linux" scheme="http://www.kierke.art/categories/Linux/"/>
     
     
-    <category term="Linux" scheme="https://sonronzy.github.io/tags/Linux/"/>
+    <category term="Linux" scheme="http://www.kierke.art/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>姜承尧新版MySQL DBA实战进阶班 Study Notes</title>
-    <link href="https://sonronzy.github.io/2024/%E5%A7%9C%E6%89%BF%E5%B0%A7%E6%96%B0%E7%89%88MySQL-DBA%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6%E7%8F%AD-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2024/%E5%A7%9C%E6%89%BF%E5%B0%A7%E6%96%B0%E7%89%88MySQL-DBA%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6%E7%8F%AD-Study-Notes/</id>
+    <link href="http://www.kierke.art/2024/%E5%A7%9C%E6%89%BF%E5%B0%A7%E6%96%B0%E7%89%88MySQL-DBA%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6%E7%8F%AD-Study-Notes/"/>
+    <id>http://www.kierke.art/2024/%E5%A7%9C%E6%89%BF%E5%B0%A7%E6%96%B0%E7%89%88MySQL-DBA%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6%E7%8F%AD-Study-Notes/</id>
     <published>2024-07-10T11:05:36.000Z</published>
     <updated>2024-07-20T07:05:59.023Z</updated>
     
@@ -322,21 +322,21 @@
     
     
     
-    <category term="DataBase" scheme="https://sonronzy.github.io/categories/DataBase/"/>
+    <category term="DataBase" scheme="http://www.kierke.art/categories/DataBase/"/>
     
-    <category term="MySQL" scheme="https://sonronzy.github.io/categories/MySQL/"/>
+    <category term="MySQL" scheme="http://www.kierke.art/categories/MySQL/"/>
     
     
-    <category term="MySQL" scheme="https://sonronzy.github.io/tags/MySQL/"/>
+    <category term="MySQL" scheme="http://www.kierke.art/tags/MySQL/"/>
     
-    <category term="DataBase" scheme="https://sonronzy.github.io/tags/DataBase/"/>
+    <category term="DataBase" scheme="http://www.kierke.art/tags/DataBase/"/>
     
   </entry>
   
   <entry>
     <title>MySQL 必知必会 Study Notes</title>
-    <link href="https://sonronzy.github.io/2021/MySQL-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2021/MySQL-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A-Study-Notes/</id>
+    <link href="http://www.kierke.art/2021/MySQL-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A-Study-Notes/"/>
+    <id>http://www.kierke.art/2021/MySQL-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A-Study-Notes/</id>
     <published>2021-03-09T11:23:50.000Z</published>
     <updated>2024-07-20T09:13:48.577Z</updated>
     
@@ -349,21 +349,21 @@
     
     
     
-    <category term="DataBase" scheme="https://sonronzy.github.io/categories/DataBase/"/>
+    <category term="DataBase" scheme="http://www.kierke.art/categories/DataBase/"/>
     
-    <category term="MySQL" scheme="https://sonronzy.github.io/categories/MySQL/"/>
+    <category term="MySQL" scheme="http://www.kierke.art/categories/MySQL/"/>
     
     
-    <category term="MySQL" scheme="https://sonronzy.github.io/tags/MySQL/"/>
+    <category term="MySQL" scheme="http://www.kierke.art/tags/MySQL/"/>
     
-    <category term="DataBase" scheme="https://sonronzy.github.io/tags/DataBase/"/>
+    <category term="DataBase" scheme="http://www.kierke.art/tags/DataBase/"/>
     
   </entry>
   
   <entry>
     <title>MySQL提升课程 全面讲解MySQL架构设计 Study Notes</title>
-    <link href="https://sonronzy.github.io/2020/MySQL%E6%8F%90%E5%8D%87%E8%AF%BE%E7%A8%8B-%E5%85%A8%E9%9D%A2%E8%AE%B2%E8%A7%A3MySQL%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2020/MySQL%E6%8F%90%E5%8D%87%E8%AF%BE%E7%A8%8B-%E5%85%A8%E9%9D%A2%E8%AE%B2%E8%A7%A3MySQL%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-Study-Notes/</id>
+    <link href="http://www.kierke.art/2020/MySQL%E6%8F%90%E5%8D%87%E8%AF%BE%E7%A8%8B-%E5%85%A8%E9%9D%A2%E8%AE%B2%E8%A7%A3MySQL%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-Study-Notes/"/>
+    <id>http://www.kierke.art/2020/MySQL%E6%8F%90%E5%8D%87%E8%AF%BE%E7%A8%8B-%E5%85%A8%E9%9D%A2%E8%AE%B2%E8%A7%A3MySQL%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-Study-Notes/</id>
     <published>2020-08-19T12:11:11.000Z</published>
     <updated>2024-07-10T10:54:00.306Z</updated>
     
@@ -376,21 +376,21 @@
     
     
     
-    <category term="DataBase" scheme="https://sonronzy.github.io/categories/DataBase/"/>
+    <category term="DataBase" scheme="http://www.kierke.art/categories/DataBase/"/>
     
-    <category term="MySQL" scheme="https://sonronzy.github.io/categories/MySQL/"/>
+    <category term="MySQL" scheme="http://www.kierke.art/categories/MySQL/"/>
     
     
-    <category term="MySQL" scheme="https://sonronzy.github.io/tags/MySQL/"/>
+    <category term="MySQL" scheme="http://www.kierke.art/tags/MySQL/"/>
     
-    <category term="DataBase" scheme="https://sonronzy.github.io/tags/DataBase/"/>
+    <category term="DataBase" scheme="http://www.kierke.art/tags/DataBase/"/>
     
   </entry>
   
   <entry>
     <title>MySQL 实战 45 讲 Study Notes</title>
-    <link href="https://sonronzy.github.io/2018/MySQL-%E5%AE%9E%E6%88%98-45-%E8%AE%B2-Study-Notes/"/>
-    <id>https://sonronzy.github.io/2018/MySQL-%E5%AE%9E%E6%88%98-45-%E8%AE%B2-Study-Notes/</id>
+    <link href="http://www.kierke.art/2018/MySQL-%E5%AE%9E%E6%88%98-45-%E8%AE%B2-Study-Notes/"/>
+    <id>http://www.kierke.art/2018/MySQL-%E5%AE%9E%E6%88%98-45-%E8%AE%B2-Study-Notes/</id>
     <published>2018-12-06T13:33:02.000Z</published>
     <updated>2024-07-06T15:30:59.175Z</updated>
     
@@ -403,14 +403,14 @@
     
     
     
-    <category term="DataBase" scheme="https://sonronzy.github.io/categories/DataBase/"/>
+    <category term="DataBase" scheme="http://www.kierke.art/categories/DataBase/"/>
     
-    <category term="MySQL" scheme="https://sonronzy.github.io/categories/MySQL/"/>
+    <category term="MySQL" scheme="http://www.kierke.art/categories/MySQL/"/>
     
     
-    <category term="MySQL" scheme="https://sonronzy.github.io/tags/MySQL/"/>
+    <category term="MySQL" scheme="http://www.kierke.art/tags/MySQL/"/>
     
-    <category term="DataBase" scheme="https://sonronzy.github.io/tags/DataBase/"/>
+    <category term="DataBase" scheme="http://www.kierke.art/tags/DataBase/"/>
     
   </entry>
   
