@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Kierke sonronzy">
+    <meta name="description" content="Kierke&#39;s Blog">
+    <meta name="author" content="Kierke">
+    
+    <title>
+        
+            微服务架构核心 20 讲 Study Notes |
+        
+        Kierke&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/head.jpg">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/brands.min.css">
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"sonronzy.github.io","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#CCCCCC","title":"Kierke's Blog","author":"Kierke","avatar":"/images/head.jpg","logo":"/images/head.jpg","favicon":"/images/head.jpg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories","links":"/links","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.jpg","background_img_dark":"/images/bg.jpg","description":"Stay hungry, Stay foolish","hitokoto":false},"social_contact":{"enable":false,"links":{"github":"https://github.com/sonronzy","weixin":"img | https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-588648de40ffc096d74f91d340f4e58.7p3en1mkg7.webp","qq":"img | https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-80e8494e86c191e3dbadffc969df432.lvj7fjv66.webp","weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"sonronzy@gmail.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated","post_datetime_format":"YYYY-MM-DD"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-1714407409574.6f0hgreq3y.webp","text":"请作者喝杯咖啡"}},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":true,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2018,"word_count":true,"site_deploy":{"enable":true,"provider":"github","url":"https://github.com/"},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"img_align":"center","root":"","source_data":{},"version":"4.1.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Kierke's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/head.jpg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               Kierke&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                
+                                HOME
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/"
+                    >HOME</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives"
+                    >ARCHIVES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags"
+                    >TAGS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories"
+                    >CATEGORIES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links"
+                    >LINKS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about"
+                    >ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        微服务架构核心 20 讲 Study Notes
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/head.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Kierke</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-07-23</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Wed Jul 24 2024 02:39:45 GMT+0800">2024-07-24</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Microservices/">Microservices</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Microservices/">Microservices</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.8k Words</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>6 Mins</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <br>
+
+<p>极客时间课程《微服务架构核心 20 讲》学习笔记</p>
+<span id="more"></span>
+
+<h1 id="01-什么是微服务架构？"><a href="#01-什么是微服务架构？" class="headerlink" title="01 | 什么是微服务架构？"></a>01 | 什么是微服务架构？</h1><ul>
+<li>2014年，Martin Fowler 与 James Lewis 共同提出了微服务的概念，他认为微服务是一种架构风格。Martin Fowler在其博客中讲到了什么是微服务，提出了6大微服务架构特点<ul>
+<li><strong>一组小的服务</strong>：把原先单体的服务拆分成一个一个微服务</li>
+<li><strong>独立的进程</strong>：以进程的方式运行</li>
+<li><strong>轻量级通信</strong>：http,rpc</li>
+<li><strong>基于业务能力</strong>：基于业务能力构建微服务，例如用户服务，订单服务</li>
+<li><strong>独立部署</strong>：每个微服务独立开发部署，开发团队间不需要更多协调（系统迭代速度，业务支持快）</li>
+<li><strong>无集中式管理</strong>：每个微服务团队根据自身优势选择相关技术，无需统一</li>
+</ul>
+</li>
+<li>Adrian Cockcroft（前Netflix公司架构总监）经历了Netflix公司从单体架构演化到微服务架构过程，他提出了微服务的三个特点：<ul>
+<li>松散耦合，不能强依赖</li>
+<li>服务面向的架构（本质还是一种SOA）</li>
+<li>有界上下文（局部状态）：每个团队维护自己的数据源</li>
+</ul>
+</li>
+<li>思考：<ul>
+<li>独立部署后给业务带来什么样的好处</li>
+<li>有界上下文（局部状态）带来了什么样的挑战？</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="02-架构师如何权衡微服务的利弊？"><a href="#02-架构师如何权衡微服务的利弊？" class="headerlink" title="02 | 架构师如何权衡微服务的利弊？"></a>02 | 架构师如何权衡微服务的利弊？</h1><ul>
+<li><strong>作为架构师需要了解微服务的优势和其带来的挑战</strong>，（架构最重要的一个职责就是权衡）</li>
+</ul>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li><strong>强模块化边界</strong><ul>
+<li>最开始以jar包和类做模块化，后来以组件做模块化，微服务则更高一层，以服务的方式做模块化</li>
+<li>每个服务可以独立团队开发，有清晰边界</li>
+</ul>
+</li>
+<li><strong>可独立部署</strong><ul>
+<li>独立开发，独立开发（一般不需要协同，减少协调成本）</li>
+</ul>
+</li>
+<li><strong>技术多样性</strong><ul>
+<li>没有集中治理，可以选择团队自身擅长的技术栈（但不是技术越多越好，因为这也有成本）</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="挑战（劣势）"><a href="#挑战（劣势）" class="headerlink" title="挑战（劣势）"></a>挑战（劣势）</h2><ul>
+<li><strong>分布式复杂性</strong></li>
+<li><strong>最终一致性</strong><ul>
+<li>不同服务（团队）的数据一致性</li>
+</ul>
+</li>
+<li><strong>运维复杂性</strong></li>
+<li><strong>测试复杂性</strong><ul>
+<li>需要不同团队一起做联合测试</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ul>
+<li>运维团队在面对分布式微服务的运维复杂性的时候，应该采用一些什么样的手段来应对？</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="03-康威法则和微服务给架构师怎样的启示？"><a href="#03-康威法则和微服务给架构师怎样的启示？" class="headerlink" title="03 | 康威法则和微服务给架构师怎样的启示？"></a>03 | 康威法则和微服务给架构师怎样的启示？</h1><ul>
+<li><p>康威法则：<strong>设计系统的架构受制于产生这些设计的组织的沟通结构</strong></p>
+</li>
+<li><p>康威定律 (康威法则 , Conway’s Law) 是马尔文·康威1967年提出的。意即系统设计本质上反映了企业的组织机构。系统各个模块间的接口也反映了企业各个部门之间的信息流动和合作方式</p>
+</li>
+<li><p>康威定律源于模块的设计者需要互相之间频繁沟通。而跨部门交流比较难。</p>
+</li>
+<li><p>架构师不仅要做好技术架构，也要做好组织架构</p>
+</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="04-企业应该在什么时候开始考虑引入微服务？"><a href="#04-企业应该在什么时候开始考虑引入微服务？" class="headerlink" title="04 | 企业应该在什么时候开始考虑引入微服务？"></a>04 | 企业应该在什么时候开始考虑引入微服务？</h1><ul>
+<li>微服务有基础设施要求（前期投资）</li>
+<li>推荐：一开始采用单体服务架构（成本小），经过业务复杂度提高可以慢慢演化成单体服务</li>
+</ul>
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721732817900.webp"
+                         width="40%"
+                 ></center>
+
+<ul>
+<li>思考：架构是设计出来的还是演化出来的？</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="05-什么样的组织架构更适合微服务？"><a href="#05-什么样的组织架构更适合微服务？" class="headerlink" title="05 | 什么样的组织架构更适合微服务？"></a>05 | 什么样的组织架构更适合微服务？</h1><center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721733207205.webp"
+                         width="60%"
+                 ></center>
+
+<ul>
+<li>微服务架构形成闭环</li>
+</ul>
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721734586034.webp"
+                         width="60%"
+                 ></center>
+
+
+
+<ul>
+<li>思考：怎么理解“微服务的架构本质是一种架构重组”？</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="06-如何理解阿里巴巴提出的微服务中台战略？"><a href="#06-如何理解阿里巴巴提出的微服务中台战略？" class="headerlink" title="06 | 如何理解阿里巴巴提出的微服务中台战略？"></a>06 | 如何理解阿里巴巴提出的微服务中台战略？</h1><center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721742377828.webp"
+                         width="70%"
+                 ></center>
+
+
+
+<ul>
+<li>思考：大中台、小前台如何在公司中实践、落地</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="07-如何给出一个清晰简洁的服务分层方式？"><a href="#07-如何给出一个清晰简洁的服务分层方式？" class="headerlink" title="07 | 如何给出一个清晰简洁的服务分层方式？"></a>07 | 如何给出一个清晰简洁的服务分层方式？</h1><ul>
+<li>逻辑划分</li>
+</ul>
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721742884848.webp"
+                         width="50%"
+                 ></center>
+
+
+
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721742837643.webp"
+                         width="50%"
+                 ></center>
+
+<ul>
+<li>思考：自己的公司服务体系如何映射到基础服务、聚合服务</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="08-微服务总体技术架构体系是怎样设计的？"><a href="#08-微服务总体技术架构体系是怎样设计的？" class="headerlink" title="08 | 微服务总体技术架构体系是怎样设计的？"></a>08 | 微服务总体技术架构体系是怎样设计的？</h1><center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721743209699.webp"
+                         width="70%"
+                 ></center>
+
+
+
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721746736025.webp"
+                         width="70%"
+                 ></center>
+
+
+
+<ul>
+<li>思考：为什么不建议初创型团队直接切入微服务，而是从单体应用开始？</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="09-微服务最经典的三种服务发现机制"><a href="#09-微服务最经典的三种服务发现机制" class="headerlink" title="09 | 微服务最经典的三种服务发现机制"></a>09 | 微服务最经典的三种服务发现机制</h1><ul>
+<li>在一个分布式的系统中，有很多生产者服务和消费者服务，这些消费者如何发现生产者，这就是<strong>微服务的服务发现问题</strong></li>
+<li>经过业界多年实践，总结出来三种主流的服务发现模式</li>
+</ul>
+<h2 id="传统基于LB的模式"><a href="#传统基于LB的模式" class="headerlink" title="传统基于LB的模式"></a>传统基于LB的模式</h2><ul>
+<li>目前大多数公司还是基于传统的LB做服务发现和负载均衡的</li>
+<li>这种模式有一个独立的LB（Load Balancer，负载均衡器），比如使用硬件的F5负载均衡器，或者使用软件的Nginx负载均衡器</li>
+<li>需要运维介入</li>
+<li>优点：简单、成本低</li>
+<li>缺点：<ul>
+<li>需要集中的LB，这个LB可能是个单点，有单点故障风险</li>
+<li>消费者需要穿透LB去访问生产者，这个过程有性能开销</li>
+</ul>
+</li>
+</ul>
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721747250197.webp"
+                         width="50%"
+                 ></center>
+
+<br>
+
+<br>
+
+<h2 id="进程内LB模式"><a href="#进程内LB模式" class="headerlink" title="进程内LB模式"></a>进程内LB模式</h2><ul>
+<li>把LB的功能移动到了进程内，目前业界比较普遍的做法</li>
+<li>服务提供方注册到一个注册表中，并定期发送心跳（告诉注册表自己还活着）</li>
+<li>消费方应用进程内的LB（或者说带有LB功能的消费者应用服务）会定期同步服务注册表中的信息，并负载均衡调用服务提供方</li>
+<li>优点：<ul>
+<li>没有集中式LB，不存在单点问题</li>
+<li>比传统的LB性能好（不存在通过中间的集中LB再去访问服务提供方）</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>在多语言当中，需要在每个消费者内开发LB，升级成本，多语言支持的成本高</li>
+</ul>
+</li>
+</ul>
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721747264825.webp"
+                         width="50%"
+                 ></center>
+
+<br>
+
+<br>
+
+<h2 id="主机独立LB模式"><a href="#主机独立LB模式" class="headerlink" title="主机独立LB模式"></a>主机独立LB模式</h2><ul>
+<li>在第一种和第二种的基础上做了一个折中</li>
+<li>把LB以独立进程的方式独立部署在一台主机上</li>
+<li>生产者把信息注册在注册中心，并维持心跳，消费者主机中的LB也会定期从注册中心同步信息</li>
+<li>消费者调用生产者的时候其实是调用的它本机上的LB进程，LB负责负载均衡和远程调用</li>
+<li>优点：<ul>
+<li>没有第一种方式的单点问题和性能问题</li>
+<li>可以支持多语言，多种语言灵活接入，不需要为每种语言开发LB客户端</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>运维成本高：需要在每天机器上部署LB</li>
+</ul>
+</li>
+</ul>
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721748532546.webp"
+                         width="50%"
+                 ></center>
+
+
+
+<ul>
+<li>思考：Service Mesh 最核心的点也是服务发现，那么它属于以上哪种服务发现机制？</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="10-微服务-API-服务网关（一）原理"><a href="#10-微服务-API-服务网关（一）原理" class="headerlink" title="10 | 微服务 API 服务网关（一）原理"></a>10 | 微服务 API 服务网关（一）原理</h1><center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721749145189.webp"
+                         width="70%"
+                 ></center>
+
+
+
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1721750398375.webp"
+                         width="70%"
+                 ></center>
+
+
+
+<ul>
+<li>思考：有些公司会把一些业务逻辑放在网关上，这样做的好处和弊端是什么？</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="11-微服务-API-服务网关（二）开源网关-Zuul"><a href="#11-微服务-API-服务网关（二）开源网关-Zuul" class="headerlink" title="11 | 微服务 API 服务网关（二）开源网关 Zuul"></a>11 | 微服务 API 服务网关（二）开源网关 Zuul</h1><br>
+
+<br>
+
+<br>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href=""></a></li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote>
+<ol>
+<li>复习的时候可以把每个图自己再画一遍，加深理解和印象</li>
+<li>了解学习Service Mesh</li>
+</ol>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                微服务架构核心 20 讲 Study Notes
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2024/微服务架构核心-20-讲-Study-Notes/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">Kierke</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2024-07-23 00:55</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Microservices/">Microservices</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    <div class="reward-author-container border-box flex-center">
+    <div class="reward-btn keep-button border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="请作者喝杯咖啡"
+            data-tooltip-img-url="https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-1714407409574.6f0hgreq3y.webp"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -8px;"
+    >
+        <i class="fa-solid fa-hand-holding-heart"></i>
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/Spring-Cloud-Alibaba-%E5%A4%A7%E5%9E%8B%E4%BA%92%E8%81%94%E7%BD%91%E9%A2%86%E5%9F%9F%E5%A4%9A%E5%9C%BA%E6%99%AF%E5%AE%9E%E8%B7%B5-Study-Notes/"
+                                   title="Spring Cloud Alibaba 大型互联网领域多场景实践 Study Notes"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Spring Cloud Alibaba 大型互联网领域多场景实践 Study Notes</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/Java%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%95%E7%AA%81%E5%9B%B4%E8%AF%BE-%E6%90%9E%E5%AE%9AJava%E4%B8%AD%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%85%E8%80%83%E7%82%B9-Study-Notes/"
+                                   title="Java高级面试突围课 ,搞定Java中高级面试的必考点 Study Notes"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Java高级面试突围课 ,搞定Java中高级面试的必考点 Study Notes</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#01-%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%EF%BC%9F"><span class="nav-text">01 | 什么是微服务架构？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#02-%E6%9E%B6%E6%9E%84%E5%B8%88%E5%A6%82%E4%BD%95%E6%9D%83%E8%A1%A1%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%88%A9%E5%BC%8A%EF%BC%9F"><span class="nav-text">02 | 架构师如何权衡微服务的利弊？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="nav-text">优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%91%E6%88%98%EF%BC%88%E5%8A%A3%E5%8A%BF%EF%BC%89"><span class="nav-text">挑战（劣势）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#03-%E5%BA%B7%E5%A8%81%E6%B3%95%E5%88%99%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BB%99%E6%9E%B6%E6%9E%84%E5%B8%88%E6%80%8E%E6%A0%B7%E7%9A%84%E5%90%AF%E7%A4%BA%EF%BC%9F"><span class="nav-text">03 | 康威法则和微服务给架构师怎样的启示？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%9C%A8%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%BC%80%E5%A7%8B%E8%80%83%E8%99%91%E5%BC%95%E5%85%A5%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%9F"><span class="nav-text">04 | 企业应该在什么时候开始考虑引入微服务？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#05-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84%E6%9B%B4%E9%80%82%E5%90%88%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%9F"><span class="nav-text">05 | 什么样的组织架构更适合微服务？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E6%8F%90%E5%87%BA%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%8F%B0%E6%88%98%E7%95%A5%EF%BC%9F"><span class="nav-text">06 | 如何理解阿里巴巴提出的微服务中台战略？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#07-%E5%A6%82%E4%BD%95%E7%BB%99%E5%87%BA%E4%B8%80%E4%B8%AA%E6%B8%85%E6%99%B0%E7%AE%80%E6%B4%81%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B1%82%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="nav-text">07 | 如何给出一个清晰简洁的服务分层方式？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#08-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%80%BB%E4%BD%93%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E4%BD%93%E7%B3%BB%E6%98%AF%E6%80%8E%E6%A0%B7%E8%AE%BE%E8%AE%A1%E7%9A%84%EF%BC%9F"><span class="nav-text">08 | 微服务总体技术架构体系是怎样设计的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#09-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9C%80%E7%BB%8F%E5%85%B8%E7%9A%84%E4%B8%89%E7%A7%8D%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E6%9C%BA%E5%88%B6"><span class="nav-text">09 | 微服务最经典的三种服务发现机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E5%9F%BA%E4%BA%8ELB%E7%9A%84%E6%A8%A1%E5%BC%8F"><span class="nav-text">传统基于LB的模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%86%85LB%E6%A8%A1%E5%BC%8F"><span class="nav-text">进程内LB模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E6%9C%BA%E7%8B%AC%E7%AB%8BLB%E6%A8%A1%E5%BC%8F"><span class="nav-text">主机独立LB模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-%E5%BE%AE%E6%9C%8D%E5%8A%A1-API-%E6%9C%8D%E5%8A%A1%E7%BD%91%E5%85%B3%EF%BC%88%E4%B8%80%EF%BC%89%E5%8E%9F%E7%90%86"><span class="nav-text">10 | 微服务 API 服务网关（一）原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-%E5%BE%AE%E6%9C%8D%E5%8A%A1-API-%E6%9C%8D%E5%8A%A1%E7%BD%91%E5%85%B3%EF%BC%88%E4%BA%8C%EF%BC%89%E5%BC%80%E6%BA%90%E7%BD%91%E5%85%B3-Zuul"><span class="nav-text">11 | 微服务 API 服务网关（二）开源网关 Zuul</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2018</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Kierke</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://github.com/">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span>
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">46.6k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-toggle-theme-mode flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#01-%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%EF%BC%9F"><span class="nav-text">01 | 什么是微服务架构？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#02-%E6%9E%B6%E6%9E%84%E5%B8%88%E5%A6%82%E4%BD%95%E6%9D%83%E8%A1%A1%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%88%A9%E5%BC%8A%EF%BC%9F"><span class="nav-text">02 | 架构师如何权衡微服务的利弊？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="nav-text">优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%91%E6%88%98%EF%BC%88%E5%8A%A3%E5%8A%BF%EF%BC%89"><span class="nav-text">挑战（劣势）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#03-%E5%BA%B7%E5%A8%81%E6%B3%95%E5%88%99%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BB%99%E6%9E%B6%E6%9E%84%E5%B8%88%E6%80%8E%E6%A0%B7%E7%9A%84%E5%90%AF%E7%A4%BA%EF%BC%9F"><span class="nav-text">03 | 康威法则和微服务给架构师怎样的启示？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%9C%A8%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%BC%80%E5%A7%8B%E8%80%83%E8%99%91%E5%BC%95%E5%85%A5%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%9F"><span class="nav-text">04 | 企业应该在什么时候开始考虑引入微服务？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#05-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84%E6%9B%B4%E9%80%82%E5%90%88%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%9F"><span class="nav-text">05 | 什么样的组织架构更适合微服务？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E6%8F%90%E5%87%BA%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%8F%B0%E6%88%98%E7%95%A5%EF%BC%9F"><span class="nav-text">06 | 如何理解阿里巴巴提出的微服务中台战略？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#07-%E5%A6%82%E4%BD%95%E7%BB%99%E5%87%BA%E4%B8%80%E4%B8%AA%E6%B8%85%E6%99%B0%E7%AE%80%E6%B4%81%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B1%82%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="nav-text">07 | 如何给出一个清晰简洁的服务分层方式？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#08-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%80%BB%E4%BD%93%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E4%BD%93%E7%B3%BB%E6%98%AF%E6%80%8E%E6%A0%B7%E8%AE%BE%E8%AE%A1%E7%9A%84%EF%BC%9F"><span class="nav-text">08 | 微服务总体技术架构体系是怎样设计的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#09-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9C%80%E7%BB%8F%E5%85%B8%E7%9A%84%E4%B8%89%E7%A7%8D%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E6%9C%BA%E5%88%B6"><span class="nav-text">09 | 微服务最经典的三种服务发现机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E5%9F%BA%E4%BA%8ELB%E7%9A%84%E6%A8%A1%E5%BC%8F"><span class="nav-text">传统基于LB的模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%86%85LB%E6%A8%A1%E5%BC%8F"><span class="nav-text">进程内LB模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E6%9C%BA%E7%8B%AC%E7%AB%8BLB%E6%A8%A1%E5%BC%8F"><span class="nav-text">主机独立LB模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-%E5%BE%AE%E6%9C%8D%E5%8A%A1-API-%E6%9C%8D%E5%8A%A1%E7%BD%91%E5%85%B3%EF%BC%88%E4%B8%80%EF%BC%89%E5%8E%9F%E7%90%86"><span class="nav-text">10 | 微服务 API 服务网关（一）原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-%E5%BE%AE%E6%9C%8D%E5%8A%A1-API-%E6%9C%8D%E5%8A%A1%E7%BD%91%E5%85%B3%EF%BC%88%E4%BA%8C%EF%BC%89%E5%BC%80%E6%BA%90%E7%BD%91%E5%85%B3-Zuul"><span class="nav-text">11 | 微服务 API 服务网关（二）开源网关 Zuul</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<!-- common -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/header-shrink.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/back2top.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/toggle-theme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/code-block.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/libs/anime.min.js"></script>
+
+<!-- local-search -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/local-search.min.js"></script>
+
+
+<!-- lazyload -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/lazyload.min.js"></script>
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/post-helper.min.js"></script>
+
+        <!-- toc -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/toc.min.js"></script>
+        
+
+        <!-- copyright-info -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/copyright-info.min.js"></script>
+        
+
+        <!-- share -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/share.min.js"></script>
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+    
+<script src="//cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+
+    <script data-pjax>
+      if (window.mermaid) {
+        mermaid.init()
+      }
+    </script>
+
+
+
+
+
+
+<!-- pjax -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Kierke sonronzy">
+    <meta name="description" content="Kierke&#39;s Blog">
+    <meta name="author" content="Kierke">
+    
+    <title>
+        
+            Java高级面试突围课 ,搞定Java中高级面试的必考点 Study Notes |
+        
+        Kierke&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/head.jpg">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/brands.min.css">
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"sonronzy.github.io","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#CCCCCC","title":"Kierke's Blog","author":"Kierke","avatar":"/images/head.jpg","logo":"/images/head.jpg","favicon":"/images/head.jpg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories","links":"/links","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.jpg","background_img_dark":"/images/bg.jpg","description":"Stay hungry, Stay foolish","hitokoto":false},"social_contact":{"enable":false,"links":{"github":"https://github.com/sonronzy","weixin":"img | https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-588648de40ffc096d74f91d340f4e58.7p3en1mkg7.webp","qq":"img | https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-80e8494e86c191e3dbadffc969df432.lvj7fjv66.webp","weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"sonronzy@gmail.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated","post_datetime_format":"YYYY-MM-DD"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-1714407409574.6f0hgreq3y.webp","text":"请作者喝杯咖啡"}},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":true,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2018,"word_count":true,"site_deploy":{"enable":true,"provider":"github","url":"https://github.com/"},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"img_align":"center","root":"","source_data":{},"version":"4.1.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Kierke's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/head.jpg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               Kierke&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                
+                                HOME
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/"
+                    >HOME</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives"
+                    >ARCHIVES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags"
+                    >TAGS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories"
+                    >CATEGORIES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links"
+                    >LINKS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about"
+                    >ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        Java高级面试突围课 ,搞定Java中高级面试的必考点 Study Notes
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/head.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Kierke</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-07-21</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Sun Jul 21 2024 18:12:28 GMT+0800">2024-07-21</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/technical-interview/">technical-interview</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/technical-interview/">technical-interview</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Java/">Java</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.5k Words</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>5 Mins</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <br>
+
+<p>慕课网课程《Java高级面试突围课 ,搞定Java中高级面试的必考点》学习笔记</p>
+<span id="more"></span>
+
+<h1 id="第1章-课程介绍"><a href="#第1章-课程介绍" class="headerlink" title="第1章 课程介绍"></a>第1章 课程介绍</h1><h2 id="学习本课程的必要性"><a href="#学习本课程的必要性" class="headerlink" title="学习本课程的必要性"></a>学习本课程的必要性</h2><ul>
+<li>面试越来越“难”</li>
+<li>程序员“内卷”：新技术不断迭代更新，老技术门槛越来越低，对程序员的要求拔高</li>
+<li>企业渴求“精英”</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="面试瓶颈"><a href="#面试瓶颈" class="headerlink" title="面试瓶颈"></a>面试瓶颈</h2><ul>
+<li>小项目经验行不通，要见识过高难度的项目<ul>
+<li>不在于项目体量的大小。而经历过高难度项目，整个人的视野、眼界，处理问题的能力，思考方式，悟性提升到较高层次。（大项目影响的是思维方式）</li>
+<li><strong>高难度项目：拔高用户视野，提升技术面</strong></li>
+</ul>
+</li>
+<li>要真正理解核心的底层原理，并且知道用在哪<ul>
+<li>单纯死记硬背必定会有技术盲区以及被问倒</li>
+<li>掌握底层原理后，即使遇到技术盲区，仍然可以利用已有的知识展开自己的思考和洞见</li>
+</ul>
+</li>
+<li>“理论经验”到“实践经验”的转变</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="课程能如何帮助你"><a href="#课程能如何帮助你" class="headerlink" title="课程能如何帮助你"></a>课程能如何帮助你</h2><ul>
+<li><strong>重要点</strong></li>
+</ul>
+<ol>
+<li>在过硬技术的支撑下加入小技巧，避免踩雷，一败涂地</li>
+<li>面前的面试官和你未来岗位的关系 ?</li>
+<li>一个中级开发应有的level是什么 ?</li>
+<li>遇到过哪些问题，是怎么解决的 ?</li>
+<li>你有什么问题要问的吗 ?</li>
+</ol>
+<ul>
+<li><strong>详实又实用的知识，深入到核心，回答难点问题</strong></li>
+</ul>
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/image.png"
+                         width="90%"
+                 ></center>
+
+<ul>
+<li><p>Java基础</p>
+<ul>
+<li>concurrentHashMap加锁力度</li>
+<li>synchronized和ReentrantLockx别</li>
+<li>CopyOnWrite容器，volatile关键字作用</li>
+<li>BIO NIO AIO</li>
+</ul>
+</li>
+<li><p>数据库</p>
+<ul>
+<li>行锁&#x2F;表锁&#x2F;间隙锁</li>
+<li>当前读&#x2F;快照读</li>
+<li>事务隔离级别</li>
+<li>MySQL索引优化</li>
+</ul>
+</li>
+<li><p>缓存</p>
+<ul>
+<li>跳表+压缩表</li>
+<li>RDB和AOF</li>
+<li>缓存淘汰策略</li>
+<li>Setnx原子性</li>
+</ul>
+</li>
+<li><p>MQ</p>
+<ul>
+<li>多节点异步</li>
+<li>Ack机制</li>
+<li>Offset机制</li>
+<li>分布式事务实现</li>
+</ul>
+</li>
+<li><p>OS&#x2F;网络</p>
+<ul>
+<li>Select和epoll的区别</li>
+<li>HTTP2.0</li>
+</ul>
+</li>
+<li><p>高性能</p>
+<ul>
+<li>JVM调优</li>
+<li>读写性能提高</li>
+<li>缓存雪崩</li>
+<li>网络瓶颈突破</li>
+</ul>
+</li>
+<li><p>微服务</p>
+<ul>
+<li>学会利用源码和官网</li>
+<li>从Dubbo看RPC</li>
+</ul>
+</li>
+<li><p><strong>其它亮点</strong></p>
+<ul>
+<li>其他领域的独特见解<ul>
+<li>如何用大数据的hive平台发现资损问题</li>
+<li>docker，k8s，自动扩缩容结合项目的探索</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>适合人群</strong></p>
+<ul>
+<li>初级程序员:帮助总结提炼，破局，提升素养</li>
+<li>成熟程序员还未进入大厂：查缺补漏，尝试突破学习方法和面试技巧，同时增加阅历</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="第2章-一面上半场——项目业务架构介绍"><a href="#第2章-一面上半场——项目业务架构介绍" class="headerlink" title="第2章 一面上半场——项目业务架构介绍"></a>第2章 一面上半场——项目业务架构介绍</h1><blockquote>
+<p>你的目的是在有限的时间内让面试官对你印象深刻。本章教会你如何白板快速的根据业务场景绘制系统架构图，在架构划分过程中体现你的领域模型思想。用电商项目举例，主要分为电商商品和交易场景</p>
+</blockquote>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>如何在一面中展现你的综合素质，使得面试官对你的印象更加深刻<ul>
+<li>如何做自我介绍</li>
+<li>聊聊项目</li>
+<li>提问环节</li>
+<li>你有什么要问的吗</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h2><blockquote>
+<p>自我介绍是塑造第一印象的关键，也是你一上来可以掌握主动权的机会</p>
+</blockquote>
+<ul>
+<li><strong>要点</strong><ul>
+<li>简短有力 3-4分钟较好</li>
+<li>内容要有结构性：经历简介、项目经历，技术总结</li>
+<li>凸显能力：技术经验能力、学习思考能力<ul>
+<li>技术经验能力：技术栈、技术技能。（学习的技术使用到了什么场景中）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>介绍前的思考</strong><ul>
+<li>你的一面面试官和你未来工作的关系?</li>
+<li>他想要从我的自我介绍中了解什么?</li>
+</ul>
+</li>
+<li><strong>介绍的内容</strong><ul>
+<li>经历简介<ul>
+<li>个人信息，教育背景，职业生涯，工作年限</li>
+</ul>
+</li>
+<li>项目经历<ul>
+<li>电商项目:省微服务，领域模型驱动设计，结果产出，qps，高并发场景，担当什么?</li>
+</ul>
+</li>
+<li>技能总结<ul>
+<li>你的技术栈，开发语言，主要框架，中间件(存储，微服务相关，大数据，部署相关)</li>
+<li>业余时间学习 or 最近在学什么</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>介绍的亮点</strong><ul>
+<li>谦逊:能力再强也需要和谐的研发环境</li>
+<li>自信:代表了你对个人价值的认可</li>
+<li>与众不同:深度思考，愿意学习探索</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="模拟面试"><a href="#模拟面试" class="headerlink" title="模拟面试"></a>模拟面试</h2><blockquote>
+<p>以面试官的心态提问</p>
+</blockquote>
+<ul>
+<li>提问<ul>
+<li>介绍下你做的项目</li>
+<li>你项目的业务场景，系统架构，工作职责分别是什么样的</li>
+<li>你的项目中有哪些亮点，你是如何处理和解决这些难点问题的</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="聊聊项目"><a href="#聊聊项目" class="headerlink" title="聊聊项目"></a>聊聊项目</h2><h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li>项目场景介绍：项目做了什么？</li>
+<li>系统架构方案</li>
+<li>你负责了哪块</li>
+</ul>
+<h3 id="项目场景介绍"><a href="#项目场景介绍" class="headerlink" title="项目场景介绍"></a>项目场景介绍</h3><ul>
+<li><p><strong>项目做了什么</strong></p>
+<ul>
+<li>B2C的电商平台:标准的电商场景</li>
+<li>既要有全局思维的广度，又要有局部思维的深度</li>
+</ul>
+</li>
+<li><p><strong>标准的电商基础模块</strong></p>
+<ul>
+<li>商家:商家入驻及授权流程e</li>
+<li>店铺:店铺管理</li>
+<li>用户:用户注册及登录，用户管理模块</li>
+<li>品牌:品牌管理，品牌授权</li>
+<li>类目:三级类目管理 服饰-&gt;男装-&gt;卫衣</li>
+<li>属性:颜色，尺寸，自定义属性</li>
+<li>商品:商品管理，库存管理，运费管理</li>
+<li>购物车:购物车管理</li>
+<li>导购:搜索，推荐</li>
+<li>营销:优惠券，活动</li>
+<li>交易:订单，支付，退款</li>
+<li>配送:物流</li>
+<li>售后:售后，客服</li>
+</ul>
+</li>
+<li><p><strong>我主要开发的系统</strong></p>
+<ul>
+<li>商品系统:商品基础模型，商品详情查询</li>
+<li>交易系统:交易支付，订单列表及支付系统对接</li>
+</ul>
+</li>
+</ul>
+<h3 id="系统架构方案"><a href="#系统架构方案" class="headerlink" title="系统架构方案"></a>系统架构方案</h3><ul>
+<li>分维度介绍<ul>
+<li>系统架构:体现整体部署结构，选型思考<ul>
+<li>流量入口</li>
+<li>服务治理</li>
+<li>数据选型</li>
+</ul>
+</li>
+<li>业务架构:业务场景引入进来做业务架构设计</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href=""></a></li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote>
+<ol>
+<li>xxx需要再深入学习</li>
+</ol>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                Java高级面试突围课 ,搞定Java中高级面试的必考点 Study Notes
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2024/Java高级面试突围课-搞定Java中高级面试的必考点-Study-Notes/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">Kierke</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2024-07-21 16:51</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/technical-interview/">technical-interview</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Java/">Java</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    <div class="reward-author-container border-box flex-center">
+    <div class="reward-btn keep-button border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="请作者喝杯咖啡"
+            data-tooltip-img-url="https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-1714407409574.6f0hgreq3y.webp"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -8px;"
+    >
+        <i class="fa-solid fa-hand-holding-heart"></i>
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%83-20-%E8%AE%B2-Study-Notes/"
+                                   title="微服务架构核心 20 讲 Study Notes"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">微服务架构核心 20 讲 Study Notes</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/SpringBoot3-Vue3-%E5%BC%80%E5%8F%91%E9%AB%98%E5%B9%B6%E5%8F%91%E7%A7%92%E6%9D%80%E6%8A%A2%E8%B4%AD%E7%B3%BB%E7%BB%9F-Study-Notes/"
+                                   title="SpringBoot3+Vue3 开发高并发秒杀抢购系统 Study Notes"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SpringBoot3+Vue3 开发高并发秒杀抢购系统 Study Notes</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D"><span class="nav-text">第1章 课程介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%9C%AC%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7"><span class="nav-text">学习本课程的必要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E7%93%B6%E9%A2%88"><span class="nav-text">面试瓶颈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E8%83%BD%E5%A6%82%E4%BD%95%E5%B8%AE%E5%8A%A9%E4%BD%A0"><span class="nav-text">课程能如何帮助你</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E4%B8%80%E9%9D%A2%E4%B8%8A%E5%8D%8A%E5%9C%BA%E2%80%94%E2%80%94%E9%A1%B9%E7%9B%AE%E4%B8%9A%E5%8A%A1%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D"><span class="nav-text">第2章 一面上半场——项目业务架构介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D"><span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E9%9D%A2%E8%AF%95"><span class="nav-text">模拟面试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%8A%E8%81%8A%E9%A1%B9%E7%9B%AE"><span class="nav-text">聊聊项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E7%82%B9"><span class="nav-text">要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%9C%BA%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="nav-text">项目场景介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E6%96%B9%E6%A1%88"><span class="nav-text">系统架构方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2018</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Kierke</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://github.com/">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span>
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">46.6k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-toggle-theme-mode flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D"><span class="nav-text">第1章 课程介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%9C%AC%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7"><span class="nav-text">学习本课程的必要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E7%93%B6%E9%A2%88"><span class="nav-text">面试瓶颈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E8%83%BD%E5%A6%82%E4%BD%95%E5%B8%AE%E5%8A%A9%E4%BD%A0"><span class="nav-text">课程能如何帮助你</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E4%B8%80%E9%9D%A2%E4%B8%8A%E5%8D%8A%E5%9C%BA%E2%80%94%E2%80%94%E9%A1%B9%E7%9B%AE%E4%B8%9A%E5%8A%A1%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D"><span class="nav-text">第2章 一面上半场——项目业务架构介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D"><span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E9%9D%A2%E8%AF%95"><span class="nav-text">模拟面试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%8A%E8%81%8A%E9%A1%B9%E7%9B%AE"><span class="nav-text">聊聊项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E7%82%B9"><span class="nav-text">要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%9C%BA%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="nav-text">项目场景介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E6%96%B9%E6%A1%88"><span class="nav-text">系统架构方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<!-- common -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/header-shrink.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/back2top.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/toggle-theme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/code-block.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/libs/anime.min.js"></script>
+
+<!-- local-search -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/local-search.min.js"></script>
+
+
+<!-- lazyload -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/lazyload.min.js"></script>
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/post-helper.min.js"></script>
+
+        <!-- toc -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/toc.min.js"></script>
+        
+
+        <!-- copyright-info -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/copyright-info.min.js"></script>
+        
+
+        <!-- share -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/share.min.js"></script>
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+    
+<script src="//cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+
+    <script data-pjax>
+      if (window.mermaid) {
+        mermaid.init()
+      }
+    </script>
+
+
+
+
+
+
+<!-- pjax -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

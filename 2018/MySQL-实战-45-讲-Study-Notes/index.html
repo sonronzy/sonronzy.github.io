@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Kierke sonronzy">
+    <meta name="description" content="Kierke&#39;s Blog">
+    <meta name="author" content="Kierke">
+    
+    <title>
+        
+            MySQL 实战 45 讲 Study Notes |
+        
+        Kierke&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/head.jpg">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/brands.min.css">
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"sonronzy.github.io","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#CCCCCC","title":"Kierke's Blog","author":"Kierke","avatar":"/images/head.jpg","logo":"/images/head.jpg","favicon":"/images/head.jpg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories","links":"/links","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.jpg","background_img_dark":"/images/bg.jpg","description":"Stay hungry, Stay foolish","hitokoto":false},"social_contact":{"enable":false,"links":{"github":"https://github.com/sonronzy","weixin":"img | https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-588648de40ffc096d74f91d340f4e58.7p3en1mkg7.webp","qq":"img | https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-80e8494e86c191e3dbadffc969df432.lvj7fjv66.webp","weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"sonronzy@gmail.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated","post_datetime_format":"YYYY-MM-DD"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-1714407409574.6f0hgreq3y.webp","text":"请作者喝杯咖啡"}},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":true,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2018,"word_count":true,"site_deploy":{"enable":true,"provider":"github","url":"https://github.com/"},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"img_align":"center","root":"","source_data":{},"version":"4.1.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Kierke's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/head.jpg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               Kierke&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                
+                                HOME
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/"
+                    >HOME</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives"
+                    >ARCHIVES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags"
+                    >TAGS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories"
+                    >CATEGORIES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links"
+                    >LINKS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about"
+                    >ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        MySQL 实战 45 讲 Study Notes
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/head.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Kierke</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2018-12-06</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Sat Jul 06 2024 23:30:59 GMT+0800">2024-07-06</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/DataBase/">DataBase</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/categories/MySQL/">MySQL</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/MySQL/">MySQL</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/DataBase/">DataBase</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>5.3k Words</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>18 Mins</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <br>
+
+<p>极客时间专栏《MySQL 实战 45 讲》（林晓斌 网名丁奇）学习笔记</p>
+<span id="more"></span>
+
+<h1 id="开篇词-1讲"><a href="#开篇词-1讲" class="headerlink" title="开篇词 (1讲)"></a>开篇词 (1讲)</h1><h2 id="开篇词-这一次，让我们一起来搞懂MySQL"><a href="#开篇词-这一次，让我们一起来搞懂MySQL" class="headerlink" title="开篇词 | 这一次，让我们一起来搞懂MySQL"></a>开篇词 | 这一次，让我们一起来搞懂MySQL</h2><blockquote>
+<p>即使我只是一个开发工程师，只是 MySQL 的用户，在了解了一个个系统模块的原理后，再来使用它，感觉是完全不一样的。当在代码里写下一行数据库命令的时候，我就能想到它在数据库端将怎么执行，它的性能是怎么样的，怎样写能让我的应用程序访问数据库的性能最高。进一步，哪些数据处理让数据库系统来做性能会更好，哪些数据处理在缓存里做性能会更好，我心里也会更清楚。在建表和建索引的时候，我也会更有意识地为将来的查询优化做综合考虑，比如确定是否使用递增主键、主键的列怎样选择，等等。</p>
+</blockquote>
+<blockquote>
+<p>我希望这个专栏能够帮助这样的一些开发者：他们正在使用 MySQL，知道如何写出逻辑正确的 SQL 语句来实现业务目标，却不确定这个语句是不是最优的；他们听说了一些使用数据库的最佳实践，但是更想了解为什么这么做；他们使用的数据库偶尔会出问题，亟需了解如何更快速、更准确地定位问题，甚至自己解决问题……</p>
+</blockquote>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="基础篇-8讲"><a href="#基础篇-8讲" class="headerlink" title="基础篇 (8讲)"></a>基础篇 (8讲)</h1><h2 id="01-基础架构：一条SQL查询语句是如何执行的？"><a href="#01-基础架构：一条SQL查询语句是如何执行的？" class="headerlink" title="01 | 基础架构：一条SQL查询语句是如何执行的？"></a>01 | 基础架构：一条SQL查询语句是如何执行的？</h2><ul>
+<li><strong>看一个事儿千万不要直接陷入细节里，你应该先鸟瞰其全貌，这样能够帮助你从高维度理解问题。</strong></li>
+</ul>
+<h3 id="MySQL-的基本架构"><a href="#MySQL-的基本架构" class="headerlink" title="MySQL 的基本架构"></a>MySQL 的基本架构</h3><img   style="margin: 0 auto;"  
+                       lazyload
+                       alt="image"
+                       data-src="https://github.com/sonronzy/picx-images-hosting/raw/master/20240701/5e78baea50dfaf321587070fa172edd.7egnbbw3hf.webp"
+                         width="70%"
+                 >
+
+<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><ul>
+<li>MySQL 可以分为 Server 层和存储引擎层两部分</li>
+<li>Server 层：<ul>
+<li>包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。</li>
+</ul>
+</li>
+<li>存储引擎层：<ul>
+<li>负责数据的存储和提取。其架构模式是插件式的，支持 InnoDB、MyISAM、Memory 等多个存储引擎。现在最常用的存储引擎是 InnoDB，它从 MySQL 5.5.5 版本开始成为了默认存储引擎。<ul>
+<li>不同存储引擎的表数据存取方式不同，支持的功能也不同</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>不同的存储引擎共用一个<strong>Server 层</strong></li>
+</ul>
+<h4 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h4><ul>
+<li>连接器负责跟客户端建立连接，获取权限，维持和管理连接</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -h$ip -P$port -u$user -p</span><br><span class="line"># 虽然密码也可以直接跟在 -p 后面写在命令行中，但这样可能会导致你的密码泄露</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>连接命令中的 mysql 是客户端工具，用来跟服务端建立连接。</li>
+<li>（1）完成经典的 TCP 握手</li>
+<li>（2）连接器就要开始认证身份，这个时候用的就是输入的用户名和密码。<ul>
+<li>如果用户名或密码不对，你就会收到一个”Access denied for user”的错误，然后客户端程序结束执行</li>
+<li><strong>如果用户名密码认证通过，连接器会到权限表里面查出用户拥有的权限。之后，这个连接里面的权限判断逻辑，都将依赖于此时读到的权限。</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>一个用户成功建立连接后，即使用管理员账号对这个用户的权限做了修改，也不会影响已经存在连接的权限。修改完成后，只有再新建的连接才会使用新的权限设置</p>
+</blockquote>
+<ul>
+<li><p>连接完成后，如果你没有后续的动作，这个连接就处于空闲状态。可以在 show processlist 命令中看到它。</p>
+</li>
+<li><p>客户端如果太长时间没动静，连接器就会自动将它断开。这个时间是由参数 wait_timeout 控制的，默认值是 8 小时。</p>
+</li>
+<li><p>如果在连接被断开之后，客户端再次发送请求的话，就会收到一个错误提醒： Lost connection to MySQL server during query。</p>
+</li>
+<li><p>数据库的连接：</p>
+<ul>
+<li>长连接：连接成功后，如果客户端持续有请求，则一直使用同一个连接</li>
+<li>短连接：每次执行完很少的几次查询就断开连接，下次查询再重新建立一个</li>
+<li>建立连接的过程通常比较复杂。建议：<strong>尽量减少建立连接的动作，尽量使用长连接</strong></li>
+</ul>
+</li>
+<li><p>全部使用长连接：有些时候 MySQL 占用内存涨得特别快，这是因为 MySQL 在执行过程中临时使用的内存是管理在连接对象里面的。这些资源会在连接断开的时候才释放。所以如果长连接累积下来，可能导致内存占用太大，被系统强行杀掉（OOM），从现象看就是 MySQL 异常重启了。</p>
+</li>
+<li><p>解决方案：</p>
+<ul>
+<li>定期断开长连接。使用一段时间，或者程序里面判断执行过一个占用内存的大查询后，断开连接，之后要查询再重连。</li>
+<li>如果你用的是 MySQL 5.7 或更新版本，可以在每次执行一个比较大的操作后，通过执行 mysql_reset_connection 来重新初始化连接资源。这个过程不需要重连和重新做权限验证，但是会将连接恢复到刚刚创建完时的状态。</li>
+</ul>
+</li>
+</ul>
+<h4 id="查询缓存"><a href="#查询缓存" class="headerlink" title="查询缓存"></a>查询缓存</h4><ul>
+<li>连接建立完后，就可以执行select语句了</li>
+<li>MySQL 拿到一个查询请求后，会先到查询缓存看看，之前是不是执行过这条语句。之前执行过的语句及其结果可能会以 key-value 对的形式，被直接缓存在内存中。key 是查询的语句，value 是查询的结果。如果你的查询能够直接在这个缓存中找到 key，那么这个 value 就会被直接返回给客户端。</li>
+<li>如果语句不在查询缓存中，就会继续后面的执行阶段。执行完成后，执行结果会被存入查询缓存中。（查询命中缓存，MySQL 不需要执行后面的复杂操作，就可以直接返回结果，这个效率会很高。）</li>
+<li><strong>但是大多数情况下我会建议你不要使用查询缓存，为什么呢？因为查询缓存往往弊大于利。</strong></li>
+<li>查询缓存的失效非常频繁：只要有对一个表的更新，这个表上所有的查询缓存都会被清空。</li>
+<li>对于更新压力大的数据库来说，查询缓存的命中率会非常低。</li>
+<li>除非你的业务就是有一张静态表，很长时间才会更新一次。比如，一个系统配置表，那这张表上的查询才适合使用查询缓存。</li>
+<li>可以将参数 query_cache_type 设置成 DEMAND，这样对于默认的 SQL 语句都不使用查询缓存。</li>
+<li>对于你确定要使用查询缓存的语句，可以用 SQL_CACHE 显式指定</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select SQL_CACHE * from T where ID=10</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>MySQL 8.0 版本直接将查询缓存的整块功能删掉了</li>
+</ul>
+<h4 id="分析器"><a href="#分析器" class="headerlink" title="分析器"></a>分析器</h4><ul>
+<li>MySQL 需要知道你要做什么，因此需要对 SQL 语句做解析</li>
+<li>分析器先会做“词法分析”<ul>
+<li>MySQL 从你输入的”select”这个关键字识别出来，这是一个查询语句。它也要把字符串“T”识别成“表名 T”，把字符串“ID”识别成“列 ID”。</li>
+</ul>
+</li>
+<li>做完了这些识别以后，就要做“语法分析”<ul>
+<li>根据词法分析的结果，语法分析器会根据语法规则，判断你输入的这个 SQL 语句是否满足 MySQL 语法。</li>
+<li>如果你的语句不对，就会收到“You have an error in your SQL syntax”的错误提醒</li>
+</ul>
+</li>
+</ul>
+<h4 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h4><ul>
+<li>优化器是在表里面有多个索引的时候，决定使用哪个索引；或者在一个语句有多表关联（join）的时候，决定各个表的连接顺序。</li>
+<li>优化器阶段完成后，这个语句的执行方案就确定下来了</li>
+</ul>
+<h4 id="执行器"><a href="#执行器" class="headerlink" title="执行器"></a>执行器</h4><ul>
+<li>开始执行的时候，要先判断一下你对这个表 T 有没有执行查询的权限，如果没有，就会返回没有权限的错误</li>
+<li>在工程实现上，如果命中查询缓存，会在查询缓存返回结果的时候，做权限验证。查询也会在优化器之前调用 precheck 验证权限</li>
+<li>如果有权限，就打开表继续执行。打开表的时候，执行器就会根据表的引擎定义，去使用这个引擎提供的接口。</li>
+<li>例如我们这个例子中的表 T 中，ID 字段没有索引，那么执行器的执行流程是这样的：<ul>
+<li>（1）调用 InnoDB 引擎接口取这个表的第一行，判断 ID 值是不是 10，如果不是则跳过，如果是则将这行存在结果集中；</li>
+<li>（2）调用引擎接口取“下一行”，重复相同的判断逻辑，直到取到这个表的最后一行。</li>
+<li>（3）执行器将上述遍历过程中所有满足条件的行组成的记录集作为结果集返回给客户端。</li>
+<li>至此，这个语句就执行完成了。</li>
+</ul>
+</li>
+<li>对于有索引的表，执行的逻辑也差不多。第一次调用的是“取满足条件的第一行”这个接口，之后循环取“满足条件的下一行”这个接口，这些接口都是引擎中已经定义好的。</li>
+</ul>
+<blockquote>
+<p>你会在数据库的慢查询日志中看到一个 rows_examined 的字段，表示这个语句执行过程中扫描了多少行。这个值就是在执行器每次调用引擎获取数据行的时候累加的。</p>
+<p>在有些场景下，执行器调用一次，在引擎内部则扫描了多行，因此<strong>引擎扫描行数跟 rows_examined 并不是完全相同的</strong></p>
+</blockquote>
+ <br>
+
+<br>
+
+<h2 id="02-日志系统：一条SQL更新语句是如何执行的？"><a href="#02-日志系统：一条SQL更新语句是如何执行的？" class="headerlink" title="02 | 日志系统：一条SQL更新语句是如何执行的？"></a>02 | 日志系统：一条SQL更新语句是如何执行的？</h2><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://github.com/sonronzy/picx-images-hosting/raw/master/20240701/5e78baea50dfaf321587070fa172edd.7egnbbw3hf.webp"
+                         width="70%"
+                 >
+
+<ul>
+<li>查询语句的那一套流程，更新语句也是同样会走一遍。<ul>
+<li>执行语句前要先连接数据库</li>
+<li>分析器会通过词法和语法解析知道这是一条更新语句。优化器决定要使用 ID 这个索引。然后，执行器负责具体执行，找到这一行，然后更新。</li>
+</ul>
+</li>
+<li>与查询流程不一样的是，更新流程还涉及两个重要的日志模块<ul>
+<li>redo log（重做日志）</li>
+<li>binlog（归档日志）</li>
+</ul>
+</li>
+</ul>
+<h3 id="重要的日志模块：redo-log"><a href="#重要的日志模块：redo-log" class="headerlink" title="重要的日志模块：redo log"></a>重要的日志模块：redo log</h3><ul>
+<li>当有一条记录需要更新的时候，InnoDB 引擎就会先把记录写到 redo log里面，并更新内存，这个时候更新就算完成了。</li>
+<li>同时，InnoDB 引擎会在适当的时候，将这个操作记录更新到磁盘里面，而这个更新往往是在系统比较空闲的时候做</li>
+<li>InnoDB 的 redo log 是固定大小的，比如可以配置为一组 4 个文件，每个文件的大小是 1GB。总共就可以记录 4GB 的操作。从头开始写，写到末尾就又回到开头循环写</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="https://github.com/sonronzy/picx-images-hosting/raw/master/20240701/1719815258507.ibzr6n7lb.webp"
+                         width="70%"
+                 >
+
+<ul>
+<li>write pos 是当前记录的位置，一边写一边后移，写到第 3 号文件末尾后就回到 0 号文件开头。checkpoint 是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。</li>
+<li>write pos 和 checkpoint 之间的是“粉板”上还空着的部分，可以用来记录新的操作。如果 write pos 追上 checkpoint，表示“粉板”满了，这时候不能再执行新的更新，得停下来先擦掉一些记录，把 checkpoint 推进一下。</li>
+<li>有了 redo log，InnoDB 就可以保证即使数据库发生异常重启，之前提交的记录都不会丢失，这个能力称为<strong>crash-safe</strong>。</li>
+</ul>
+<h3 id="重要的日志模块：binlog"><a href="#重要的日志模块：binlog" class="headerlink" title="重要的日志模块：binlog"></a>重要的日志模块：binlog</h3><ul>
+<li>MySQL 整体来看，其实就有两块：<ul>
+<li>Server 层：它主要做的是 MySQL 功能层面的事情。Server 层也有自己的日志，称为 binlog（归档日志）</li>
+<li>引擎层：负责存储相关的具体事宜。redo log 是 InnoDB 引擎特有的日志</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>因为最开始 MySQL 里并没有 InnoDB 引擎。MySQL 自带的引擎是 MyISAM，但是 MyISAM 没有 crash-safe 的能力，binlog 日志只能用于归档。而 InnoDB 是另一个公司以插件形式引入 MySQL 的，既然只依靠 binlog 是没有 crash-safe 能力的，所以 InnoDB 使用另外一套日志系统——也就是 redo log 来实现 crash-safe 能力。</p>
+</blockquote>
+<h4 id="redo-log-VS-binglog"><a href="#redo-log-VS-binglog" class="headerlink" title="redo log VS binglog"></a>redo log VS binglog</h4><ul>
+<li>两种日志有以下三点不同：<ul>
+<li>（1）redo log 是 InnoDB 引擎特有的；binlog 是 MySQL 的 Server 层实现的，所有引擎都可以使用。</li>
+<li>（2）redo log 是物理日志，记录的是“在某个数据页上做了什么修改”；binlog 是逻辑日志，记录的是这个语句的原始逻辑，比如“给 ID&#x3D;2 这一行的 c 字段加 1 ”。</li>
+<li>（3）redo log 是循环写的，空间固定会用完；binlog 是可以追加写入的。“追加写”是指 binlog 文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。</li>
+</ul>
+</li>
+</ul>
+<h4 id="执行器和-InnoDB-引擎在执行这个简单的-update-语句时的内部流程"><a href="#执行器和-InnoDB-引擎在执行这个简单的-update-语句时的内部流程" class="headerlink" title="执行器和 InnoDB 引擎在执行这个简单的 update 语句时的内部流程"></a>执行器和 InnoDB 引擎在执行这个简单的 update 语句时的内部流程</h4><ul>
+<li>（1）执行器先找引擎取 ID&#x3D;2 这一行。ID 是主键，引擎直接用树搜索找到这一行。如果 ID&#x3D;2 这一行所在的数据页本来就在内存中，就直接返回给执行器；否则，需要先从磁盘读入内存，然后再返回。</li>
+<li>（2）执行器拿到引擎给的行数据，把这个值加上 1，比如原来是 N，现在就是 N+1，得到新的一行数据，再调用引擎接口写入这行新数据。</li>
+<li>（3）引擎将这行新数据更新到内存中，同时将这个更新操作记录到 redo log 里面，此时 redo log 处于 prepare 状态。然后告知执行器执行完成了，随时可以提交事务</li>
+<li>（4）执行器生成这个操作的 binlog，并把 binlog 写入磁盘</li>
+<li>（5）执行器调用引擎的提交事务接口，引擎把刚刚写入的 redo log 改成提交（commit）状态，更新完成。</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="https://github.com/sonronzy/picx-images-hosting/raw/master/20240701/1719815928853.13lndhvxx9.webp"
+                         width="70%"
+                 >
+
+<ul>
+<li>图中浅色框表示是在 InnoDB 内部执行的，深色框表示是在执行器中执行的。</li>
+<li>将 redo log 的写入拆成了两个步骤：prepare 和 commit，这就是”两阶段提交”。</li>
+</ul>
+<h3 id="两阶段提交"><a href="#两阶段提交" class="headerlink" title="两阶段提交"></a>两阶段提交</h3><h4 id="怎样让数据库恢复到半个月内任意一秒的状态？"><a href="#怎样让数据库恢复到半个月内任意一秒的状态？" class="headerlink" title="怎样让数据库恢复到半个月内任意一秒的状态？"></a><strong>怎样让数据库恢复到半个月内任意一秒的状态？</strong></h4><ul>
+<li>当需要恢复到指定的某一秒时，比如某天下午两点发现中午十二点有一次误删表，需要找回数据，那你可以这么做：<ul>
+<li>（1）首先，找到最近的一次全量备份，如果你运气好，可能就是昨天晚上的一个备份，从这个备份恢复到临时库；</li>
+<li>（2）然后，从备份的时间点开始，将备份的 binlog 依次取出来，重放到中午误删表之前的那个时刻。</li>
+<li>（3）这样你的临时库就跟误删之前的线上库一样了，然后你可以把表数据从临时库取出来，按需要恢复到线上库去。</li>
+</ul>
+</li>
+</ul>
+<h4 id="为什么必须有“两阶段提交”"><a href="#为什么必须有“两阶段提交”" class="headerlink" title="为什么必须有“两阶段提交”?"></a>为什么必须有“两阶段提交”?</h4><ul>
+<li>这是为了让两份日志之间的逻辑一致</li>
+<li>用反证法来进行解释：<ul>
+<li>由于 redo log 和 binlog 是两个独立的逻辑，如果不用两阶段提交，要么就是先写完 redo log 再写 binlog，或者采用反过来的顺序。</li>
+<li>仍然用前面的 update 语句来做例子。假设当前 ID&#x3D;2 的行，字段 c 的值是 0，再假设执行 update 语句过程中在写完第一个日志后，第二个日志还没有写完期间发生了 crash，会出现什么情况呢？<ul>
+<li>（1）<strong>先写 redo log 后写 binlog</strong>。假设在 redo log 写完，binlog 还没有写完的时候，MySQL 进程异常重启。由于我们前面说过的，redo log 写完之后，系统即使崩溃，仍然能够把数据恢复回来，所以恢复后这一行 c 的值是 1。<br>但是由于 binlog 没写完就 crash 了，这时候 binlog 里面就没有记录这个语句。因此，之后备份日志的时候，存起来的 binlog 里面就没有这条语句。<br>然后你会发现，如果需要用这个 binlog 来恢复临时库的话，由于这个语句的 binlog 丢失，这个临时库就会少了这一次更新，恢复出来的这一行 c 的值就是 0，与原库的值不同。</li>
+<li>（2）<strong>先写 binlog 后写 redo log</strong>。如果在 binlog 写完之后 crash，由于 redo log 还没写，崩溃恢复以后这个事务无效，所以这一行 c 的值是 0。但是 binlog 里面已经记录了“把 c 从 0 改成 1”这个日志。所以，在之后用 binlog 来恢复的时候就多了一个事务出来，恢复出来的这一行 c 的值就是 1，与原库的值不同。</li>
+</ul>
+</li>
+<li>可以看到，如果不使用“两阶段提交”，那么数据库的状态就有可能和用它的日志恢复出来的库的状态不一致。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>当你需要扩容的时候，也就是需要再多搭建一些备库来增加系统的读能力的时候，现在常见的做法也是用全量备份加上应用 binlog 来实现的，这个“不一致”就会导致你的线上出现主从数据库不一致的情况。</p>
+</blockquote>
+<ul>
+<li>redo log 和 binlog 都可以用于表示事务的提交状态，而两阶段提交就是让这两个状态保持逻辑上的一致。</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>物理日志 redo log</li>
+<li>逻辑日志 binlog</li>
+<li>redo log 用于保证 crash-safe 能力。innodb_flush_log_at_trx_commit 这个参数设置成 1 的时候，表示每次事务的 redo log 都直接持久化到磁盘。这个参数我建议你设置成 1，这样可以保证 MySQL 异常重启之后数据不丢失。</li>
+<li>sync_binlog 这个参数设置成 1 的时候，表示每次事务的 binlog 都持久化到磁盘。这个参数我也建议你设置成 1，这样可以保证 MySQL 异常重启之后 binlog 不丢失。</li>
+<li>两阶段提交是跨系统维持数据逻辑一致性时常用的一个方案</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="03-事务隔离：为什么你改了我还看不见？"><a href="#03-事务隔离：为什么你改了我还看不见？" class="headerlink" title="03 | 事务隔离：为什么你改了我还看不见？"></a>03 | 事务隔离：为什么你改了我还看不见？</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>事务就是要保证一组数据库操作，要么全部成功，要么全部失败。</li>
+<li>在 MySQL 中，事务支持是在引擎层实现的</li>
+<li>MySQL 是一个支持多引擎的系统，但并不是所有的引擎都支持事务。</li>
+<li>MySQL 原生的 MyISAM 引擎就不支持事务，这也是 MyISAM 被 InnoDB 取代的重要原因之一。</li>
+</ul>
+<h3 id="隔离性与隔离级别"><a href="#隔离性与隔离级别" class="headerlink" title="隔离性与隔离级别"></a>隔离性与隔离级别</h3><ul>
+<li>ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性）</li>
+<li>当数据库上有多个事务同时执行的时候，就可能出现脏读（dirty read）、不可重复读（non-repeatable read）、幻读（phantom read）的问题，为了解决这些问题，就有了“隔离级别”的概念。</li>
+<li>隔离得越严实，效率就会越低。因此很多时候，我们都要在二者之间寻找一个平衡点。</li>
+<li>SQL 标准的事务隔离级别包括：读未提交（read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（serializable ）<ul>
+<li>读未提交是指，一个事务还没提交时，它做的变更就能被别的事务看到。</li>
+<li>读提交是指，一个事务提交之后，它做的变更才会被其他事务看到。</li>
+<li>可重复读是指，一个事务执行过程中看到的数据，总是跟这个事务在启动时看到的数据是一致的。当然在可重复读隔离级别下，未提交变更对其他事务也是不可见的。</li>
+<li>串行化，顾名思义是对于同一行记录，“写”会加“写锁”，“读”会加“读锁”。当出现读写锁冲突的时候，后访问的事务必须等前一个事务执行完成，才能继续执行。</li>
+</ul>
+</li>
+<li>在实现上，数据库里面会创建一个视图，访问的时候以视图的逻辑结果为准。<ul>
+<li>在“可重复读”隔离级别下，这个视图是在事务启动时创建的，整个事务存在期间都用这个视图</li>
+<li>在“读提交”隔离级别下，这个视图是在每个 SQL 语句开始执行的时候创建的。</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href=""></a></li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote>
+<ol>
+<li>两阶段提交</li>
+</ol>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                MySQL 实战 45 讲 Study Notes
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2018/MySQL-实战-45-讲-Study-Notes/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">Kierke</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2018-12-06 21:33</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/MySQL/">MySQL</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/DataBase/">DataBase</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    <div class="reward-author-container border-box flex-center">
+    <div class="reward-btn keep-button border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="请作者喝杯咖啡"
+            data-tooltip-img-url="https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-1714407409574.6f0hgreq3y.webp"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -8px;"
+    >
+        <i class="fa-solid fa-hand-holding-heart"></i>
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2020/MySQL%E6%8F%90%E5%8D%87%E8%AF%BE%E7%A8%8B-%E5%85%A8%E9%9D%A2%E8%AE%B2%E8%A7%A3MySQL%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-Study-Notes/"
+                                   title="MySQL提升课程 全面讲解MySQL架构设计 Study Notes"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">MySQL提升课程 全面讲解MySQL架构设计 Study Notes</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E7%AF%87%E8%AF%8D-1%E8%AE%B2"><span class="nav-text">开篇词 (1讲)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E7%AF%87%E8%AF%8D-%E8%BF%99%E4%B8%80%E6%AC%A1%EF%BC%8C%E8%AE%A9%E6%88%91%E4%BB%AC%E4%B8%80%E8%B5%B7%E6%9D%A5%E6%90%9E%E6%87%82MySQL"><span class="nav-text">开篇词 | 这一次，让我们一起来搞懂MySQL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%AF%87-8%E8%AE%B2"><span class="nav-text">基础篇 (8讲)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%EF%BC%9A%E4%B8%80%E6%9D%A1SQL%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="nav-text">01 | 基础架构：一条SQL查询语句是如何执行的？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84"><span class="nav-text">MySQL 的基本架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E5%99%A8"><span class="nav-text">连接器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98"><span class="nav-text">查询缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E5%99%A8"><span class="nav-text">分析器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8"><span class="nav-text">优化器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%99%A8"><span class="nav-text">执行器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%80%E6%9D%A1SQL%E6%9B%B4%E6%96%B0%E8%AF%AD%E5%8F%A5%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="nav-text">02 | 日志系统：一条SQL更新语句是如何执行的？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%EF%BC%9Aredo-log"><span class="nav-text">重要的日志模块：redo log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%EF%BC%9Abinlog"><span class="nav-text">重要的日志模块：binlog</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#redo-log-VS-binglog"><span class="nav-text">redo log VS binglog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%99%A8%E5%92%8C-InnoDB-%E5%BC%95%E6%93%8E%E5%9C%A8%E6%89%A7%E8%A1%8C%E8%BF%99%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84-update-%E8%AF%AD%E5%8F%A5%E6%97%B6%E7%9A%84%E5%86%85%E9%83%A8%E6%B5%81%E7%A8%8B"><span class="nav-text">执行器和 InnoDB 引擎在执行这个简单的 update 语句时的内部流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4"><span class="nav-text">两阶段提交</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%8E%E6%A0%B7%E8%AE%A9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%81%A2%E5%A4%8D%E5%88%B0%E5%8D%8A%E4%B8%AA%E6%9C%88%E5%86%85%E4%BB%BB%E6%84%8F%E4%B8%80%E7%A7%92%E7%9A%84%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="nav-text">怎样让数据库恢复到半个月内任意一秒的状态？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E6%9C%89%E2%80%9C%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%E2%80%9D"><span class="nav-text">为什么必须有“两阶段提交”?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E6%94%B9%E4%BA%86%E6%88%91%E8%BF%98%E7%9C%8B%E4%B8%8D%E8%A7%81%EF%BC%9F"><span class="nav-text">03 | 事务隔离：为什么你改了我还看不见？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%94%E7%A6%BB%E6%80%A7%E4%B8%8E%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-text">隔离性与隔离级别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2018</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Kierke</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://github.com/">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span>
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">46.6k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-toggle-theme-mode flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E7%AF%87%E8%AF%8D-1%E8%AE%B2"><span class="nav-text">开篇词 (1讲)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E7%AF%87%E8%AF%8D-%E8%BF%99%E4%B8%80%E6%AC%A1%EF%BC%8C%E8%AE%A9%E6%88%91%E4%BB%AC%E4%B8%80%E8%B5%B7%E6%9D%A5%E6%90%9E%E6%87%82MySQL"><span class="nav-text">开篇词 | 这一次，让我们一起来搞懂MySQL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%AF%87-8%E8%AE%B2"><span class="nav-text">基础篇 (8讲)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%EF%BC%9A%E4%B8%80%E6%9D%A1SQL%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="nav-text">01 | 基础架构：一条SQL查询语句是如何执行的？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84"><span class="nav-text">MySQL 的基本架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E5%99%A8"><span class="nav-text">连接器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98"><span class="nav-text">查询缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E5%99%A8"><span class="nav-text">分析器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8"><span class="nav-text">优化器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%99%A8"><span class="nav-text">执行器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%80%E6%9D%A1SQL%E6%9B%B4%E6%96%B0%E8%AF%AD%E5%8F%A5%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="nav-text">02 | 日志系统：一条SQL更新语句是如何执行的？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%EF%BC%9Aredo-log"><span class="nav-text">重要的日志模块：redo log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%EF%BC%9Abinlog"><span class="nav-text">重要的日志模块：binlog</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#redo-log-VS-binglog"><span class="nav-text">redo log VS binglog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%99%A8%E5%92%8C-InnoDB-%E5%BC%95%E6%93%8E%E5%9C%A8%E6%89%A7%E8%A1%8C%E8%BF%99%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84-update-%E8%AF%AD%E5%8F%A5%E6%97%B6%E7%9A%84%E5%86%85%E9%83%A8%E6%B5%81%E7%A8%8B"><span class="nav-text">执行器和 InnoDB 引擎在执行这个简单的 update 语句时的内部流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4"><span class="nav-text">两阶段提交</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%8E%E6%A0%B7%E8%AE%A9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%81%A2%E5%A4%8D%E5%88%B0%E5%8D%8A%E4%B8%AA%E6%9C%88%E5%86%85%E4%BB%BB%E6%84%8F%E4%B8%80%E7%A7%92%E7%9A%84%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="nav-text">怎样让数据库恢复到半个月内任意一秒的状态？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E6%9C%89%E2%80%9C%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%E2%80%9D"><span class="nav-text">为什么必须有“两阶段提交”?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E6%94%B9%E4%BA%86%E6%88%91%E8%BF%98%E7%9C%8B%E4%B8%8D%E8%A7%81%EF%BC%9F"><span class="nav-text">03 | 事务隔离：为什么你改了我还看不见？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%94%E7%A6%BB%E6%80%A7%E4%B8%8E%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-text">隔离性与隔离级别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<!-- common -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/header-shrink.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/back2top.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/toggle-theme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/code-block.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/libs/anime.min.js"></script>
+
+<!-- local-search -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/local-search.min.js"></script>
+
+
+<!-- lazyload -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/lazyload.min.js"></script>
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/post-helper.min.js"></script>
+
+        <!-- toc -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/toc.min.js"></script>
+        
+
+        <!-- copyright-info -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/copyright-info.min.js"></script>
+        
+
+        <!-- share -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/share.min.js"></script>
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+    
+<script src="//cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+
+    <script data-pjax>
+      if (window.mermaid) {
+        mermaid.init()
+      }
+    </script>
+
+
+
+
+
+
+<!-- pjax -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

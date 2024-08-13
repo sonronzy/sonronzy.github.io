@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Kierke sonronzy">
+    <meta name="description" content="Kierke&#39;s Blog">
+    <meta name="author" content="Kierke">
+    
+    <title>
+        
+            Spring Cloud Alibaba 大型互联网领域多场景实践 Study Notes |
+        
+        Kierke&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/head.jpg">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/font/css/brands.min.css">
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"sonronzy.github.io","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#CCCCCC","title":"Kierke's Blog","author":"Kierke","avatar":"/images/head.jpg","logo":"/images/head.jpg","favicon":"/images/head.jpg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories","links":"/links","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.jpg","background_img_dark":"/images/bg.jpg","description":"Stay hungry, Stay foolish","hitokoto":false},"social_contact":{"enable":false,"links":{"github":"https://github.com/sonronzy","weixin":"img | https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-588648de40ffc096d74f91d340f4e58.7p3en1mkg7.webp","qq":"img | https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-80e8494e86c191e3dbadffc969df432.lvj7fjv66.webp","weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"sonronzy@gmail.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated","post_datetime_format":"YYYY-MM-DD"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-1714407409574.6f0hgreq3y.webp","text":"请作者喝杯咖啡"}},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":true,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2018,"word_count":true,"site_deploy":{"enable":true,"provider":"github","url":"https://github.com/"},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"img_align":"center","root":"","source_data":{},"version":"4.1.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Kierke's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/head.jpg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               Kierke&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                
+                                HOME
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/"
+                    >HOME</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives"
+                    >ARCHIVES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags"
+                    >TAGS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories"
+                    >CATEGORIES</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links"
+                    >LINKS</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about"
+                    >ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        Spring Cloud Alibaba 大型互联网领域多场景实践 Study Notes
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/head.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Kierke</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-07-28</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Wed Jul 31 2024 00:04:16 GMT+0800">2024-07-31</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Spring-Cloud-Alibaba/">Spring Cloud Alibaba</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Spring-Cloud-Alibaba/">Spring Cloud Alibaba</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>2.4k Words</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>10 Mins</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <br>
+
+<p>慕课网实战课程<a class="link"   target="_blank" rel="noopener" href="https://coding.imooc.com/class/chapter/508.html#Anchor" >《Spring Cloud Alibaba 大型互联网领域多场景实践》<i class="fas fa-external-link-alt"></i></a>学习笔记</p>
+<span id="more"></span>
+
+<h1 id="第1章-课程介绍"><a href="#第1章-课程介绍" class="headerlink" title="第1章 课程介绍"></a>第1章 课程介绍</h1><h2 id="课程主题"><a href="#课程主题" class="headerlink" title="课程主题"></a>课程主题</h2><ul>
+<li>围绕电商高并发业务场景为主线，讲解了Spring Cloud Alibaba相关组件如何应用</li>
+<li>介绍了在大规模分布式集群下Spring Cloud Alibaba的最佳实战</li>
+<li>从源码角度深度剖析各个组件的实现思路与方案</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="课程目标"><a href="#课程目标" class="headerlink" title="课程目标"></a>课程目标</h2><ul>
+<li>掌握Spring Cloud Alibaba相关组件的高阶用法</li>
+<li>了解Spring Cloud Alibaba框架如何应对互联网电商业务的三高场景</li>
+<li><strong>培养技术专家的思维方式</strong></li>
+<li>掌握读源码的方法，学会触类旁通</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="解决了哪些痛点"><a href="#解决了哪些痛点" class="headerlink" title="解决了哪些痛点"></a>解决了哪些痛点</h2><ul>
+<li>框架会用了，但是到工作当中无法结合</li>
+<li>只会HelloWorld，不知原理与框架设计思路</li>
+<li>框架之间没有联系，不够系统</li>
+<li>单机或者小规模服务应对自如，大规模分布式场景一概不知</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="课程亮点"><a href="#课程亮点" class="headerlink" title="课程亮点"></a>课程亮点</h2><ul>
+<li>与实际工作场景相结合，避免纸上谈兵</li>
+<li>不仅仅会用，更要知其所以然</li>
+<li>学习过程中多问为什么，培养大牛思维</li>
+<li>课程独立性强，小白高工皆可受益</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="课程收获"><a href="#课程收获" class="headerlink" title="课程收获"></a>课程收获</h2><ul>
+<li>掌握基于Spring Cloud Alibaba的主流电商业务技术架构</li>
+<li>应对复杂的电商业务场景(双十一、秒杀 )</li>
+<li>掌握Spring Cloud Alibaba在大规模集群应用的最佳实践</li>
+<li>掌握Spring Cloud Alibaba组件核心设计思想和原理</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="第2章-基于Spring-Cloud-Alibaba的微服务电商解决方案"><a href="#第2章-基于Spring-Cloud-Alibaba的微服务电商解决方案" class="headerlink" title="第2章 基于Spring Cloud Alibaba的微服务电商解决方案"></a>第2章 基于Spring Cloud Alibaba的微服务电商解决方案</h1><h2 id="Spring-Cloud是什么"><a href="#Spring-Cloud是什么" class="headerlink" title="Spring Cloud是什么"></a>Spring Cloud是什么</h2><ul>
+<li>简单来说，Spring Cloud提供了一些可以让开发者快速构建微服务应用的工具，比如配置管理、服务发现、熔断、智能路由等，这些服务可以在任何分布式环境下很好的工作</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="Spring-Cloud解决方案"><a href="#Spring-Cloud解决方案" class="headerlink" title="Spring Cloud解决方案"></a>Spring Cloud解决方案</h2><h3 id="Spring-Cloud-Netflix与Spring-Cloud-Alibaba对比"><a href="#Spring-Cloud-Netflix与Spring-Cloud-Alibaba对比" class="headerlink" title="Spring Cloud Netflix与Spring Cloud Alibaba对比"></a>Spring Cloud Netflix与Spring Cloud Alibaba对比</h3><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Spring Cloud Netflix</th>
+<th align="center">Spring Cloud Alibaba</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">服务注册与发现</td>
+<td align="center">Eureka</td>
+<td align="center">Nacos</td>
+</tr>
+<tr>
+<td align="center">熔断限流</td>
+<td align="center">hystrix</td>
+<td align="center">Sentienl</td>
+</tr>
+<tr>
+<td align="center">REST Client</td>
+<td align="center">Feign</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">客户端负载均衡</td>
+<td align="center">Ribbon</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">微服务网关</td>
+<td align="center">zuul</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">分布式消息中间件</td>
+<td align="center"></td>
+<td align="center">RocketMQ</td>
+</tr>
+<tr>
+<td align="center">分布式事务中间件</td>
+<td align="center"></td>
+<td align="center">Seata</td>
+</tr>
+<tr>
+<td align="center">RPC服务框架</td>
+<td align="center"></td>
+<td align="center">Dubbo</td>
+</tr>
+</tbody></table>
+<br>
+
+<h3 id="由Netflix停更引发的升级惨案"><a href="#由Netflix停更引发的升级惨案" class="headerlink" title="由Netflix停更引发的升级惨案"></a>由Netflix停更引发的升级惨案</h3><ul>
+<li>2018年12月，Spring官方宣布Netflix的相关项目（Eureka，hystrix，zuul）进入维护模式；停更不停用（被动修复BUG，不再接受合并请求，不再发布新版本）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Netflix</th>
+<th align="center">推荐替代品</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Hystrix</td>
+<td align="center">Sentinel</td>
+</tr>
+<tr>
+<td align="center">Eureka</td>
+<td align="center">Nacos</td>
+</tr>
+<tr>
+<td align="center">Ribbon</td>
+<td align="center">Spring CloudLoadbalancer</td>
+</tr>
+<tr>
+<td align="center">Zuul</td>
+<td align="center">Spring Cloud Gateway</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Spring Cloud Alibaba 成为业界主流的微服务解决方案</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="版本选择与兼容性"><a href="#版本选择与兼容性" class="headerlink" title="版本选择与兼容性"></a>版本选择与兼容性</h2><h3 id="版本不兼容诱发的问题"><a href="#版本不兼容诱发的问题" class="headerlink" title="版本不兼容诱发的问题"></a>版本不兼容诱发的问题</h3><ul>
+<li>线上BUG频出</li>
+<li>通过日志无法快速定位</li>
+<li>遭遇未知问题且不容易复现</li>
+</ul>
+<br>
+
+<h3 id="版本选择（Spring-Boot，Spring-Cloud，Spring-Cloud-Alibaba）"><a href="#版本选择（Spring-Boot，Spring-Cloud，Spring-Cloud-Alibaba）" class="headerlink" title="版本选择（Spring Boot，Spring Cloud，Spring Cloud Alibaba）"></a>版本选择（Spring Boot，Spring Cloud，Spring Cloud Alibaba）</h3><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://start.spring.io/actuator/info" >https://start.spring.io/actuator/info<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="电商行业与电商微服务架构"><a href="#电商行业与电商微服务架构" class="headerlink" title="电商行业与电商微服务架构"></a>电商行业与电商微服务架构</h2><h3 id="电商行业技术特性"><a href="#电商行业技术特性" class="headerlink" title="电商行业技术特性"></a>电商行业技术特性</h3><ul>
+<li>业务复杂度高（双十一大促，秒杀活动）</li>
+<li>技术选型新（前后端分离，使用新技术）</li>
+<li>具备三高特性（高并发，高性能，高可用）</li>
+<li>海量数据</li>
+</ul>
+<br>
+
+<h3 id="电商行业模式介绍"><a href="#电商行业模式介绍" class="headerlink" title="电商行业模式介绍"></a>电商行业模式介绍</h3><ul>
+<li><strong>B2B模式</strong>（Business To Business）<ul>
+<li>企业与企业之间进行营销活动的一种模式</li>
+<li>例如：慧聪网，1688阿里巴巴采购批发网</li>
+</ul>
+</li>
+<li><strong>C2C模式</strong>（Customer To Customer）<ul>
+<li>个人与个人之间的电子商务活动</li>
+<li>例如：淘宝，ebay</li>
+</ul>
+</li>
+<li><strong>B2C模式</strong>（Business To Customer）<ul>
+<li>商户与个人之间的电子商务活动</li>
+<li>例如：京东，天猫</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h3 id="基于SpringCloud-Alibaba电商微服务架构"><a href="#基于SpringCloud-Alibaba电商微服务架构" class="headerlink" title="基于SpringCloud Alibaba电商微服务架构"></a>基于SpringCloud Alibaba电商微服务架构</h3><center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1722166356375.webp"
+                         width="90%"
+                 ></center>
+
+<br>
+
+<br>
+
+<h2 id="微服务的设计和拆分原则"><a href="#微服务的设计和拆分原则" class="headerlink" title="微服务的设计和拆分原则"></a>微服务的设计和拆分原则</h2><h3 id="AKF扩展拆分"><a href="#AKF扩展拆分" class="headerlink" title="AKF扩展拆分"></a>AKF扩展拆分</h3><ul>
+<li><strong>微服务拆分方式</strong>：以图Y轴所示方式，即按照不同的服务功能进行拆分</li>
+<li><strong>微服务拆分要点</strong>：<ul>
+<li>低耦合、高内聚：一个服务完成一个独立的功能</li>
+<li>按团队结构，小规模团队维护，快速迭代</li>
+</ul>
+</li>
+</ul>
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1722166585722.webp"
+                         width="50%"
+                 ></center>
+
+<ul>
+<li>上图来自《重构的艺术》<ul>
+<li>Y轴：按照不同的服务应用进行微服务拆分</li>
+<li>X轴：水平复制（单体系统运行多个实例，成为集群+负载均衡的模式），平等的复制应用和数据，来解决容量可用性问题，可以解决三高问题</li>
+<li>Z轴：基于请求者或者用户独特的需求来进行系统的划分，并使得划分出来的系统是相互隔离但又是完整的</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h3 id="前后端分离原则"><a href="#前后端分离原则" class="headerlink" title="前后端分离原则"></a>前后端分离原则</h3><ul>
+<li>未分离：Servlet +Jsp</li>
+<li>部分分离：SSM&#x2F;SSH</li>
+<li>完全分离：Vue、Angular、React</li>
+</ul>
+<br>
+
+<h3 id="无状态服务"><a href="#无状态服务" class="headerlink" title="无状态服务"></a>无状态服务</h3><ul>
+<li>一笔数据需要多个服务共享，才能完成一笔交易，这个数据就称为状态，依赖这个数据的服务就叫做<strong>有状态服务</strong>，不依赖则称之为<strong>无状态服务</strong></li>
+</ul>
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1722177910454.webp"
+                         width="70%"
+                 ></center>
+
+<ul>
+<li>如上图：服务A的实例X和服务B的实例Y就实现了无状态，它们将有状态的数据通过Redis共享。（<strong>这样就可以动态增加服务A的节点甚至无限制扩展，来达到服务A水平扩展能力，并不需要每一个请求过来去关心服务的状态是什么</strong>）</li>
+</ul>
+<br>
+
+<h3 id="Restful通信风格"><a href="#Restful通信风格" class="headerlink" title="Restful通信风格"></a>Restful通信风格</h3><center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1722178222257.webp"
+                         width="70%"
+                 ></center>
+
+<br>
+
+<br>
+
+<h2 id="电商微服务划分"><a href="#电商微服务划分" class="headerlink" title="电商微服务划分"></a>电商微服务划分</h2><h3 id="业务分析"><a href="#业务分析" class="headerlink" title="业务分析"></a>业务分析</h3><ul>
+<li>一个电商服务中，应该是具有以下微服务模块：</li>
+</ul>
+<blockquote>
+<p>广告服务、购物车服务、库存服务、商品服务、用户服务、积分服务、搜索服务、订单服务、秒杀服务</p>
+</blockquote>
+<br>
+
+<h3 id="微服务工程搭建"><a href="#微服务工程搭建" class="headerlink" title="微服务工程搭建"></a>微服务工程搭建</h3><center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1722179913156.webp"
+                         width="50%"
+                 ></center>
+
+<ul>
+<li><strong>搭建5个微服务</strong></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span>order-server<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span>product-server<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span>user-server<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span>stock-server<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span>shop-cart-server<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h2 id="Nacos实现电商微服务拆分"><a href="#Nacos实现电商微服务拆分" class="headerlink" title="Nacos实现电商微服务拆分"></a>Nacos实现电商微服务拆分</h2><h3 id="Nacos介绍"><a href="#Nacos介绍" class="headerlink" title="Nacos介绍"></a>Nacos介绍</h3><ul>
+<li>服务发现和健康监测</li>
+<li>动态配置服务</li>
+<li>动态DNS服务</li>
+<li>服务及其元数据管理</li>
+</ul>
+<center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1722255302125.webp"
+                         width="90%"
+                 ></center>
+
+<ul>
+<li>Nacos使用场景如上图</li>
+</ul>
+<br>
+
+<h3 id="Nacos版本选择"><a href="#Nacos版本选择" class="headerlink" title="Nacos版本选择"></a>Nacos版本选择</h3><ul>
+<li>参考官方文档：<a class="link"   target="_blank" rel="noopener" href="https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E" >https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<br>
+
+<h3 id="Nacos环境搭建"><a href="#Nacos环境搭建" class="headerlink" title="Nacos环境搭建"></a>Nacos环境搭建</h3><ul>
+<li>环境准备：jdk1.8</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget -P /usr/local/src/ https://github.com/alibaba/nacos/releases/download/1.4.1/nacos-server-1.4.1.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf /usr/local/src/nacos-server-1.4.1.tar.gz -C /usr/local/</span><br><span class="line"></span><br><span class="line">sh /usr/local/nacos/bin/startup.sh -m standalone</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="微服务配置Nacos"><a href="#微服务配置Nacos" class="headerlink" title="微服务配置Nacos"></a>微服务配置Nacos</h3><center><img    
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/sonronzy/images-hosting@picx/1722269833931.webp"
+                         width="80%"
+                 ></center>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-alibaba-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">stock-server</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">service:</span> <span class="string">$&#123;spring.application.name&#125;</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">192.168</span><span class="number">.58</span><span class="number">.220</span><span class="string">:8848</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//主配置类加上如下注解，表示启用服务发现</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="Dubbo与Nacos整合"><a href="#Dubbo与Nacos整合" class="headerlink" title="Dubbo与Nacos整合"></a>Dubbo与Nacos整合</h3><ul>
+<li>略（放到其它课程继续深入学习）</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="第3章-Nacos-Config-如何动态切换的开发环境"><a href="#第3章-Nacos-Config-如何动态切换的开发环境" class="headerlink" title="第3章 Nacos Config 如何动态切换的开发环境"></a>第3章 Nacos Config 如何动态切换的开发环境</h1><h2 id="配置中心介绍与对比"><a href="#配置中心介绍与对比" class="headerlink" title="配置中心介绍与对比"></a>配置中心介绍与对比</h2><h3 id="微服务中配置文件的问题"><a href="#微服务中配置文件的问题" class="headerlink" title="微服务中配置文件的问题"></a>微服务中配置文件的问题</h3><ul>
+<li>配置文件的数量会随着服务的增加持续递增</li>
+<li>单个配置文件无法区分多个运行环境</li>
+<li>配置文件内容无法动态更新，需要重启服务</li>
+</ul>
+<br>
+
+<h3 id="配置中心解决了什么问题"><a href="#配置中心解决了什么问题" class="headerlink" title="配置中心解决了什么问题"></a>配置中心解决了什么问题</h3><ul>
+<li>统一配置文件管理</li>
+<li>提供统一标准接口，服务根据标准接口自行拉取配置</li>
+<li>支持动态更新的到所有服务</li>
+</ul>
+<br>
+
+<h3 id="业界常见配置中心"><a href="#业界常见配置中心" class="headerlink" title="业界常见配置中心"></a>业界常见配置中心</h3><ul>
+<li>Appllo（携程开源，配置更新后实时生效，灰度发布，对所有的配置进行版本管理和操作审计的功能，提供开发平台API，网络社区资料全）</li>
+<li>Disconf（百度开源分布式配置中心，基于zookeeper来实现配置变更后实时通知和生效）</li>
+<li>SpringCloud Config（没有可视化界面，配置更新后不能实时生效，需要重启或手动触发）</li>
+<li>Nacos（提供服务注册发现和配置）</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="Nacos集成springboot实现统一配置管理"><a href="#Nacos集成springboot实现统一配置管理" class="headerlink" title="Nacos集成springboot实现统一配置管理"></a>Nacos集成springboot实现统一配置管理</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.stu<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shop-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-alibaba-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RefreshScope</span><span class="comment">//Nacos config动态刷新</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;testStr&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String testStr;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/test&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getStr</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> testStr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">shop-config-server</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">192.168</span><span class="number">.58</span><span class="number">.220</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yaml</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h2 id="Nacos-config动态刷新实现原理解析"><a href="#Nacos-config动态刷新实现原理解析" class="headerlink" title="Nacos config动态刷新实现原理解析"></a>Nacos config动态刷新实现原理解析</h2><br>
+
+<br>
+
+<h2 id="使用Nacos-config整合电商项目切换开发环境"><a href="#使用Nacos-config整合电商项目切换开发环境" class="headerlink" title="使用Nacos config整合电商项目切换开发环境"></a>使用Nacos config整合电商项目切换开发环境</h2><br>
+
+<br>
+
+<br>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href=""></a></li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote>
+<ol>
+<li>基于SpringCloud Alibaba电商微服务架构需要再学习一下</li>
+<li>nacos服务发现流程架构图还需要学习</li>
+<li>maven待好好学习</li>
+<li>dubbo待学习</li>
+<li></li>
+</ol>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;50%&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                Spring Cloud Alibaba 大型互联网领域多场景实践 Study Notes
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2024/Spring-Cloud-Alibaba-大型互联网领域多场景实践-Study-Notes/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">Kierke</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2024-07-28 18:23</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Spring-Cloud-Alibaba/">Spring Cloud Alibaba</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    <div class="reward-author-container border-box flex-center">
+    <div class="reward-btn keep-button border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="请作者喝杯咖啡"
+            data-tooltip-img-url="https://github.com/sonronzy/picx-images-hosting/raw/master/sonronzy-1714407409574.6f0hgreq3y.webp"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -8px;"
+    >
+        <i class="fa-solid fa-hand-holding-heart"></i>
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/Docker-%E7%B3%BB%E7%BB%9F%E6%80%A7%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%E5%AE%9E%E8%B7%B5-Study-Notes/"
+                                   title="Docker 系统性入门+进阶实践 Study Notes"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Docker 系统性入门+进阶实践 Study Notes</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%83-20-%E8%AE%B2-Study-Notes/"
+                                   title="微服务架构核心 20 讲 Study Notes"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">微服务架构核心 20 讲 Study Notes</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D"><span class="nav-text">第1章 课程介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E4%B8%BB%E9%A2%98"><span class="nav-text">课程主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E7%9B%AE%E6%A0%87"><span class="nav-text">课程目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%BA%86%E5%93%AA%E4%BA%9B%E7%97%9B%E7%82%B9"><span class="nav-text">解决了哪些痛点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E4%BA%AE%E7%82%B9"><span class="nav-text">课程亮点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E6%94%B6%E8%8E%B7"><span class="nav-text">课程收获</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%9F%BA%E4%BA%8ESpring-Cloud-Alibaba%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%94%B5%E5%95%86%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">第2章 基于Spring Cloud Alibaba的微服务电商解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cloud%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">Spring Cloud是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cloud%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">Spring Cloud解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud-Netflix%E4%B8%8ESpring-Cloud-Alibaba%E5%AF%B9%E6%AF%94"><span class="nav-text">Spring Cloud Netflix与Spring Cloud Alibaba对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1Netflix%E5%81%9C%E6%9B%B4%E5%BC%95%E5%8F%91%E7%9A%84%E5%8D%87%E7%BA%A7%E6%83%A8%E6%A1%88"><span class="nav-text">由Netflix停更引发的升级惨案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9%E4%B8%8E%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="nav-text">版本选择与兼容性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E4%B8%8D%E5%85%BC%E5%AE%B9%E8%AF%B1%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">版本不兼容诱发的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9%EF%BC%88Spring-Boot%EF%BC%8CSpring-Cloud%EF%BC%8CSpring-Cloud-Alibaba%EF%BC%89"><span class="nav-text">版本选择（Spring Boot，Spring Cloud，Spring Cloud Alibaba）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E5%95%86%E8%A1%8C%E4%B8%9A%E4%B8%8E%E7%94%B5%E5%95%86%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="nav-text">电商行业与电商微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E5%95%86%E8%A1%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E7%89%B9%E6%80%A7"><span class="nav-text">电商行业技术特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E5%95%86%E8%A1%8C%E4%B8%9A%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D"><span class="nav-text">电商行业模式介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8ESpringCloud-Alibaba%E7%94%B5%E5%95%86%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="nav-text">基于SpringCloud Alibaba电商微服务架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%8B%86%E5%88%86%E5%8E%9F%E5%88%99"><span class="nav-text">微服务的设计和拆分原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AKF%E6%89%A9%E5%B1%95%E6%8B%86%E5%88%86"><span class="nav-text">AKF扩展拆分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="nav-text">前后端分离原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E7%8A%B6%E6%80%81%E6%9C%8D%E5%8A%A1"><span class="nav-text">无状态服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Restful%E9%80%9A%E4%BF%A1%E9%A3%8E%E6%A0%BC"><span class="nav-text">Restful通信风格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E5%95%86%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%92%E5%88%86"><span class="nav-text">电商微服务划分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E5%88%86%E6%9E%90"><span class="nav-text">业务分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA"><span class="nav-text">微服务工程搭建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nacos%E5%AE%9E%E7%8E%B0%E7%94%B5%E5%95%86%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86"><span class="nav-text">Nacos实现电商微服务拆分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos%E4%BB%8B%E7%BB%8D"><span class="nav-text">Nacos介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9"><span class="nav-text">Nacos版本选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-text">Nacos环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AENacos"><span class="nav-text">微服务配置Nacos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dubbo%E4%B8%8ENacos%E6%95%B4%E5%90%88"><span class="nav-text">Dubbo与Nacos整合</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-Nacos-Config-%E5%A6%82%E4%BD%95%E5%8A%A8%E6%80%81%E5%88%87%E6%8D%A2%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">第3章 Nacos Config 如何动态切换的开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AF%B9%E6%AF%94"><span class="nav-text">配置中心介绍与对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">微服务中配置文件的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-text">配置中心解决了什么问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E7%95%8C%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"><span class="nav-text">业界常见配置中心</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nacos%E9%9B%86%E6%88%90springboot%E5%AE%9E%E7%8E%B0%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86"><span class="nav-text">Nacos集成springboot实现统一配置管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nacos-config%E5%8A%A8%E6%80%81%E5%88%B7%E6%96%B0%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90"><span class="nav-text">Nacos config动态刷新实现原理解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Nacos-config%E6%95%B4%E5%90%88%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE%E5%88%87%E6%8D%A2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">使用Nacos config整合电商项目切换开发环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2018</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Kierke</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://github.com/">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span>
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">46.6k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-toggle-theme-mode flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D"><span class="nav-text">第1章 课程介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E4%B8%BB%E9%A2%98"><span class="nav-text">课程主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E7%9B%AE%E6%A0%87"><span class="nav-text">课程目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%BA%86%E5%93%AA%E4%BA%9B%E7%97%9B%E7%82%B9"><span class="nav-text">解决了哪些痛点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E4%BA%AE%E7%82%B9"><span class="nav-text">课程亮点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E6%94%B6%E8%8E%B7"><span class="nav-text">课程收获</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%9F%BA%E4%BA%8ESpring-Cloud-Alibaba%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%94%B5%E5%95%86%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">第2章 基于Spring Cloud Alibaba的微服务电商解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cloud%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">Spring Cloud是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cloud%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">Spring Cloud解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud-Netflix%E4%B8%8ESpring-Cloud-Alibaba%E5%AF%B9%E6%AF%94"><span class="nav-text">Spring Cloud Netflix与Spring Cloud Alibaba对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1Netflix%E5%81%9C%E6%9B%B4%E5%BC%95%E5%8F%91%E7%9A%84%E5%8D%87%E7%BA%A7%E6%83%A8%E6%A1%88"><span class="nav-text">由Netflix停更引发的升级惨案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9%E4%B8%8E%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="nav-text">版本选择与兼容性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E4%B8%8D%E5%85%BC%E5%AE%B9%E8%AF%B1%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">版本不兼容诱发的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9%EF%BC%88Spring-Boot%EF%BC%8CSpring-Cloud%EF%BC%8CSpring-Cloud-Alibaba%EF%BC%89"><span class="nav-text">版本选择（Spring Boot，Spring Cloud，Spring Cloud Alibaba）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E5%95%86%E8%A1%8C%E4%B8%9A%E4%B8%8E%E7%94%B5%E5%95%86%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="nav-text">电商行业与电商微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E5%95%86%E8%A1%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E7%89%B9%E6%80%A7"><span class="nav-text">电商行业技术特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E5%95%86%E8%A1%8C%E4%B8%9A%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D"><span class="nav-text">电商行业模式介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8ESpringCloud-Alibaba%E7%94%B5%E5%95%86%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="nav-text">基于SpringCloud Alibaba电商微服务架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%8B%86%E5%88%86%E5%8E%9F%E5%88%99"><span class="nav-text">微服务的设计和拆分原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AKF%E6%89%A9%E5%B1%95%E6%8B%86%E5%88%86"><span class="nav-text">AKF扩展拆分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="nav-text">前后端分离原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E7%8A%B6%E6%80%81%E6%9C%8D%E5%8A%A1"><span class="nav-text">无状态服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Restful%E9%80%9A%E4%BF%A1%E9%A3%8E%E6%A0%BC"><span class="nav-text">Restful通信风格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E5%95%86%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%92%E5%88%86"><span class="nav-text">电商微服务划分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E5%88%86%E6%9E%90"><span class="nav-text">业务分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA"><span class="nav-text">微服务工程搭建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nacos%E5%AE%9E%E7%8E%B0%E7%94%B5%E5%95%86%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86"><span class="nav-text">Nacos实现电商微服务拆分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos%E4%BB%8B%E7%BB%8D"><span class="nav-text">Nacos介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9"><span class="nav-text">Nacos版本选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-text">Nacos环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AENacos"><span class="nav-text">微服务配置Nacos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dubbo%E4%B8%8ENacos%E6%95%B4%E5%90%88"><span class="nav-text">Dubbo与Nacos整合</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-Nacos-Config-%E5%A6%82%E4%BD%95%E5%8A%A8%E6%80%81%E5%88%87%E6%8D%A2%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">第3章 Nacos Config 如何动态切换的开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AF%B9%E6%AF%94"><span class="nav-text">配置中心介绍与对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">微服务中配置文件的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-text">配置中心解决了什么问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E7%95%8C%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"><span class="nav-text">业界常见配置中心</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nacos%E9%9B%86%E6%88%90springboot%E5%AE%9E%E7%8E%B0%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86"><span class="nav-text">Nacos集成springboot实现统一配置管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nacos-config%E5%8A%A8%E6%80%81%E5%88%B7%E6%96%B0%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90"><span class="nav-text">Nacos config动态刷新实现原理解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Nacos-config%E6%95%B4%E5%90%88%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE%E5%88%87%E6%8D%A2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">使用Nacos config整合电商项目切换开发环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<!-- common -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/header-shrink.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/back2top.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/toggle-theme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/code-block.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/libs/anime.min.js"></script>
+
+<!-- local-search -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/local-search.min.js"></script>
+
+
+<!-- lazyload -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/lazyload.min.js"></script>
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/post-helper.min.js"></script>
+
+        <!-- toc -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/toc.min.js"></script>
+        
+
+        <!-- copyright-info -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/copyright-info.min.js"></script>
+        
+
+        <!-- share -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/post/share.min.js"></script>
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+    
+<script src="//cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+
+    <script data-pjax>
+      if (window.mermaid) {
+        mermaid.init()
+      }
+    </script>
+
+
+
+
+
+
+<!-- pjax -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.1.5/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
