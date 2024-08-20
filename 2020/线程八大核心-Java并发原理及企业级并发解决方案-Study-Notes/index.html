@@ -9,7 +9,7 @@
     
     <title>
         
-            SpringBoot+Vue3打造企业级一体化SaaS系统 Study Notes |
+            线程八大核心+Java并发原理及企业级并发解决方案 Study Notes |
         
         Kierke&#39;s Blog
     </title>
@@ -223,7 +223,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        SpringBoot+Vue3打造企业级一体化SaaS系统 Study Notes
+                        线程八大核心+Java并发原理及企业级并发解决方案 Study Notes
                     </div>
                 
 
@@ -249,12 +249,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-07-15</span>
+                <span class="datetime">2020-08-18</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Mon Jul 15 2024 23:44:07 GMT+0800">2024-07-15</span>
+                <span class="datetime" data-updated="Sun Aug 18 2024 03:30:32 GMT+0800">2024-08-18</span>
             </span>
         
 
@@ -262,7 +262,7 @@
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/categories/%E5%AE%9E%E6%88%98/">实战</a></li>
+                            <li class="category-item"><a href="/categories/Java-concurrency/">Java-concurrency</a></li>
                         
                     
                 </ul>
@@ -273,16 +273,10 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%AE%9E%E6%88%98/">实战</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Java-concurrency/">Java-concurrency</a></li>
                         
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Spring/">Spring</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Vue/">Vue</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/SaaS/">SaaS</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/concurrency/">concurrency</a></li>
                         
                     
                 </ul>
@@ -292,7 +286,7 @@
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>81 Words</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>428 Words</span>
             </span>
         
         
@@ -321,22 +315,68 @@
                     
                          <br>
 
-<p>文章摘要信息……</p>
+<p>慕课网实战课程<a class="link"   target="_blank" rel="noopener" href="https://coding.imooc.com/class/learnservice/362" >《线程八大核心+Java并发原理及企业级并发解决方案》<i class="fas fa-external-link-alt"></i></a>学习笔记</p>
 <span id="more"></span>
 
-<h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><br>
-
-<br>
-
-<br>
-
-<h1 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h1><br>
-
-<br>
-
-<br>
-
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li>源课程链接：<a class="link"   target="_blank" rel="noopener" href="https://coding.imooc.com/class/learnservice/362" >《线程八大核心+Java并发原理及企业级并发解决方案》<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://naotu.baidu.com/file/07f437ff6bc3fa7939e171b00f133e17?token=6744a1c6ca6860a0" >Java线程八大核心脑图<i class="fas fa-external-link-alt"></i></a></li>
+<li>随课整理：<a class="link"   target="_blank" rel="noopener" href="https://docs.qq.com/doc/DSVNyZ2FNWWFkeFpO?u=9e804c8bc61f443eab50273c90eb0aea" >Java并发常见面试题<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="第1章-开宗明义"><a href="#第1章-开宗明义" class="headerlink" title="第1章 开宗明义"></a>第1章 开宗明义</h1><h2 id="为什么需要学习并发编程"><a href="#为什么需要学习并发编程" class="headerlink" title="为什么需要学习并发编程"></a>为什么需要学习并发编程</h2><ul>
+<li>源于JD的硬性要求，尤其是大厂</li>
+<li>网络上的博客、面经水平参差不齐，难辨真伪</li>
+<li>掌握并发编程是成为高级工程师的必要、</li>
+<li>并发是众多框架的原理和基础（Spring中的线程池，数据库中的乐观锁，Log4j对阻塞队列的运用）</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="第2章-线程八大核心纵观全貌"><a href="#第2章-线程八大核心纵观全貌" class="headerlink" title="第2章 线程八大核心纵观全貌"></a>第2章 线程八大核心纵观全貌</h1><h2 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://naotu.baidu.com/file/07f437ff6bc3fa7939e171b00f133e17?token=6744a1c6ca6860a0" >线程八大核心脑图<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="线程八大核心概述"><a href="#线程八大核心概述" class="headerlink" title="线程八大核心概述"></a>线程八大核心概述</h2><ul>
+<li><strong>（1）如何实现多线程</strong>【基础】<ul>
+<li>实现多线程的方法到底有1种还是2种还是4种 ?</li>
+</ul>
+</li>
+<li><strong>（2）线程的正确启动</strong>【基础】</li>
+<li><strong>（3）线程的正确停止</strong>【重点&#x2F;难点】</li>
+<li><strong>（4）线程的6个状态（生命周期）</strong>【重点&#x2F;难点】</li>
+<li><strong>（5）Thread和Object类中的重要方法详解</strong></li>
+<li><strong>（6）线程的各个属性</strong><ul>
+<li>线程的名称、守护线程等</li>
+</ul>
+</li>
+<li><strong>（7）未捕获异常如何处理</strong><ul>
+<li>Java并发多线程中的异常跟普通的Java异常有很大不同</li>
+</ul>
+</li>
+<li><strong>（8）并发中多线程的优劣</strong><ul>
+<li>双刃剑:多线程会导致的问题</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="Reference-1"><a href="#Reference-1" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href=""></a></li>
 </ul>
 <br>
@@ -347,7 +387,7 @@
 
 <h1 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h1><blockquote>
 <ol>
-<li>了解crm和erp和saas系统（可以看博客b站）</li>
+<li>xxx需要再深入学习</li>
 </ol>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">![]()</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片无法正常加载展示！&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70%&quot;</span>&gt;</span></span><br><span class="line">****</span><br></pre></td></tr></table></figure>
@@ -365,11 +405,11 @@
     <div class="copyright-info-content border-box">
         <div class="copyright-info-top border-box">
             <div class="copyright-post-title border-box text-ellipsis">
-                SpringBoot+Vue3打造企业级一体化SaaS系统 Study Notes
+                线程八大核心+Java并发原理及企业级并发解决方案 Study Notes
             </div>
 
             <div class="copyright-post-link border-box text-ellipsis">
-                2024/SpringBoot-Vue3打造企业级一体化SaaS系统-Study-Notes/
+                2020/线程八大核心-Java并发原理及企业级并发解决方案-Study-Notes/
             </div>
         </div>
 
@@ -385,7 +425,7 @@
                 <div class="type">
                     Published
                 </div>
-                <div class="content">2024-07-15 20:41</div>
+                <div class="content">2020-08-18 21:31</div>
             </div>
 
 
@@ -421,19 +461,11 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%AE%9E%E6%88%98/">实战</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Java-concurrency/">Java-concurrency</a>
                                     </li>
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Spring/">Spring</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Vue/">Vue</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/SaaS/">SaaS</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/concurrency/">concurrency</a>
                                     </li>
                                 
                             </ul>
@@ -487,14 +519,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/SpringBoot3-Vue3-%E5%BC%80%E5%8F%91%E9%AB%98%E5%B9%B6%E5%8F%91%E7%A7%92%E6%9D%80%E6%8A%A2%E8%B4%AD%E7%B3%BB%E7%BB%9F-Study-Notes/"
-                                   title="SpringBoot3+Vue3 开发高并发秒杀抢购系统 Study Notes"
+                                   href="/2020/MySQL%E6%8F%90%E5%8D%87%E8%AF%BE%E7%A8%8B-%E5%85%A8%E9%9D%A2%E8%AE%B2%E8%A7%A3MySQL%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-Study-Notes/"
+                                   title="MySQL提升课程 全面讲解MySQL架构设计 Study Notes"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">SpringBoot3+Vue3 开发高并发秒杀抢购系统 Study Notes</span>
+                                        <span class="post-nav-title-item text-ellipsis">MySQL提升课程 全面讲解MySQL架构设计 Study Notes</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -504,11 +536,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/Linux%E7%B3%BB%E7%BB%9F-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6-Study-Notes/"
-                                   title="Linux系统 从入门到进阶 Study Notes"
+                                   href="/2018/MySQL-%E5%AE%9E%E6%88%98-45-%E8%AE%B2-Study-Notes/"
+                                   title="MySQL 实战 45 讲 Study Notes"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Linux系统 从入门到进阶 Study Notes</span>
+                                        <span class="post-nav-title-item text-ellipsis">MySQL 实战 45 讲 Study Notes</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -536,7 +568,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="nav-text">标题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%BC%80%E5%AE%97%E6%98%8E%E4%B9%89"><span class="nav-text">第1章 开宗明义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AD%A6%E4%B9%A0%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="nav-text">为什么需要学习并发编程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E7%BA%B5%E8%A7%82%E5%85%A8%E8%B2%8C"><span class="nav-text">第2章 线程八大核心纵观全貌</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%91%E5%9B%BE"><span class="nav-text">脑图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A6%82%E8%BF%B0"><span class="nav-text">线程八大核心概述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference-1"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
@@ -735,7 +767,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="nav-text">标题一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="nav-text">标题二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%BC%80%E5%AE%97%E6%98%8E%E4%B9%89"><span class="nav-text">第1章 开宗明义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AD%A6%E4%B9%A0%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="nav-text">为什么需要学习并发编程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E7%BA%B5%E8%A7%82%E5%85%A8%E8%B2%8C"><span class="nav-text">第2章 线程八大核心纵观全貌</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%91%E5%9B%BE"><span class="nav-text">脑图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A6%82%E8%BF%B0"><span class="nav-text">线程八大核心概述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference-1"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
