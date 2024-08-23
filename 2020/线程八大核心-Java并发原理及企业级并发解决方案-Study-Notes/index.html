@@ -254,7 +254,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Aug 18 2024 03:30:32 GMT+0800">2024-08-18</span>
+                <span class="datetime" data-updated="Tue Aug 20 2024 23:18:33 GMT+0800">2024-08-20</span>
             </span>
         
 
@@ -286,12 +286,12 @@
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>428 Words</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.2k Words</span>
             </span>
         
         
             <span class="meta-info-item post-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>1 Mins</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>4 Mins</span>
             </span>
         
         
@@ -376,7 +376,98 @@
 
 <br>
 
-<h1 id="Reference-1"><a href="#Reference-1" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<h1 id="第3章-核心1：实现多线程的正确姿势【解读官方文档】"><a href="#第3章-核心1：实现多线程的正确姿势【解读官方文档】" class="headerlink" title="第3章 核心1：实现多线程的正确姿势【解读官方文档】"></a>第3章 核心1：实现多线程的正确姿势【解读官方文档】</h1><h2 id="实现多线程的2种方式"><a href="#实现多线程的2种方式" class="headerlink" title="实现多线程的2种方式"></a>实现多线程的2种方式</h2><ul>
+<li>官网：Oracle的JDK中描述一共有2种实现多线程的方法<ul>
+<li>方法1：实现Runnable接口</li>
+<li>方法2：继承Thread类</li>
+</ul>
+</li>
+<li><strong>方法1 VS 方法2</strong><ul>
+<li>方法1更好，方法2的缺点主要有3个：<ul>
+<li>代码架构角度：任务应该和业务解耦</li>
+<li>方法2：每次新建任务，都需要新建一个线程，新建独立线程开销大</li>
+<li>Java不支持双继承，方法1扩展性更好</li>
+</ul>
+</li>
+<li>两种方法的本质（都执行run方法，但run方法来源不同）<ul>
+<li>方法1：<code>target.run()</code></li>
+<li>方法2：<code>run()</code>方法整个被重写</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="思考题：如果同时使用两种实现的多线程方式？具体会执行哪个？"><a href="#思考题：如果同时使用两种实现的多线程方式？具体会执行哪个？" class="headerlink" title="思考题：如果同时使用两种实现的多线程方式？具体会执行哪个？"></a>思考题：如果同时使用两种实现的多线程方式？具体会执行哪个？</h2><ul>
+<li>从面相对象的方式来思考，最终会执行继承Thread类方式实现多线程中的代码，因为run方法被重写了</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="创建线程总结"><a href="#创建线程总结" class="headerlink" title="创建线程总结"></a>创建线程总结</h2><ul>
+<li>准确的讲，创建线程只有一种方式那就是构造Thread类，而实现线程的执行单元有两种方式<ul>
+<li>方法1：实现Runnable接囗的run方法，并把Runnable实例传给Thread类</li>
+<li>方法2：重写Thread的run方法(继承Thread类)</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="学习编程知识的优质路径"><a href="#学习编程知识的优质路径" class="headerlink" title="*学习编程知识的优质路径"></a>*学习编程知识的优质路径</h2><h3 id="宏观上"><a href="#宏观上" class="headerlink" title="宏观上"></a>宏观上</h3><ul>
+<li><strong>并不能靠工作年限</strong>（有的人工作了5年技术却还是只懂皮毛）</li>
+<li><strong>要有强大的责任心，不放过任何bug，找到原因并去解决，这就是提高</strong></li>
+<li><strong>主动：永远不会觉得自己的时间多余，重构、优化、学习、总结</strong></li>
+<li><strong>敢于承担</strong>：虽然这个技术难题以前没碰到过，但是在一定的了解调研后，敢于承担技术难题，让工作充满挑战，这一次次攻克难关的过程中，进步是飞速的。</li>
+<li><strong>关心产品，关心业务，而不只是写代码</strong></li>
+</ul>
+<br>
+
+<h3 id="微观上（目的：系统全面的学习）"><a href="#微观上（目的：系统全面的学习）" class="headerlink" title="微观上（目的：系统全面的学习）"></a>微观上（目的：系统全面的学习）</h3><ul>
+<li><strong>看经典书籍</strong>（外国人写的经典的中国译本，比如说Java并发编程实战、自顶向下计算机网络）</li>
+<li><strong>看官方文档</strong></li>
+<li><strong>英文搜google和stackoverflow</strong></li>
+<li><strong>自己动手写，实践写demo，尝试用到项目里</strong></li>
+<li><strong>不理解的参考该领域的多个书本，综合判断</strong></li>
+<li><strong>学习开源项目，分析源码</strong>（学习synchronized原理，反编译 看cpp代码）</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="如何了解技术领域的最新动态"><a href="#如何了解技术领域的最新动态" class="headerlink" title="如何了解技术领域的最新动态"></a>如何了解技术领域的最新动态</h2><ul>
+<li>高质量固定途径：ohmyrss.com（信息源选，为我所用）<ul>
+<li>科技爱好者周刊</li>
+<li>阮一峰的博客</li>
+<li>四火的唠叨</li>
+</ul>
+</li>
+<li>订阅技术网址的邮件：InfoQ（每周都看）</li>
+<li>公众号不推荐作为技术知识来源，质量无法保证</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="如何在业务开发中成长"><a href="#如何在业务开发中成长" class="headerlink" title="如何在业务开发中成长"></a>如何在业务开发中成长</h2><ul>
+<li>偏业务：<ul>
+<li>整理业务知识，把业务抽象成核心模型，提炼核心技术；</li>
+<li>考虑的长远一些，如果未来流量有了巨大的增加，应该如何应对，如何设计系统架构</li>
+</ul>
+</li>
+<li>偏技术：通用性强</li>
+<li>两个25%理论：在技术上达到前25%，在自己擅长的领域达到25%，两者结合起来就能到前5%</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="实现多线程-常见面试问题"><a href="#实现多线程-常见面试问题" class="headerlink" title="实现多线程&amp;常见面试问题"></a>实现多线程&amp;常见面试问题</h2><h1 id="Reference-1"><a href="#Reference-1" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href=""></a></li>
 </ul>
 <br>
@@ -568,7 +659,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%BC%80%E5%AE%97%E6%98%8E%E4%B9%89"><span class="nav-text">第1章 开宗明义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AD%A6%E4%B9%A0%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="nav-text">为什么需要学习并发编程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E7%BA%B5%E8%A7%82%E5%85%A8%E8%B2%8C"><span class="nav-text">第2章 线程八大核心纵观全貌</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%91%E5%9B%BE"><span class="nav-text">脑图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A6%82%E8%BF%B0"><span class="nav-text">线程八大核心概述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference-1"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%BC%80%E5%AE%97%E6%98%8E%E4%B9%89"><span class="nav-text">第1章 开宗明义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AD%A6%E4%B9%A0%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="nav-text">为什么需要学习并发编程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E7%BA%B5%E8%A7%82%E5%85%A8%E8%B2%8C"><span class="nav-text">第2章 线程八大核心纵观全貌</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%91%E5%9B%BE"><span class="nav-text">脑图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A6%82%E8%BF%B0"><span class="nav-text">线程八大核心概述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E6%A0%B8%E5%BF%831%EF%BC%9A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF%E3%80%90%E8%A7%A3%E8%AF%BB%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E3%80%91"><span class="nav-text">第3章 核心1：实现多线程的正确姿势【解读官方文档】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%842%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-text">实现多线程的2种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83%E9%A2%98%EF%BC%9A%E5%A6%82%E6%9E%9C%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%96%B9%E5%BC%8F%EF%BC%9F%E5%85%B7%E4%BD%93%E4%BC%9A%E6%89%A7%E8%A1%8C%E5%93%AA%E4%B8%AA%EF%BC%9F"><span class="nav-text">思考题：如果同时使用两种实现的多线程方式？具体会执行哪个？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93"><span class="nav-text">创建线程总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%BC%96%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%9A%84%E4%BC%98%E8%B4%A8%E8%B7%AF%E5%BE%84"><span class="nav-text">*学习编程知识的优质路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E8%A7%82%E4%B8%8A"><span class="nav-text">宏观上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E8%A7%82%E4%B8%8A%EF%BC%88%E7%9B%AE%E7%9A%84%EF%BC%9A%E7%B3%BB%E7%BB%9F%E5%85%A8%E9%9D%A2%E7%9A%84%E5%AD%A6%E4%B9%A0%EF%BC%89"><span class="nav-text">微观上（目的：系统全面的学习）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BA%86%E8%A7%A3%E6%8A%80%E6%9C%AF%E9%A2%86%E5%9F%9F%E7%9A%84%E6%9C%80%E6%96%B0%E5%8A%A8%E6%80%81"><span class="nav-text">如何了解技术领域的最新动态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91%E4%B8%AD%E6%88%90%E9%95%BF"><span class="nav-text">如何在业务开发中成长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98"><span class="nav-text">实现多线程&amp;常见面试问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference-1"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
@@ -614,7 +705,7 @@
             
                 <span class="count-item border-box word">
                     <span class="item-type border-box">Total words</span>
-                    <span class="item-value border-box word">47k</span>
+                    <span class="item-value border-box word">48.3k</span>
                 </span>
             
 
@@ -767,7 +858,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%BC%80%E5%AE%97%E6%98%8E%E4%B9%89"><span class="nav-text">第1章 开宗明义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AD%A6%E4%B9%A0%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="nav-text">为什么需要学习并发编程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E7%BA%B5%E8%A7%82%E5%85%A8%E8%B2%8C"><span class="nav-text">第2章 线程八大核心纵观全貌</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%91%E5%9B%BE"><span class="nav-text">脑图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A6%82%E8%BF%B0"><span class="nav-text">线程八大核心概述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference-1"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%BC%80%E5%AE%97%E6%98%8E%E4%B9%89"><span class="nav-text">第1章 开宗明义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AD%A6%E4%B9%A0%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="nav-text">为什么需要学习并发编程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E7%BA%B5%E8%A7%82%E5%85%A8%E8%B2%8C"><span class="nav-text">第2章 线程八大核心纵观全貌</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%91%E5%9B%BE"><span class="nav-text">脑图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%85%AB%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A6%82%E8%BF%B0"><span class="nav-text">线程八大核心概述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E6%A0%B8%E5%BF%831%EF%BC%9A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF%E3%80%90%E8%A7%A3%E8%AF%BB%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E3%80%91"><span class="nav-text">第3章 核心1：实现多线程的正确姿势【解读官方文档】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%842%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-text">实现多线程的2种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83%E9%A2%98%EF%BC%9A%E5%A6%82%E6%9E%9C%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%96%B9%E5%BC%8F%EF%BC%9F%E5%85%B7%E4%BD%93%E4%BC%9A%E6%89%A7%E8%A1%8C%E5%93%AA%E4%B8%AA%EF%BC%9F"><span class="nav-text">思考题：如果同时使用两种实现的多线程方式？具体会执行哪个？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93"><span class="nav-text">创建线程总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%BC%96%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%9A%84%E4%BC%98%E8%B4%A8%E8%B7%AF%E5%BE%84"><span class="nav-text">*学习编程知识的优质路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E8%A7%82%E4%B8%8A"><span class="nav-text">宏观上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E8%A7%82%E4%B8%8A%EF%BC%88%E7%9B%AE%E7%9A%84%EF%BC%9A%E7%B3%BB%E7%BB%9F%E5%85%A8%E9%9D%A2%E7%9A%84%E5%AD%A6%E4%B9%A0%EF%BC%89"><span class="nav-text">微观上（目的：系统全面的学习）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BA%86%E8%A7%A3%E6%8A%80%E6%9C%AF%E9%A2%86%E5%9F%9F%E7%9A%84%E6%9C%80%E6%96%B0%E5%8A%A8%E6%80%81"><span class="nav-text">如何了解技术领域的最新动态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91%E4%B8%AD%E6%88%90%E9%95%BF"><span class="nav-text">如何在业务开发中成长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98"><span class="nav-text">实现多线程&amp;常见面试问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference-1"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remark"><span class="nav-text">Remark</span></a></li></ol>
     </div>
 </div>
 
